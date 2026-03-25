@@ -1,0 +1,3213 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VITALIS - Conectando você à saúde</title>
+    <meta name="description" content="VITALIS — Clínica multidisciplinar com atendimento humanizado em psicologia, psiquiatria, neuropsicologia e nutrição. Agende sua consulta online ou presencial." />
+    <meta name="theme-color" content="#4a2518" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="VITALIS - Conectando você à saúde" />
+    <meta property="og:description" content="Clínica multidisciplinar com atendimento humanizado em psicologia, psiquiatria, neuropsicologia e nutrição." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Vendor Scripts -->
+    <script src="js/vendor/tailwind.js"></script>
+    <script src="js/vendor/iconify.js"></script>
+    <script src="js/vendor/lucide.js"></script>
+  </head>
+  <body
+    class="min-h-screen w-full relative overflow-x-hidden antialiased pb-20 md:pb-0"
+    style="background-color: var(--brown-700); color: var(--cream-50)"
+  >
+    <!-- Mobile Menu Overlay -->
+    <div
+      class="fixed inset-0 z-[60] backdrop-blur-xl hidden-menu flex flex-col pt-32 px-8"
+      id="mobile-menu"
+      style="
+        background-color: rgba(74, 37, 24, 0.97);
+        border-bottom: 1px solid rgba(242, 229, 208, 0.1);
+      "
+    >
+      <button
+        class="absolute top-8 right-6 transition-colors hover:opacity-80"
+        id="close-menu"
+        style="color: var(--brown-300)"
+      >
+        <span
+          class="iconify w-8 h-8"
+          data-icon="solar:close-circle-linear"
+        ></span>
+      </button>
+      <nav
+        class="flex flex-col gap-8 text-2xl font-medium tracking-tight"
+        style="color: var(--cream-50)"
+      >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#especialidades"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Sobre o atendimento</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#como-funciona"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Nossa história</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#por-que"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Iniciativas parceiras</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#faq"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Podcasts</a
+        >
+      </nav>
+      <div class="mt-auto mb-12">
+        <a
+          class="flex w-full items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 rounded transition-all shadow-lg hover:shadow-xl"
+          href="#"
+          style="background-color: var(--gold); color: var(--brown-900)"
+        >
+          Agendar atendimento
+        </a>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-16 flex items-center justify-between animate-reveal"
+      style="
+        background-color: rgba(74, 37, 24, 0.92);
+        border-bottom: 1px solid rgba(242, 229, 208, 0.1);
+      "
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-8 h-8 rounded flex items-center justify-center"
+          style="
+            background-color: rgba(201, 169, 110, 0.15);
+            color: var(--gold);
+          "
+        >
+          <span
+            class="iconify w-5 h-5"
+            data-icon="solar:add-square-linear"
+          ></span>
+        </div>
+        <span
+          class="font-label font-bold tracking-tight"
+          style="color: var(--cream-50)"
+          >VITALIS</span
+        >
+      </div>
+      <div
+        class="hidden md:flex gap-6 text-xs font-label font-semibold uppercase tracking-wider"
+        style="color: var(--brown-400)"
+      >
+        <a
+          href="#especialidades"
+          class="hover:text-[var(--gold)] transition-colors"
+          >Sobre o atendimento</a
+        >
+        <a
+          href="#como-funciona"
+          class="hover:text-[var(--gold)] transition-colors"
+          >Nossa história</a
+        >
+        <a href="#por-que" class="hover:text-[var(--gold)] transition-colors"
+          >Iniciativas parceiras</a
+        >
+        <a href="#faq" class="hover:text-[var(--gold)] transition-colors"
+          >Podcasts</a
+        >
+      </div>
+      <div class="flex items-center gap-4">
+        <a
+          href="#"
+          class="hidden md:flex items-center gap-2 text-xs font-label font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
+          style="background-color: var(--gold); color: var(--brown-900)"
+        >
+          Agendar atendimento
+        </a>
+        <button
+          class="md:hidden transition-colors"
+          style="color: var(--cream-300)"
+          id="open-menu"
+        >
+          <span
+            class="iconify w-6 h-6"
+            data-icon="solar:hamburger-menu-linear"
+          ></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section — Video Scrubbing Wrapper -->
+    <div id="hero-wrapper">
+      <section
+        class="relative w-full flex flex-col items-center justify-center overflow-hidden"
+        style="
+          position: sticky;
+          top: 0;
+          height: 100dvh;
+          background-color: var(--brown-700);
+        "
+      >
+        <!-- Video Background -->
+        <video id="hero-video" muted playsinline preload="auto">
+          <source src="assets/videos/book_scrub.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Video Darkening Overlay -->
+        <div class="hero-video-overlay"></div>
+
+        <!-- Aura Background Animation -->
+        <div
+          class="absolute inset-0 z-[2] pointer-events-none overflow-hidden"
+          style="
+            opacity: 0.4;
+            mix-blend-mode: screen;
+            filter: sepia(0.6) hue-rotate(-15deg) saturate(0.5) brightness(0.6);
+          "
+        >
+          <div class="absolute inset-0">
+            <div
+              class="absolute w-full h-full left-0 top-0"
+              data-us-project="FixNvEwvWwbu3QX9qC3F"
+            ></div>
+            <script type="text/javascript">
+              !(function () {
+                if (!window.UnicornStudio) {
+                  window.UnicornStudio = { isInitialized: !1 };
+                  var i = document.createElement("script");
+                  ((i.src =
+                    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"),
+                    (i.onload = function () {
+                      window.UnicornStudio.isInitialized ||
+                        (UnicornStudio.init(),
+                        (window.UnicornStudio.isInitialized = !0));
+                    }),
+                    (document.head || document.body).appendChild(i));
+                }
+              })();
+            </script>
+          </div>
+        </div>
+
+        <!-- Grid Lines -->
+        <div class="absolute inset-0 z-[3] pointer-events-none">
+          <div class="grid-line-v" style="left: 6%"></div>
+          <div class="grid-line-v" style="left: 50%">
+            <div class="beam-v" style="animation: beam-v 8s infinite 1s"></div>
+          </div>
+          <div class="grid-line-v" style="right: 6%"></div>
+          <div class="grid-line-h" style="top: 8%">
+            <div class="beam-h" style="animation: beam-h 6s infinite"></div>
+          </div>
+          <div class="grid-line-h" style="bottom: 8%"></div>
+        </div>
+
+        <!-- Header Bar -->
+        <div
+          class="absolute top-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label mt-16"
+        >
+          <span
+            class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
+            style="color: var(--cream-50)"
+            >Saúde</span
+          >
+          <span
+            class="text-xs font-medium tracking-wider animate-reveal delay-200"
+            style="color: var(--cream-300)"
+            >@institutocogcom</span
+          >
+          <span
+            class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
+            style="color: var(--cream-50)"
+            >Ciência</span
+          >
+        </div>
+
+        <!-- Center Content -->
+        <div
+          id="hero-text-content"
+          class="hero-content relative z-10 w-full max-w-7xl mx-auto px-8"
+        >
+          <div class="hero-text">
+            <!-- Decorative Script -->
+            <div
+              class="font-decorative text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[8rem] leading-[0.9] animate-reveal delay-200 mobile-decorative-text"
+              style="color: var(--gold); opacity: 0.3"
+            >
+              Terapia
+            </div>
+
+            <!-- Main Headline -->
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight -mt-6 md:-mt-8 animate-reveal delay-300"
+              style="color: var(--cream-50)"
+            >
+              <span>Baseada em</span>
+              <span>evidência</span>
+            </h1>
+            <!-- <h2
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] mt-2 animate-reveal delay-500"
+              style="color: var(--cream-300)"
+            >
+              à saúde
+            </h2> -->
+
+            <!-- Body text -->
+            <p
+              class="font-decorative text-lg md:text-xl mt-6 leading-relaxed animate-reveal delay-700"
+              style="
+                color: var(--brown-300);
+                font-style: italic;
+                max-width: 32rem;
+              "
+            >
+              O Instituto CogCom conecta você a psicólogos especializados em
+              abordagens com comprovação científica. Atendimento 100% online,
+              com profissionais selecionados para o seu caso, não
+              aleatoriamente.
+            </p>
+
+            <!-- CTA -->
+            <div
+              class="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10 animate-reveal delay-700"
+            >
+              <button
+                class="group hidden md:flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-sm font-label"
+                style="
+                  background-color: var(--cream-50);
+                  border: 1px solid var(--cream-200);
+                "
+              >
+                <span
+                  class="text-sm font-medium"
+                  style="color: var(--brown-800)"
+                  >Agendar atendimento</span
+                >
+                <div
+                  class="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                  style="
+                    background-color: var(--brown-700);
+                    color: var(--cream-50);
+                  "
+                >
+                  <span
+                    class="iconify w-4 h-4"
+                    data-icon="solar:arrow-right-linear"
+                  ></span>
+                </div>
+              </button>
+              <div class="flex flex-col text-left">
+                <span
+                  class="text-xs font-semibold uppercase tracking-wide font-label"
+                  style="color: var(--cream-50)"
+                  >Atendimento online</span
+                >
+                <div class="flex items-center gap-2">
+                  <span class="relative flex h-2 w-2">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                      style="background-color: var(--gold)"
+                    ></span>
+                    <span
+                      class="relative inline-flex rounded-full h-2 w-2"
+                      style="background-color: var(--gold)"
+                    ></span>
+                  </span>
+                  <span
+                    class="text-xs font-label"
+                    style="color: var(--cream-300)"
+                    >100% ONLINE</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- In Network -->
+            <div class="mt-12 animate-reveal delay-700">
+              <p
+                class="text-[10px] font-label font-semibold tracking-widest uppercase mb-4"
+                style="color: var(--cream-300)"
+              >
+                Nossas especialidades
+              </p>
+              <div
+                class="relative w-full max-w-md h-[30px] flex items-center mask-linear-fade"
+              >
+                <div
+                  class="flex gap-10 items-center w-max animate-marquee will-change-transform"
+                >
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:heart-pulse-linear"
+                    ></span>
+                    PSICOLOGIA
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:stethoscope-linear"
+                    ></span>
+                    PSIQUIATRIA
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:shield-check-linear"
+                    ></span>
+                    NUTRIÇÃO
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:graph-up-linear"
+                    ></span>
+                    ENDOCRINOLOGIA
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:heart-pulse-linear"
+                    ></span>
+                    PSICOLOGIA
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:stethoscope-linear"
+                    ></span>
+                    PSIQUIATRIA
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:shield-check-linear"
+                    ></span>
+                    NUTRIÇÃO
+                  </div>
+                  <div
+                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    style="color: var(--cream-300)"
+                  >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:graph-up-linear"
+                    ></span>
+                    ENDOCRINOLOGIA
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Bottom Script -->
+        <div
+          id="hero-decorative-text"
+          class="absolute bottom-16 left-1/2 -translate-x-1/2 font-decorative text-[5rem] md:text-[7rem] leading-[0.9] z-[3] pointer-events-none"
+          style="color: var(--gold); opacity: 0.15"
+        >
+          Objetivos
+        </div>
+
+        <!-- Footer Bar -->
+        <div
+          class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label"
+        >
+          <span
+            class="text-xs font-semibold uppercase tracking-[0.2em]"
+            style="color: var(--cream-50)"
+            >Metas</span
+          >
+          <span
+            class="text-xs font-medium tracking-wider"
+            style="color: var(--cream-300)"
+            >@institutocogcom</span
+          >
+          <span
+            class="text-xs font-semibold uppercase tracking-[0.2em]"
+            style="color: var(--cream-50)"
+            >Cuidado</span
+          >
+        </div>
+      </section>
+    </div>
+
+    <!-- Pulsing Dots Steps Section -->
+    <section
+      class="w-full relative z-10 overflow-hidden"
+      style="
+        background-color: var(--cream-25);
+        border-bottom: 1px solid rgba(90, 50, 34, 0.1);
+      "
+      aria-label="Nosso processo em 4 passos"
+    >
+      <div class="lg:px-[6%] max-w-[1600px] mx-auto px-6 py-24 lg:py-32">
+        <!-- Section Header -->
+        <div class="text-center mb-16 scroll-reveal">
+          <span
+            class="font-label text-[10px] font-bold uppercase tracking-[0.25em] block mb-4"
+            style="color: var(--gold-muted)"
+            >Nosso Processo</span
+          >
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05]"
+            style="color: var(--brown-900)"
+          >
+            Como cuidamos de
+            <span style="color: var(--gold)">você.</span>
+          </h2>
+          <p
+            class="font-decorative text-lg md:text-xl mt-4 max-w-xl mx-auto leading-relaxed"
+            style="color: var(--brown-500)"
+          >
+            Um processo simples, acolhedor e baseado em ciência para conectar
+            você ao profissional ideal.
+          </p>
+        </div>
+
+        <!-- Steps Grid -->
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <article
+            class="flex flex-col items-center text-center scroll-reveal delay-100"
+          >
+            <div class="step-number-wrapper mb-4">
+              <span class="step-number" aria-hidden="true">1</span>
+              <span class="pulse-dot" role="presentation"></span>
+            </div>
+            <h3
+              class="font-label text-xs font-bold uppercase tracking-[0.2em]"
+              style="color: var(--brown-800)"
+            >
+              Passo 1
+            </h3>
+            <p
+              class="text-sm mt-2 leading-relaxed max-w-[200px]"
+              style="
+                color: var(--brown-500);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Você entra em contato com a CogCom por meio de um formulário
+              personalizado para que possamos entender sua real demanda.
+            </p>
+          </article>
+
+          <!-- Step 2 -->
+          <article
+            class="flex flex-col items-center text-center scroll-reveal delay-200"
+          >
+            <div class="step-number-wrapper mb-4">
+              <span class="step-number" aria-hidden="true">2</span>
+              <span
+                class="pulse-dot"
+                style="animation-delay: 0.6s"
+                role="presentation"
+              ></span>
+            </div>
+            <h3
+              class="font-label text-xs font-bold uppercase tracking-[0.2em]"
+              style="color: var(--brown-800)"
+            >
+              Passo 2
+            </h3>
+            <p
+              class="text-sm mt-2 leading-relaxed max-w-[200px]"
+              style="
+                color: var(--brown-500);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              A CogCom analisa sua resposta com cuidado por meio de nosso time e
+              busca o melhor profissional parceiro para o seu caso.
+            </p>
+          </article>
+
+          <!-- Step 3 -->
+          <article
+            class="flex flex-col items-center text-center scroll-reveal delay-300"
+          >
+            <div class="step-number-wrapper mb-4">
+              <span class="step-number" aria-hidden="true">3</span>
+              <span
+                class="pulse-dot"
+                style="animation-delay: 1.2s"
+                role="presentation"
+              ></span>
+            </div>
+            <h3
+              class="font-label text-xs font-bold uppercase tracking-[0.2em]"
+              style="color: var(--brown-800)"
+            >
+              Passo 3
+            </h3>
+            <p
+              class="text-sm mt-2 leading-relaxed max-w-[200px]"
+              style="
+                color: var(--brown-500);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Ao encontrarmos o profissional ideal para você, entramos em
+              contato para estabelecer a conexão.
+            </p>
+          </article>
+
+          <!-- Step 4 -->
+          <article
+            class="flex flex-col items-center text-center scroll-reveal delay-500"
+          >
+            <div class="step-number-wrapper mb-4">
+              <span class="step-number" aria-hidden="true">4</span>
+              <span
+                class="pulse-dot"
+                style="animation-delay: 1.8s"
+                role="presentation"
+              ></span>
+            </div>
+            <h3
+              class="font-label text-xs font-bold uppercase tracking-[0.2em]"
+              style="color: var(--brown-800)"
+            >
+              Passo 4
+            </h3>
+            <p
+              class="text-sm mt-2 leading-relaxed max-w-[200px]"
+              style="
+                color: var(--brown-500);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Pronto! Seu atendimento será realizado.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section
+      class="lg:py-32 w-full z-10 pt-24 pb-24 relative overflow-hidden"
+      style="
+        background-color: var(--cream-25);
+        border-top: 1px solid rgba(90, 50, 34, 0.1);
+      "
+    >
+      <!-- Background Grid -->
+      <div
+        class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0"
+      >
+        <div
+          class="grid-line-v"
+          style="left: 6%; background: rgba(90, 50, 34, 0.06)"
+        ></div>
+        <div
+          class="grid-line-v"
+          style="left: 28%; background: rgba(90, 50, 34, 0.06)"
+        ></div>
+        <div
+          class="grid-line-v"
+          style="left: 62%; background: rgba(90, 50, 34, 0.06)"
+        ></div>
+        <div
+          class="grid-line-v"
+          style="right: 6%; background: rgba(90, 50, 34, 0.06)"
+        ></div>
+      </div>
+      <div
+        class="relative z-10 lg:px-[6%] max-w-[1600px] mr-auto ml-auto pr-6 pl-6"
+      >
+        <div class="mb-20 lg:mb-24 flex flex-col items-center text-center">
+          <h2
+            id="especialidades"
+            class="lg:text-6xl text-4xl font-medium tracking-tight mb-8 scroll-reveal"
+            style="color: var(--brown-900); max-width: 900px"
+          >
+            Confira as especialidades dos profissionais parceiros da
+            <span style="color: var(--gold)" class="font-decorative"
+              >CogCom</span
+            >
+          </h2>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Card 1 -->
+          <div
+            class="scroll-reveal delay-200 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            style="
+              background-color: #ffffff;
+              border-color: rgba(90, 50, 34, 0.1);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            "
+          >
+            <div
+              class="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-sm"
+              style="
+                background: radial-gradient(
+                  circle at top right,
+                  rgba(201, 169, 110, 0.15),
+                  transparent 60%
+                );
+                z-index: 0;
+              "
+            ></div>
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex items-center gap-3 mb-8">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                  style="
+                    background-color: rgba(201, 169, 110, 0.15);
+                    color: var(--gold);
+                  "
+                >
+                  <span
+                    class="iconify w-5 h-5"
+                    data-icon="solar:heart-pulse-linear"
+                  ></span>
+                </div>
+                <span
+                  class="text-[10px] font-label font-bold uppercase tracking-widest"
+                  style="color: var(--gold-muted)"
+                  >Saúde Mental</span
+                >
+              </div>
+              <h3
+                class="text-3xl font-semibold mb-6 tracking-tight"
+                style="color: var(--brown-900)"
+              >
+                Psicologia
+              </h3>
+              <p
+                class="text-lg font-light leading-relaxed mb-10 flex-grow"
+                style="color: var(--brown-700)"
+              >
+                Conecte-se a psicólogos que atuam com base em ciência, empatia e
+                experiência clínica, utilizando abordagens atualizadas e
+                personalizadas para você, respeitando sua história, seus
+                objetivos e seu tempo.
+              </p>
+
+              <div
+                class="flex flex-col gap-6 pt-8 mt-auto"
+                style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
+              >
+                <button
+                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 group/link w-fit"
+                  style="color: var(--brown-500)"
+                  onmouseover="this.style.color = 'var(--brown-800)'"
+                  onmouseout="this.style.color = 'var(--brown-500)'"
+                >
+                  Quero saber mais
+                  <span
+                    class="iconify w-4 h-4 transition-transform group-hover/link:translate-y-1"
+                    data-icon="solar:arrow-down-linear"
+                  ></span>
+                </button>
+
+                <a
+                  href="#"
+                  class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
+                  style="
+                    background-color: var(--brown-800);
+                    color: var(--cream-50);
+                  "
+                  onmouseover="this.style.backgroundColor = 'var(--brown-900)'"
+                  onmouseout="this.style.backgroundColor = 'var(--brown-800)'"
+                >
+                  Agendar psicólogo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="scroll-reveal delay-400 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            style="
+              background-color: #ffffff;
+              border-color: rgba(90, 50, 34, 0.1);
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            "
+          >
+            <div
+              class="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-sm"
+              style="
+                background: radial-gradient(
+                  circle at top right,
+                  rgba(201, 169, 110, 0.15),
+                  transparent 60%
+                );
+                z-index: 0;
+              "
+            ></div>
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex items-center gap-3 mb-8">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                  style="
+                    background-color: rgba(201, 169, 110, 0.15);
+                    color: var(--gold);
+                  "
+                >
+                  <span
+                    class="iconify w-5 h-5"
+                    data-icon="solar:heart-pulse-linear"
+                  ></span>
+                </div>
+                <span
+                  class="text-[10px] font-label font-bold uppercase tracking-widest"
+                  style="color: var(--gold-muted)"
+                  >Saúde Mental</span
+                >
+              </div>
+              <h3
+                class="text-3xl font-semibold mb-6 tracking-tight"
+                style="color: var(--brown-900)"
+              >
+                Avaliação Neuropsicológica
+              </h3>
+              <p
+                class="text-lg font-light leading-relaxed mb-10 flex-grow"
+                style="color: var(--brown-700)"
+              >
+                Indicado para casos como TDAH, TEA e altas habilidades, o
+                processo é feito 100% online, com testes validados e devolutiva
+                técnica. Auxilia no diagnóstico e na definição de tratamentos.
+              </p>
+
+              <div
+                class="flex flex-col gap-6 pt-8 mt-auto"
+                style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
+              >
+                <button
+                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 group/link w-fit"
+                  style="color: var(--brown-500)"
+                  onmouseover="this.style.color = 'var(--brown-800)'"
+                  onmouseout="this.style.color = 'var(--brown-500)'"
+                >
+                  Quero saber mais
+                  <span
+                    class="iconify w-4 h-4 transition-transform group-hover/link:translate-y-1"
+                    data-icon="solar:arrow-down-linear"
+                  ></span>
+                </button>
+
+                <a
+                  href="#"
+                  class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
+                  style="
+                    background-color: var(--brown-800);
+                    color: var(--cream-50);
+                  "
+                  onmouseover="this.style.backgroundColor = 'var(--brown-900)'"
+                  onmouseout="this.style.backgroundColor = 'var(--brown-800)'"
+                >
+                  Agendar avaliação
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why Choose Us Section -->
+    <section
+      id="por-que"
+      class="relative z-20 w-full overflow-hidden"
+      style="
+        background-color: var(--cream-25);
+        border-top: 1px solid rgba(90, 50, 34, 0.1);
+      "
+    >
+      <!-- Decorative Grid -->
+      <div class="absolute inset-0 pointer-events-none hidden lg:block">
+        <div class="grid-line-v" style="left: 6%; background: rgba(90, 50, 34, 0.05)"></div>
+        <div class="grid-line-v" style="left: 28%; background: rgba(90, 50, 34, 0.05)"></div>
+        <div class="grid-line-v" style="left: 62%; background: rgba(90, 50, 34, 0.05)"></div>
+        <div class="grid-line-v" style="right: 6%; background: rgba(90, 50, 34, 0.05)"></div>
+        <div class="grid-line-h" style="top: 0; background: rgba(90, 50, 34, 0.05)"></div>
+        <div class="grid-line-h" style="bottom: 0; background: rgba(90, 50, 34, 0.05)"></div>
+      </div>
+
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%] py-24 lg:py-32 relative z-10">
+        
+        <!-- Top Header -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-20 items-end">
+          <div class="lg:col-span-7 scroll-reveal">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-px bg-[var(--gold)]"></div>
+              <span class="font-label text-xs font-bold uppercase tracking-widest" style="color: var(--gold-muted)">Propósito & Cuidado</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]" style="color: var(--brown-900)">
+              Por que as pessoas buscam cuidados em saúde através da <span class="font-decorative" style="color: var(--brown-500)">BeHealth?</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 scroll-reveal delay-100 lg:pb-2">
+            <div class="pl-6" style="border-left: 1px solid rgba(201, 169, 110, 0.3);">
+              <p class="text-lg md:text-xl font-light leading-relaxed mb-4" style="color: var(--brown-600)">
+                Os profissionais parceiros utilizam métodos baseados em ciência para ajudar você a lidar com desafios reais da vida.
+              </p>
+              <p class="text-sm font-label font-semibold tracking-widest uppercase" style="color: var(--brown-400)">
+                Veja algumas das principais razões que levam pessoas a buscar suporte profissional.
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-20">
+          
+          <!-- Interactive Card 1 - Alta Performance -->
+          <div class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-200" style="background-color: var(--cream-50); border: 1px solid rgba(90, 50, 34, 0.1);">
+            
+            <!-- Text Side -->
+            <div class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700" style="background-color: rgba(201, 169, 110, 0.15); color: var(--gold);">
+                  <span class="iconify w-6 h-6" data-icon="solar:graph-up-linear"></span>
+                </div>
+                <span class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-500)">
+                  <span class="group-hover:text-[var(--gold)] transition-colors duration-700">Alta Performance</span>
+                </span>
+              </div>
+              
+              <h3 class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700" style="color: var(--brown-900)">
+                <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Desenvolvimento Pessoal</span>
+              </h3>
+              
+              <p class="text-lg font-light leading-relaxed transition-colors duration-700 mb-10" style="color: var(--brown-600)">
+                <span class="group-hover:text-[var(--brown-300)] transition-colors duration-700">Profissionais ajudam você a desenvolver habilidades para se tornar mais organizado, produtivo e construir relações mais saudáveis com as pessoas.</span>
+              </p>
+              
+              <div class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10" style="background-color: var(--gold)"></div>
+              
+              <div class="flex items-center justify-between">
+                <span class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-800)">
+                  <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Descubra como podemos ajudar</span>
+                </span>
+                <div class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700" style="border-color: var(--gold); color: var(--gold);">
+                  <span class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1" data-icon="solar:arrow-right-linear"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Side -->
+            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80" alt="Desenvolvimento Pessoal e Produtividade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              
+              <!-- Overlays -->
+              <div class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30" style="background-color: var(--brown-900); mix-blend-mode: multiply;"></div>
+              
+              <div class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0" style="background: linear-gradient(to left, transparent, var(--cream-50));"></div>
+              
+              <div class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100" style="background: linear-gradient(to left, transparent, var(--brown-900));"></div>
+
+              <!-- Interactive UI elements -->
+              <div class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(250, 245, 240, 0.95); border: 1px solid rgba(201, 169, 110, 0.2);">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background-color: var(--gold)"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2" style="background-color: var(--gold)"></span>
+                  </span>
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--brown-900)">Produtividade Ativa</span>
+                </div>
+              </div>
+
+              <!-- Progress graphic -->
+              <div class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(62, 36, 26, 0.85); border: 1px solid rgba(201, 169, 110, 0.15);">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--cream-50)">Evolução Contínua</span>
+                  <span class="iconify w-4 h-4" data-icon="solar:chart-square-linear" style="color: var(--gold)"></span>
+                </div>
+                <div class="w-full h-1.5 rounded-full overflow-hidden" style="background-color: rgba(250,245,240,0.1)">
+                  <div class="h-full rounded-full transition-all duration-1000 w-0 group-hover:w-[85%] ease-out" style="background-color: var(--gold); transition-delay: 300ms;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Card 2 - Sono -->
+          <div class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row-reverse scroll-reveal delay-300" style="background-color: var(--cream-50); border: 1px solid rgba(90, 50, 34, 0.1);">
+            
+            <!-- Text Side -->
+            <div class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700" style="background-color: rgba(201, 169, 110, 0.15); color: var(--gold);">
+                  <span class="iconify w-6 h-6" data-icon="solar:moon-sleep-linear"></span>
+                </div>
+                <span class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-500)">
+                  <span class="group-hover:text-[var(--gold)] transition-colors duration-700">Qualidade de Vida</span>
+                </span>
+              </div>
+              
+              <h3 class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700" style="color: var(--brown-900)">
+                <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Sono e Descanso</span>
+              </h3>
+              
+              <p class="text-lg font-light leading-relaxed transition-colors duration-700 mb-6" style="color: var(--brown-600)">
+                <span class="group-hover:text-[var(--brown-300)] transition-colors duration-700">Receba os melhores cuidados baseados em ciência para desenvolver uma rotina de sono saudável e, assim, ter uma vida mais funcional.</span>
+              </p>
+              
+              <!-- Symptoms List -->
+              <div class="mb-10 flex flex-col gap-3 transition-colors duration-700" style="color: var(--brown-500)">
+                <p class="text-xs font-label font-bold uppercase tracking-widest mb-1 group-hover:text-[var(--gold-muted)] transition-colors duration-700">Sintomas Mais Comuns:</p>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Sonolência durante o dia.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Dificuldade de concentração e falta de disposição.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Irritação constante durante o dia.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Ronco enquanto dorme.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Dificuldade para dormir ou insônia.</span>
+                </div>
+              </div>
+              
+              <div class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10" style="background-color: var(--gold)"></div>
+              
+              <div class="flex items-center justify-between">
+                <span class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-800)">
+                  <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Descubra como podemos ajudar</span>
+                </span>
+                <div class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700" style="border-color: var(--gold); color: var(--gold);">
+                  <span class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1" data-icon="solar:arrow-right-linear"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Side -->
+            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?auto=format&fit=crop&w=1000&q=80" alt="Sono Saudável e Qualidade de Vida" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              
+              <!-- Overlays -->
+              <div class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30" style="background-color: var(--brown-900); mix-blend-mode: multiply;"></div>
+              
+              <div class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0" style="background: linear-gradient(to right, transparent, var(--cream-50));"></div>
+              
+              <div class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100" style="background: linear-gradient(to right, transparent, var(--brown-900));"></div>
+
+              <!-- Interactive UI elements -->
+              <div class="absolute top-8 left-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(250, 245, 240, 0.95); border: 1px solid rgba(201, 169, 110, 0.2);">
+                <div class="flex items-center gap-3">
+                  <span class="iconify w-4 h-4" data-icon="solar:star-fall-minimalistic-linear" style="color: var(--gold)"></span>
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--brown-900)">Sono Reparador</span>
+                </div>
+              </div>
+
+              <!-- Pulse Graphic -->
+              <div class="absolute bottom-8 left-8 right-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(62, 36, 26, 0.85); border: 1px solid rgba(201, 169, 110, 0.15);">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--cream-50)">Ciclo Circadiano</span>
+                  <span class="iconify w-4 h-4" data-icon="solar:alarm-linear" style="color: var(--gold)"></span>
+                </div>
+                <div class="w-full flex items-center justify-between gap-1 opacity-70">
+                  <div class="w-1 h-3 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.1s"></div>
+                  <div class="w-1 h-5 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.2s"></div>
+                  <div class="w-1 h-8 rounded-full bg-[var(--gold-muted)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.3s"></div>
+                  <div class="w-1 h-4 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.4s"></div>
+                  <div class="w-1 h-6 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.5s"></div>
+                  <div class="w-1 h-3 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.6s"></div>
+                  <div class="w-1 h-2 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]" style="animation-delay: 0.7s"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Card 3 - Ansiedade -->
+          <div class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-400" style="background-color: var(--cream-50); border: 1px solid rgba(90, 50, 34, 0.1);">
+            
+            <!-- Text Side -->
+            <div class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]">
+              <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700" style="background-color: rgba(201, 169, 110, 0.15); color: var(--gold);">
+                  <span class="iconify w-6 h-6" data-icon="solar:heart-pulse-linear"></span>
+                </div>
+                <span class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-500)">
+                  <span class="group-hover:text-[var(--gold)] transition-colors duration-700">Saúde Mental</span>
+                </span>
+              </div>
+              
+              <h3 class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700" style="color: var(--brown-900)">
+                <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Ansiedade</span>
+              </h3>
+              
+              <p class="text-lg font-light leading-relaxed transition-colors duration-700 mb-6" style="color: var(--brown-600)">
+                <span class="group-hover:text-[var(--brown-300)] transition-colors duration-700">A preocupação constante e prejudicial com o que virá ou não acontecer pode ser cuidada de forma humanizada e baseada em ciência.</span>
+              </p>
+              
+              <!-- Symptoms List -->
+              <div class="mb-10 flex flex-col gap-3 transition-colors duration-700" style="color: var(--brown-500)">
+                <p class="text-xs font-label font-bold uppercase tracking-widest mb-1 group-hover:text-[var(--gold-muted)] transition-colors duration-700">Sintomas Mais Comuns:</p>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Inquietação, medo ou preocupação constantes, sem um motivo claro para isso.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Sentimento de cansaço sem fazer esforços e baixa concentração nas tarefas.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Dificuldade para dormir ou despertar várias vezes durante a noite.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Coração acelerado e falta de ar.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700" data-icon="solar:info-circle-linear"></span>
+                  <span class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700">Tensão muscular sem razão aparente.</span>
+                </div>
+              </div>
+              
+              <div class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10" style="background-color: var(--gold)"></div>
+              
+              <div class="flex items-center justify-between">
+                <span class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700" style="color: var(--brown-800)">
+                  <span class="group-hover:text-[var(--cream-50)] transition-colors duration-700">Descubra como podemos ajudar</span>
+                </span>
+                <div class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700" style="border-color: var(--gold); color: var(--gold);">
+                  <span class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1" data-icon="solar:arrow-right-linear"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Side -->
+            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
+              <img src="https://plus.unsplash.com/premium_photo-1698530141308-ec79dbb514c4?auto=format&fit=crop&w=1000&q=80" alt="Mulher sentada no sofá cobrindo o rosto com as mãos" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              
+              <!-- Overlays -->
+              <div class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30" style="background-color: var(--brown-900); mix-blend-mode: multiply;"></div>
+              
+              <div class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0" style="background: linear-gradient(to left, transparent, var(--cream-50));"></div>
+              
+              <div class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100" style="background: linear-gradient(to left, transparent, var(--brown-900));"></div>
+
+              <!-- Interactive UI elements -->
+              <div class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(250, 245, 240, 0.95); border: 1px solid rgba(201, 169, 110, 0.2);">
+                <div class="flex items-center gap-3">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style="background-color: var(--gold)"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2" style="background-color: var(--gold)"></span>
+                  </span>
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--brown-900)">Cuidado Constante</span>
+                </div>
+              </div>
+
+              <!-- Heart Pulse Graphic -->
+              <div class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100" style="background-color: rgba(62, 36, 26, 0.85); border: 1px solid rgba(201, 169, 110, 0.15);">
+                <div class="flex justify-between items-center mb-3">
+                  <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--cream-50)">Regulação Emocional</span>
+                  <span class="iconify w-4 h-4" data-icon="solar:heart-pulse-linear" style="color: var(--gold)"></span>
+                </div>
+                <div class="relative w-full h-8 overflow-hidden flex items-center justify-center">
+                   <svg class="w-full h-full opacity-50 stroke-[var(--gold)]" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path class="group-hover:animate-[dash_3s_linear_infinite]" stroke-dasharray="200" stroke-dashoffset="200" d="M0 10 L30 10 L35 0 L45 20 L50 10 L100 10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>
+                   <style>
+                     @keyframes dash {
+                       to {
+                         stroke-dashoffset: 0;
+                       }
+                     }
+                   </style>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="rounded-sm p-10 lg:px-16 lg:py-14 flex flex-col lg:flex-row items-center justify-between gap-10 relative overflow-hidden group scroll-reveal delay-300" style="background-color: var(--brown-900); border: 1px solid rgba(201, 169, 110, 0.15); box-shadow: 0 25px 50px -12px rgba(74, 37, 24, 0.15);">
+          
+          <!-- Decorative Glow -->
+          <div class="absolute inset-0 pointer-events-none opacity-50 transition-opacity duration-700 group-hover:opacity-100" style="background: radial-gradient(circle at 100% 50%, rgba(201, 169, 110, 0.15), transparent 60%);"></div>
+          
+          <div class="relative z-10 text-center lg:text-left max-w-2xl">
+            <div class="flex items-center justify-center lg:justify-start gap-2 mb-4">
+              <span class="iconify w-4 h-4" data-icon="solar:verified-check-linear" style="color: var(--gold)"></span>
+              <span class="font-label text-[10px] font-bold uppercase tracking-widest" style="color: var(--gold-muted)">Cuidado baseado em ciência</span>
+            </div>
+            <h3 class="text-3xl lg:text-4xl font-medium tracking-tight mb-4" style="color: var(--cream-50)">
+              Saúde mental e física por quem leva a <span class="font-decorative italic" style="color: var(--gold-light)">ciência a sério.</span>
+            </h3>
+            <p class="text-base font-light" style="color: var(--brown-300)">
+              Conectando você à saúde com profissionais baseados em evidências. Inicie sua jornada para uma vida mais equilibrada e saudável.
+            </p>
+          </div>
+          
+          <div class="relative z-10 flex-shrink-0">
+            <button class="pl-8 pr-6 py-4 rounded font-label font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-4 group/btn shadow-xl hover:shadow-2xl hover:scale-105" style="background-color: var(--gold); color: var(--brown-950)">
+              Iniciar tratamento
+              <div class="w-8 h-8 rounded-full flex items-center justify-center transition-transform" style="background-color: var(--brown-950); color: var(--gold)">
+                <span class="iconify w-4 h-4 group-hover/btn:translate-x-1 transition-transform" data-icon="solar:arrow-right-bold"></span>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <!-- FAQ Section -->
+    <section
+      class="z-20 w-full relative"
+      style="
+        background-color: var(--brown-700);
+        border-top: 1px solid rgba(242, 229, 208, 0.08);
+      "
+    >
+      <div
+        class="lg:px-[6%] max-w-[1600px] mr-auto ml-auto pr-6 pl-6 pt-24 pb-24"
+      >
+        <!-- Section Header -->
+        <div class="flex items-start justify-between mb-16 scroll-reveal">
+          <h2
+            id="faq"
+            class="text-4xl md:text-5xl font-medium leading-tight"
+            style="color: var(--cream-50)"
+          >
+            Perguntas<br />Frequentes
+          </h2>
+          <div class="flex items-center gap-3 mt-2 flex-shrink-0">
+            <div class="relative w-2.5 h-2.5">
+              <div
+                class="absolute inset-0 rounded-full"
+                style="background-color: var(--gold)"
+              ></div>
+              <div
+                class="animate-ping absolute inline-flex h-full w-full rounded-full"
+                style="background-color: var(--gold); opacity: 0.4"
+              ></div>
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest"
+              style="color: var(--brown-400)"
+              >FAQ</span
+            >
+          </div>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="faq-list">
+          <!-- ─── Categoria 1: Sobre a CogCom ─── -->
+          <div class="faq-category scroll-reveal pb-3">
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre a CogCom</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >01.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  O que é o Instituto CogCom?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                O Instituto CogCom é uma clínica de psicologia online
+                especializada em psicoterapia baseada em evidência científica.
+                Conectamos pessoas a psicólogos treinados em abordagens como
+                TCC, ACT e DBT, com um processo de matching que considera a
+                demanda, o perfil e a especialidade de cada profissional.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >02.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  A CogCom é uma clínica ou uma plataforma?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Somos uma clínica com equipe própria de psicólogos, coordenação
+                clínica e supervisão contínua. A diferença é que cada
+                profissional da CogCom é selecionado, acompanhado e treinado —
+                não é apenas alguém que se cadastrou em uma plataforma.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >03.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Por que "baseada em evidência"?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Porque trabalhamos exclusivamente com abordagens psicológicas
+                que foram testadas em estudos clínicos controlados e mostraram
+                eficácia documentada. Isso não significa que outras abordagens
+                não funcionem — significa que as que utilizamos têm o maior
+                volume de respaldo científico disponível.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 2: Sobre os Profissionais ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre os Profissionais</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >04.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Quem são os psicólogos do Instituto CogCom?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Psicólogos com registro ativo no CRP, formação em instituições
+                reconhecidas pelo MEC e especialização clínica em abordagens
+                baseadas em evidência. Todos passam por processo seletivo
+                rigoroso e participam de supervisão clínica contínua.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >05.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Como os profissionais são selecionados?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                O processo considera formação acadêmica, experiência clínica,
+                alinhamento com a prática baseada em evidência e valores éticos.
+                Não abrimos vagas indiscriminadamente — cada profissional é
+                avaliado antes de atender pela CogCom.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >06.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Posso escolher meu psicólogo?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Nosso processo é baseado em matching: indicamos o profissional
+                mais adequado à sua demanda. Sempre que possível, consideramos
+                suas preferências. Se após as primeiras sessões você sentir que
+                não houve conexão, fazemos uma nova indicação sem custo
+                adicional.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 3: Sobre os Atendimentos Online ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre os Atendimentos Online</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >07.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Os atendimentos são todos online?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Sim. Todas as sessões acontecem por videochamada segura, com a
+                mesma qualidade, ética e sigilo do atendimento presencial.
+                Estudos publicados em periódicos como The Lancet Psychiatry
+                demonstram eficácia comparável entre os dois formatos.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >08.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Preciso de algum equipamento especial?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Não. Basta um dispositivo com câmera e microfone — celular,
+                tablet ou computador —, em um local com privacidade e conexão
+                estável de internet. Você receberá todas as orientações sobre a
+                plataforma antes da primeira sessão.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >09.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  E se minha internet cair durante a sessão?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Imprevistos acontecem. Se houver queda de conexão, o psicólogo
+                aguarda o retorno e, se necessário, o tempo é compensado. A
+                prioridade é sempre que sua sessão seja completa.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 4: Sobre os Serviços de Conexão ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre os Serviços de Conexão</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >10.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Como funciona o processo de conexão?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Você entra em contato pelo WhatsApp ou formulário. Nossa equipe
+                realiza uma triagem para entender sua demanda, perfil e
+                necessidades e, com base nisso, indica o profissional mais
+                adequado — considerando abordagem, especialidade e
+                disponibilidade de agenda.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >11.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Quanto tempo leva até eu ser conectado a um profissional?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Após o primeiro contato, nossa equipe realiza a triagem e a
+                indicação em até 48 horas úteis. A agenda para a primeira sessão
+                depende da disponibilidade do profissional indicado, mas
+                trabalhamos para que o início seja o mais breve possível.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >12.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Posso ser atendido por mais de uma especialidade ao mesmo
+                  tempo?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Sim. Se sua demanda envolver mais de uma área — como Psicologia
+                e Nutrição, ou Psicologia e Psiquiatria —, podemos coordenar um
+                cuidado integrado entre os profissionais da CogCom, garantindo
+                alinhamento entre os atendimentos.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 5: Sobre o Processo de Agendamento ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre o Processo de Agendamento</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >13.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Como agendo meu atendimento?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Pelo WhatsApp ou pelo formulário no site. Nossa equipe faz o
+                primeiro contato, entende sua demanda, informa valores e
+                horários disponíveis, e agenda a primeira sessão com o
+                profissional indicado.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >14.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Como funciona o primeiro contato?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Você manda uma mensagem pelo WhatsApp ou preenche o formulário.
+                Nossa equipe entra em contato em até 24 horas para uma conversa
+                rápida — sem custo e sem compromisso. O objetivo é entender o
+                que você está buscando e indicar o caminho mais adequado.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >15.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Preciso de encaminhamento médico para começar?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Não. Você pode procurar psicoterapia por iniciativa própria, sem
+                encaminhamento. Se futuramente for necessária uma avaliação
+                complementar — psiquiátrica, neuropsicológica etc. —, o próprio
+                processo terapêutico pode indicar isso.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 6: Sobre Valores e Pagamentos ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Sobre Valores e Pagamentos</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >16.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Quanto custa uma sessão?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Os valores variam conforme o profissional e a especialidade. Ao
+                entrar em contato pela primeira vez, nossa equipe informa os
+                valores com transparência total — antes de qualquer compromisso
+                da sua parte.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >17.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Quais formas de pagamento são aceitas?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Aceitamos Pix, cartão de crédito e débito. O pagamento é
+                combinado diretamente com o profissional, que apresentará as
+                condições no início do processo terapêutico.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >18.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  O plano de saúde cobre os atendimentos?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Atualmente os atendimentos são particulares. Você pode solicitar
+                recibo para reembolso conforme a cobertura do seu plano —
+                verifique as condições diretamente com sua operadora.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 7: Privacidade e Segurança ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Privacidade e Segurança</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >19.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Meus dados estão seguros?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Seguimos rigorosamente a Lei Geral de Proteção de Dados (LGPD).
+                Seus dados pessoais são usados exclusivamente para viabilizar o
+                atendimento e nunca são compartilhados com terceiros para fins
+                comerciais.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >20.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  O conteúdo das sessões é confidencial?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Totalmente. Todos os profissionais seguem o Código de Ética do
+                Psicólogo (CFP), que garante sigilo profissional absoluto. O que
+                é dito na sessão permanece entre você e seu psicólogo.
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── Categoria 8: Suporte e Contato ─── -->
+          <div
+            class="faq-category scroll-reveal pt-12 pb-3"
+            style="
+              border-top: 1px solid rgba(242, 229, 208, 0.06);
+              margin-top: 1rem;
+            "
+          >
+            <span
+              class="text-sm font-label font-medium uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Suporte e Contato</span
+            >
+          </div>
+
+          <div
+            class="faq-item scroll-reveal"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >21.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Posso trocar de profissional, se desejar?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Sim, sem constrangimento e sem custo adicional de remanejamento.
+                A relação terapêutica é um dos fatores mais importantes para o
+                resultado — se não houver conexão, nossa equipe faz uma nova
+                indicação prontamente.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="faq-item scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >
+            <div
+              class="faq-header flex items-center gap-6 py-6 cursor-pointer select-none"
+              onclick="toggleFaq(this)"
+            >
+              <span
+                class="text-sm font-label flex-shrink-0 transition-colors duration-300"
+                style="color: var(--brown-400); min-width: 2.5rem"
+                >22.</span
+              >
+              <div class="flex-1 flex items-center justify-between gap-6">
+                <h3
+                  class="text-base md:text-lg font-medium transition-colors duration-300"
+                  style="color: var(--cream-50)"
+                >
+                  Como entro em contato com a equipe da CogCom?
+                </h3>
+                <div
+                  class="faq-icon flex-shrink-0"
+                  style="width: 18px; height: 18px; position: relative"
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      top: 50%;
+                      left: 0;
+                      right: 0;
+                      height: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateY(-50%);
+                      transition: background-color 0.3s;
+                    "
+                  ></div>
+                  <div
+                    class="faq-icon-bar-v"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 1.5px;
+                      background-color: var(--brown-400);
+                      transform: translateX(-50%) rotate(0deg);
+                      transition:
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.3s;
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="faq-body"
+              style="
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+            >
+              <div
+                class="pb-8 pl-[4rem] pr-4 font-light leading-relaxed text-sm md:text-base"
+                style="color: var(--brown-300)"
+              >
+                Pelo WhatsApp ou pelo formulário de contato no site. Nossa
+                equipe responde em até 24 horas úteis para tirar dúvidas,
+                agendar atendimentos ou realizar qualquer ajuste no seu processo
+                de cuidado.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="relative w-full z-20 pt-24 pb-12"
+      style="
+        background-color: var(--brown-900);
+        border-top: 1px solid rgba(242, 229, 208, 0.08);
+      "
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24"
+        >
+          <div class="lg:col-span-3">
+            <div
+              class="flex items-center gap-2 mb-6"
+              style="color: var(--cream-50)"
+            >
+              <div
+                class="w-6 h-6 rounded flex items-center justify-center"
+                style="
+                  background-color: rgba(201, 169, 110, 0.15);
+                  color: var(--gold);
+                "
+              >
+                <span
+                  class="iconify w-3.5 h-3.5"
+                  data-icon="solar:add-square-linear"
+                ></span>
+              </div>
+              <span class="font-bold tracking-tight">VITALIS</span>
+            </div>
+            <p class="text-sm leading-relaxed" style="color: var(--brown-400)">
+              Conectando você à saúde. Uma experiência segura, personalizada e
+              baseada em evidências.
+            </p>
+          </div>
+          <div class="lg:col-span-2">
+            <h4
+              class="text-xs font-label font-semibold uppercase tracking-widest mb-6"
+              style="color: var(--brown-300)"
+            >
+              Especialidades
+            </h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#especialidades"
+                  style="color: var(--brown-400)"
+                >
+                  Psicoterapia Individual
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#especialidades"
+                  style="color: var(--brown-400)"
+                >
+                  Consulta com Psiquiatra
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#especialidades"
+                  style="color: var(--brown-400)"
+                >
+                  Consulta com Nutricionista
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#especialidades"
+                  style="color: var(--brown-400)"
+                >
+                  Avaliação Neuropsicológica
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-2">
+            <h4
+              class="text-xs font-label font-semibold uppercase tracking-widest mb-6"
+              style="color: var(--brown-300)"
+            >
+              Institucional
+            </h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#como-funciona"
+                  style="color: var(--brown-400)"
+                >
+                  Nossa história
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#"
+                  style="color: var(--brown-400)"
+                >
+                  Iniciativas parceiras
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#"
+                  style="color: var(--brown-400)"
+                >
+                  LGPD
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-sm transition-colors hover:text-[var(--gold)]"
+                  href="#"
+                  style="color: var(--brown-400)"
+                >
+                  Política de Privacidade
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="lg:col-span-5 flex flex-col sm:flex-row gap-4 lg:justify-end items-start"
+          >
+            <div
+              class="p-6 rounded-sm w-full sm:w-64"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid rgba(242, 229, 208, 0.1);
+              "
+            >
+              <span
+                class="block text-xs font-label font-semibold uppercase tracking-widest mb-2"
+                style="color: var(--brown-400)"
+              >
+                AGENDAR ATENDIMENTO
+              </span>
+              <span
+                class="block text-2xl font-semibold mb-1"
+                style="color: var(--cream-50)"
+              >
+                Fale conosco
+              </span>
+              <span class="block text-sm" style="color: var(--brown-300)"
+                >Equipe de assistência disponível</span
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row items-center justify-between pt-8 gap-4"
+          style="border-top: 1px solid rgba(242, 229, 208, 0.08)"
+        >
+          <p class="text-xs" style="color: var(--brown-400)">
+            © 2026 CogCom – Todos os Direitos Reservados.
+          </p>
+          <div class="flex gap-4 items-center">
+            <a
+              class="transition-colors hover:text-[var(--gold)] flex items-center gap-2"
+              href="#"
+              style="color: var(--brown-400)"
+            >
+              <span
+                class="iconify w-4 h-4"
+                data-icon="ri:instagram-line"
+              ></span>
+              <span class="text-xs">@institutocogcom</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/main.js"></script>
+
+    <!-- Bottom Mobile Navigation -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-[100] md:hidden flex items-end justify-between px-6 pb-4 pt-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] rounded-t-3xl"
+      style="background-color: var(--cream-25);"
+    >
+      <a href="#" class="flex flex-col items-center gap-1 group w-12">
+        <span class="iconify w-6 h-6" data-icon="solar:home-2-bold" style="color: var(--brown-800)"></span>
+        <span class="text-[10px] font-medium font-label" style="color: var(--brown-800)">Início</span>
+      </a>
+      <a href="#especialidades" class="flex flex-col items-center gap-1 group w-16">
+        <span class="iconify w-6 h-6" data-icon="solar:heart-bold" style="color: var(--brown-800)"></span>
+        <span class="text-[10px] font-medium font-label" style="color: var(--brown-800)">Tratamentos</span>
+      </a>
+      
+      <!-- Center Elevated Button -->
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="relative -top-6 flex flex-col items-center group w-16">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center border-4" style="background-color: #7b2933; border-color: var(--cream-25); box-shadow: 0 4px 16px rgba(123, 41, 51, 0.45);">
+           <span class="iconify w-7 h-7 text-white" data-icon="ri:whatsapp-line"></span>
+        </div>
+      </a>
+      
+      <a href="#como-funciona" class="flex flex-col items-center gap-1 group w-12">
+        <span class="iconify w-6 h-6" data-icon="solar:user-bold" style="color: var(--brown-800)"></span>
+        <span class="text-[10px] font-medium font-label" style="color: var(--brown-800)">Sobre</span>
+      </a>
+      <a href="#contato" class="flex flex-col items-center gap-1 group w-12">
+        <span class="iconify w-6 h-6" data-icon="solar:phone-bold" style="color: var(--brown-800)"></span>
+        <span class="text-[10px] font-medium font-label" style="color: var(--brown-800)">Contato</span>
+      </a>
+    </nav>
+  </body>
+</html>

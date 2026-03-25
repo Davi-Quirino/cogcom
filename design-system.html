@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instituto CogCom - Design System</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor Scripts -->
+    <script src="js/vendor/tailwind.js"></script>
+    <script src="js/vendor/iconify.js"></script>
+    <script src="js/vendor/lucide.js"></script>
+    <style>
+      :root {
+        /* Primary - Marrons Sofisticados */
+        --brown-950: #2C1810;
+        --brown-900: #3E241A;
+        --brown-800: #543324;
+        --brown-700: #6B402D;
+        --brown-600: #85533D;
+        --brown-500: #9C664E;
+        --brown-400: #B5826A;
+        --brown-300: #CDA48F;
+        --brown-200: #E0C5B6;
+
+        /* Neutrals - Cremes Suaves */
+        --cream-300: #DFCDBC;
+        --cream-200: #EBE0D3;
+        --cream-100: #F4EBE1;
+        --cream-50:  #FAF5F0;
+        --cream-25:  #FFFEFC;
+
+        /* Accents - Dourado Clássico */
+        --gold: #C9A96E;
+        --gold-light: #E0C797;
+        --gold-muted: #B4965F;
+
+        /* Secondary - Sage Green (Equilíbrio e Saúde Mental) */
+        --sage-900: #1B2B24;
+        --sage-800: #263C32;
+        --sage-700: #345143;
+        --sage-600: #446957;
+        --sage-500: #55826C;
+        --sage-400: #749E8A;
+        --sage-300: #9ABCA9;
+        --sage-200: #C2DACD;
+        --sage-100: #E1EFE7;
+        --sage-50:  #F0F7F3;
+
+        --grid-color: rgba(250, 245, 240, 0.05);
+        --beam-color: var(--sage-400);
+      }
+
+      body {
+        font-family: "Lora", "Georgia", serif;
+        background-color: var(--brown-700);
+        color: var(--cream-50);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", "Georgia", serif;
+      }
+
+      .font-decorative {
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        font-style: italic;
+      }
+
+      .font-decorative-sc {
+        font-family: "Cormorant SC", "Georgia", serif;
+      }
+
+      .font-label {
+        font-family: "Montserrat", "Arial", sans-serif;
+      }
+
+      .grid-line-v {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--grid-color);
+        z-index: 0;
+      }
+      .grid-line-h {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--grid-color);
+        z-index: 0;
+      }
+
+      @keyframes reveal-up {
+        0% {
+          clip-path: inset(100% 0 0 0);
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        100% {
+          clip-path: inset(0 0 0 0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .animate-reveal {
+        opacity: 0;
+        animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .delay-100 {
+        animation-delay: 0.1s;
+        transition-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+        transition-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+        transition-delay: 0.3s;
+      }
+      .delay-500 {
+        animation-delay: 0.5s;
+        transition-delay: 0.5s;
+      }
+      .delay-700 {
+        animation-delay: 0.7s;
+        transition-delay: 0.7s;
+      }
+
+      @keyframes beam-h {
+        0% {
+          left: -200px;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          left: 100%;
+          opacity: 0;
+        }
+      }
+      @keyframes beam-v {
+        0% {
+          top: -200px;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          top: 100%;
+          opacity: 0;
+        }
+      }
+      .beam-h {
+        position: absolute;
+        height: 1px;
+        width: 200px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--beam-color),
+          transparent
+        );
+        z-index: 10;
+        opacity: 0;
+      }
+      .beam-v {
+        position: absolute;
+        width: 1px;
+        height: 200px;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          var(--beam-color),
+          transparent
+        );
+        z-index: 10;
+        opacity: 0;
+      }
+
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
+      .hero-text {
+        text-align: center;
+      }
+      .hero-cta {
+        justify-content: center;
+      }
+      .hero-photo {
+        display: flex;
+        justify-content: center;
+      }
+      @media (min-width: 1024px) {
+        .hero-content {
+          flex-direction: row;
+          align-items: center;
+          gap: 4rem;
+        }
+        .hero-text {
+          text-align: left;
+          flex: 1;
+        }
+        .hero-cta {
+          justify-content: flex-start;
+        }
+        .hero-photo {
+          flex: 1;
+          justify-content: flex-end;
+        }
+      }
+
+      .ds-section {
+        padding: 6rem 0;
+        border-bottom: 1px solid rgba(242, 229, 208, 0.1);
+      }
+      .ds-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--brown-400);
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+      .ds-swatch {
+        width: 100%;
+        height: 80px;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        border: 1px solid rgba(242, 229, 208, 0.1);
+      }
+
+      .bg-brown-dark {
+        background-color: var(--brown-700);
+      }
+      .bg-brown-darker {
+        background-color: var(--brown-800);
+      }
+      .bg-brown-darkest {
+        background-color: var(--brown-900);
+      }
+      .bg-sage-dark {
+        background-color: var(--sage-700);
+      }
+      .bg-sage-light {
+        background-color: var(--sage-100);
+      }
+      .bg-cream {
+        background-color: var(--cream-200);
+      }
+      .bg-cream-light {
+        background-color: var(--cream-100);
+      }
+      .bg-cream-lightest {
+        background-color: var(--cream-25);
+      }
+      .text-cream {
+        color: var(--cream-50);
+      }
+      .text-cream-muted {
+        color: var(--cream-300);
+      }
+      .text-gold {
+        color: var(--gold);
+      }
+      .text-brown {
+        color: var(--brown-700);
+      }
+      .text-brown-dark {
+        color: var(--brown-800);
+      }
+      .text-brown-light {
+        color: var(--brown-400);
+      }
+      .text-sage {
+        color: var(--sage-600);
+      }
+      .text-sage-light {
+        color: var(--sage-300);
+      }
+      .border-cream-subtle {
+        border-color: rgba(250, 245, 240, 0.15);
+      }
+      .border-brown-subtle {
+        border-color: rgba(107, 64, 45, 0.2);
+      }
+
+      @keyframes float-text {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen w-full relative overflow-x-hidden antialiased"
+    style="background-color: var(--brown-700); color: var(--cream-50)"
+  >
+    <!-- Design System Nav -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 h-14 flex items-center justify-between"
+      style="
+        background-color: rgba(74, 37, 24, 0.92);
+        border-bottom: 1px solid rgba(242, 229, 208, 0.1);
+      "
+    >
+      <div
+        class="font-label font-bold tracking-tight"
+        style="color: var(--cream-50)"
+      >
+        INSTITUTO COGCOM
+        <span class="font-normal" style="color: var(--brown-400)"
+          >Design System</span
+        >
+      </div>
+      <div
+        class="hidden md:flex gap-6 text-xs font-label font-semibold uppercase tracking-wider"
+        style="color: var(--brown-400)"
+      >
+        <a href="#typography" class="hover:text-[var(--sage-400)] transition-colors"
+          >Tipografia</a
+        >
+        <a href="#colors" class="hover:text-[var(--sage-400)] transition-colors"
+          >Cores</a
+        >
+        <a href="#components" class="hover:text-[var(--sage-400)] transition-colors"
+          >Componentes</a
+        >
+        <a href="#layout" class="hover:text-[var(--sage-400)] transition-colors"
+          >Layout</a
+        >
+        <a href="#motion" class="hover:text-[var(--sage-400)] transition-colors"
+          >Motion</a
+        >
+      </div>
+    </nav>
+
+    <!-- 0) Hero Section -->
+    <section
+      class="relative min-h-screen w-full flex flex-col items-center justify-center mt-14 overflow-hidden"
+      style="background-color: var(--brown-700)"
+    >
+      <!-- Grid Lines -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="grid-line-v" style="left: 6%"></div>
+        <div class="grid-line-v" style="left: 50%">
+          <div class="beam-v" style="animation: beam-v 8s infinite 1s"></div>
+        </div>
+        <div class="grid-line-v" style="right: 6%"></div>
+        <div class="grid-line-h" style="top: 8%">
+          <div class="beam-h" style="animation: beam-h 6s infinite"></div>
+        </div>
+        <div class="grid-line-h" style="bottom: 8%"></div>
+      </div>
+
+      <!-- Header Bar -->
+      <div
+        class="absolute top-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label"
+      >
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
+          style="color: var(--cream-50)"
+          >Valores</span
+        >
+        <span
+          class="text-xs font-medium tracking-wider animate-reveal delay-200"
+          style="color: var(--cream-300)"
+          >@institutocogcom</span
+        >
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
+          style="color: var(--cream-50)"
+          >Objetivos</span
+        >
+      </div>
+
+      <!-- Center Content — Two-column layout -->
+      <div class="hero-content relative z-10 w-full max-w-7xl mx-auto px-8">
+        <!-- Left: Text -->
+        <div class="hero-text">
+          <!-- Decorative Script -->
+          <div
+            class="font-decorative text-[5rem] md:text-[7rem] leading-[0.9] animate-reveal delay-200"
+            style="color: var(--gold); opacity: 0.3"
+          >
+            Valores
+          </div>
+
+          <!-- Main Headline -->
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight -mt-8 animate-reveal delay-300"
+            style="
+              color: var(--cream-50);
+              font-family: &quot;Playfair Display&quot;, serif;
+            "
+          >
+            Instituto CogCom
+          </h1>
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-light leading-[1.1] mt-2 animate-reveal delay-500"
+            style="
+              color: var(--cream-300);
+              font-family: &quot;Playfair Display&quot;, serif;
+            "
+          >
+            Design System
+          </h2>
+
+          <!-- Body text -->
+          <p
+            class="font-decorative text-lg md:text-xl mt-8 leading-relaxed animate-reveal delay-700"
+            style="
+              color: var(--brown-300);
+              font-style: italic;
+              max-width: 36rem;
+            "
+          >
+            sendo as bases sobre as quais se apoiam nossos objetivos, atitudes e
+            comportamentos.
+          </p>
+
+          <!-- CTA -->
+          <div
+            class="hero-cta flex items-center gap-6 mt-12 animate-reveal delay-700"
+          >
+            <button
+              class="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-lg font-label hover:scale-[1.02]"
+              style="
+                background-color: var(--sage-600);
+                border: 1px solid var(--sage-500);
+              "
+            >
+              <span class="text-sm font-medium" style="color: var(--cream-50)"
+                >Explorar</span
+              >
+              <div
+                class="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                style="
+                  background-color: rgba(255, 255, 255, 0.2);
+                  color: var(--cream-50);
+                "
+              >
+                <span
+                  class="iconify w-4 h-4"
+                  data-icon="solar:arrow-right-linear"
+                ></span>
+              </div>
+            </button>
+            <div class="flex flex-col text-left">
+              <span
+                class="text-xs font-semibold uppercase tracking-wide font-label"
+                style="color: var(--cream-50)"
+                >Status</span
+              >
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                    style="background-color: var(--sage-400)"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2"
+                    style="background-color: var(--sage-400)"
+                  ></span>
+                </span>
+                <span class="text-xs font-label" style="color: var(--sage-200)"
+                  >ATIVO v1.0</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Portrait Photo -->
+        <div class="hero-photo animate-reveal delay-500">
+          <div
+            class="relative overflow-hidden shadow-2xl"
+            style="
+              width: min(380px, 100%);
+              height: 520px;
+              border-radius: 1rem;
+              border: 2px solid var(--gold-muted);
+            "
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80"
+              alt="Profissional de saúde — Instituto CogCom"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+              "
+            />
+            <div
+              class="absolute inset-0"
+              style="
+                background: linear-gradient(
+                  to top,
+                  var(--brown-700) 0%,
+                  transparent 40%
+                );
+              "
+            ></div>
+            <div class="absolute bottom-6 left-6 right-6 z-10">
+              <span
+                class="font-decorative text-lg"
+                style="color: var(--gold-light)"
+                >Dra. Exemplo</span
+              >
+              <p
+                class="font-label text-xs mt-1 tracking-wide"
+                style="color: var(--cream-300)"
+              >
+                Psicóloga Cognitivo-Comportamental
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Bottom Script -->
+      <div
+        class="absolute bottom-16 left-1/2 -translate-x-1/2 font-decorative text-[5rem] md:text-[7rem] leading-[0.9] z-0"
+        style="color: var(--gold); opacity: 0.12"
+      >
+        Objetivos
+      </div>
+
+      <!-- Footer Bar -->
+      <div
+        class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label"
+      >
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em]"
+          style="color: var(--cream-50)"
+          >Psicologia</span
+        >
+        <span
+          class="text-xs font-medium tracking-wider"
+          style="color: var(--cream-300)"
+          >@institutocogcom</span
+        >
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em]"
+          style="color: var(--cream-50)"
+          >Metas</span
+        >
+      </div>
+    </section>
+
+    <!-- 1) Typography -->
+    <section
+      id="typography"
+      class="ds-section relative z-10"
+      style="background-color: var(--cream-200); color: var(--brown-800)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label" style="color: var(--brown-500)"
+          >01 / Tipografia</span
+        >
+        <div class="grid grid-cols-1 gap-12">
+          <!-- Display / Decorative -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Display / Decorativo
+            </div>
+            <div class="w-full lg:w-1/2">
+              <span
+                class="font-decorative text-6xl lg:text-7xl font-light"
+                style="color: var(--gold)"
+              >
+                Valores
+              </span>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Cormorant Garamond Italic / 4.5rem
+            </div>
+          </div>
+
+          <!-- Heading 1 -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Heading 1
+            </div>
+            <div class="w-full lg:w-1/2">
+              <h1
+                class="text-5xl lg:text-[3.5rem] font-semibold tracking-tight leading-[1.05]"
+                style="color: var(--brown-900)"
+              >
+                Os valores servem como as colunas
+              </h1>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Playfair Display 600 / 3.5rem
+            </div>
+          </div>
+
+          <!-- Heading 2 -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Heading 2
+            </div>
+            <div class="w-full lg:w-1/2">
+              <h2
+                class="text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1]"
+                style="color: var(--brown-800)"
+              >
+                Suas metas para 2026
+              </h2>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Playfair Display 500 / 3rem
+            </div>
+          </div>
+
+          <!-- Heading 3 -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Heading 3
+            </div>
+            <div class="w-full lg:w-1/2">
+              <h3
+                class="text-2xl lg:text-3xl font-medium tracking-tight"
+                style="color: var(--brown-800)"
+              >
+                Valores e objetivos
+              </h3>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Playfair Display 500 / 1.875rem
+            </div>
+          </div>
+
+          <!-- Heading 4 -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Heading 4
+            </div>
+            <div class="w-full lg:w-1/2">
+              <h4
+                class="text-xl font-semibold tracking-tight"
+                style="color: var(--brown-800)"
+              >
+                Planejamento de metas
+              </h4>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Playfair Display 600 / 1.25rem
+            </div>
+          </div>
+
+          <!-- Body Large (Italic) -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Corpo Grande (Italico)
+            </div>
+            <div class="w-full lg:w-1/2">
+              <p
+                class="font-decorative text-xl leading-relaxed"
+                style="color: var(--brown-600)"
+              >
+                sendo as bases sobre as quais se apoiam nossos objetivos,
+                atitudes e comportamentos.
+              </p>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Cormorant Garamond Italic / 1.25rem
+            </div>
+          </div>
+
+          <!-- Body Regular -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.15)"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Corpo Regular
+            </div>
+            <div class="w-full lg:w-1/2">
+              <p
+                class="text-base leading-relaxed"
+                style="
+                  color: var(--brown-500);
+                  font-family: &quot;Lora&quot;, serif;
+                "
+              >
+                O seu planejamento de metas para o ano pode ser
+                significativamente aprimorado se voce entender a importancia dos
+                valores e objetivos.
+              </p>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Lora 400 / 1rem
+            </div>
+          </div>
+
+          <!-- Label -->
+          <div
+            class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-8"
+          >
+            <div
+              class="w-full lg:w-1/4 text-sm font-label"
+              style="color: var(--brown-400)"
+            >
+              Label / Sans-Serif
+            </div>
+            <div class="w-full lg:w-1/2">
+              <p
+                class="font-label text-[11px] font-semibold tracking-[0.2em] uppercase"
+                style="color: var(--brown-500)"
+              >
+                Valores &nbsp;&nbsp;&bull;&nbsp;&nbsp; Objetivos
+                &nbsp;&nbsp;&bull;&nbsp;&nbsp; Psicologia
+                &nbsp;&nbsp;&bull;&nbsp;&nbsp; Metas
+              </p>
+            </div>
+            <div
+              class="w-full lg:w-1/4 text-right font-label text-xs"
+              style="color: var(--brown-400)"
+            >
+              Montserrat 600 / 0.688rem
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Colors & Surfaces -->
+    <section
+      id="colors"
+      class="ds-section relative z-10"
+      style="background-color: var(--brown-800)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label">02 / Cores & Superficies</span>
+
+        <!-- Brown Palette -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Marrons (Fundos Escuros)
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-950)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 950<br />#2C1810
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-900)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 900<br />#3E241A
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-800)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 800<br />#543324
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-700)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 700<br />#6B402D
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-600)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 600<br />#85533D
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-500)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 500<br />#9C664E
+            </div>
+          </div>
+        </div>
+
+        <!-- Cream Palette -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Cremes (Fundos Claros & Texto)
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-400)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 400<br />#B5826A
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--brown-300)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Brown 300<br />#CDA48F
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--cream-300)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Cream 300<br />#DFCDBC
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--cream-200)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Cream 200<br />#EBE0D3
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--cream-100)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Cream 100<br />#F4EBE1
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--cream-50)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Cream 50<br />#FAF5F0
+            </div>
+          </div>
+        </div>
+
+        <!-- Sage Palette -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Verde Sage (Saúde & Equilíbrio)
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-900)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 900<br />#1B2B24
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-700)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 700<br />#345143
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-500)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 500<br />#55826C
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-300)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 300<br />#9ABCA9
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-100)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 100<br />#E1EFE7
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--sage-50)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Sage 50<br />#F0F7F3
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold & Accent -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Dourados & Acentos
+        </h4>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div>
+            <div class="ds-swatch" style="background-color: var(--gold)"></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Gold<br />#C9A96E
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--gold-light)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Gold Light<br />#E0C797
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="background-color: var(--gold-muted)"
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Gold Muted<br />#B4965F
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--brown-700),
+                  var(--brown-900)
+                );
+              "
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Gradiente Escuro<br />Brown 700→900
+            </div>
+          </div>
+          <div>
+            <div
+              class="ds-swatch"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--cream-200),
+                  var(--cream-50)
+                );
+              "
+            ></div>
+            <div class="text-xs font-label" style="color: var(--brown-300)">
+              Gradiente Claro<br />Cream 200→50
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Surfaces & Modes -->
+    <section
+      class="ds-section relative z-10"
+      style="background-color: var(--brown-700)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label">03 / Superficies & Modos</span>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Dark Mode Card -->
+          <div
+            class="relative p-10 rounded overflow-hidden"
+            style="
+              background-color: var(--brown-700);
+              border: 1px solid rgba(242, 229, 208, 0.1);
+            "
+          >
+            <div
+              class="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 font-label"
+              style="border-bottom: 1px solid rgba(242, 229, 208, 0.08)"
+            >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Valores</span
+              >
+              <span
+                class="text-[10px] tracking-wider"
+                style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Objetivos</span
+              >
+            </div>
+            <div class="text-center pt-12 pb-6">
+              <span
+                class="font-decorative text-4xl"
+                style="color: var(--gold); opacity: 0.4"
+                >Valores</span
+              >
+              <h3
+                class="text-2xl font-semibold mt-4 leading-snug"
+                style="color: var(--cream-50)"
+              >
+                Os valores servem como as "colunas em que se apoiariam nossas
+                vidas"
+              </h3>
+              <p
+                class="font-decorative text-base mt-4"
+                style="color: var(--cream-300)"
+              >
+                sendo as bases sobre as quais se apoiam nossos objetivos.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4 font-label"
+              style="border-top: 1px solid rgba(242, 229, 208, 0.08)"
+            >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Psicologia</span
+              >
+              <span
+                class="text-[10px] tracking-wider"
+                style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Metas</span
+              >
+            </div>
+          </div>
+
+          <!-- Light Mode Card -->
+          <div
+            class="relative p-10 rounded overflow-hidden"
+            style="
+              background-color: var(--cream-200);
+              border: 1px solid rgba(90, 50, 34, 0.1);
+            "
+          >
+            <div
+              class="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-4 font-label"
+              style="border-bottom: 1px solid rgba(90, 50, 34, 0.1)"
+            >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Valores</span
+              >
+              <span
+                class="text-[10px] tracking-wider"
+                style="color: var(--brown-400)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Objetivos</span
+              >
+            </div>
+            <div class="text-center pt-12 pb-6">
+              <span
+                class="font-decorative text-4xl"
+                style="color: var(--brown-300); opacity: 0.6"
+                >Valores</span
+              >
+              <h3
+                class="text-2xl font-semibold mt-4 leading-snug"
+                style="color: var(--brown-800)"
+              >
+                O seu planejamento de metas pode ser aprimorado
+              </h3>
+              <p
+                class="font-decorative text-base mt-4"
+                style="color: var(--brown-500)"
+              >
+                se voce entender a importancia dos valores e objetivos.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-4 font-label"
+              style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
+            >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Psicologia</span
+              >
+              <span
+                class="text-[10px] tracking-wider"
+                style="color: var(--brown-400)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Metas</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) UI Components -->
+    <section
+      id="components"
+      class="ds-section relative z-10"
+      style="background-color: var(--cream-200); color: var(--brown-800)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label" style="color: var(--brown-500)"
+          >04 / Componentes</span
+        >
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <!-- Buttons -->
+          <div class="space-y-8">
+            <h4
+              class="text-sm font-label font-semibold pb-2"
+              style="
+                color: var(--brown-800);
+                border-bottom: 1px solid rgba(90, 50, 34, 0.15);
+              "
+            >
+              Botoes
+            </h4>
+
+            <!-- Primary Dark -->
+            <div class="flex items-center gap-4">
+              <button
+                class="font-label flex items-center gap-2 text-xs font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
+                style="
+                  background-color: var(--brown-800);
+                  color: var(--cream-50);
+                "
+              >
+                Saiba Mais
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Primario Escuro</span
+              >
+            </div>
+
+            <!-- Primary Gold -->
+            <div class="flex items-center gap-4">
+              <button
+                class="font-label flex items-center gap-2 text-xs font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
+                style="background-color: var(--gold); color: var(--brown-900)"
+              >
+                Agendar Sessao
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Primario Dourado</span
+              >
+            </div>
+
+            <!-- Primary Sage -->
+            <div class="flex items-center gap-4">
+              <button
+                class="font-label flex items-center gap-2 text-xs font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
+                style="background-color: var(--sage-600); color: var(--cream-50)"
+              >
+                Iniciar Terapia
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Acento (Saúde)</span
+              >
+            </div>
+
+            <!-- Secondary Pill -->
+            <div class="flex items-center gap-4">
+              <button
+                class="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-sm font-label"
+                style="
+                  background-color: var(--cream-50);
+                  border: 1px solid var(--cream-300);
+                "
+              >
+                <span
+                  class="text-sm font-medium"
+                  style="color: var(--brown-700)"
+                  >Explorar conteudos</span
+                >
+                <div
+                  class="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                  style="
+                    background-color: var(--brown-700);
+                    color: var(--cream-50);
+                  "
+                >
+                  <span
+                    class="iconify w-4 h-4"
+                    data-icon="solar:arrow-right-linear"
+                  ></span>
+                </div>
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Secundario Pill</span
+              >
+            </div>
+
+            <!-- Text Link -->
+            <div class="flex items-center gap-4">
+              <button
+                class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-1"
+                style="color: var(--gold-muted)"
+              >
+                Ver detalhes
+                <span
+                  class="iconify w-3.5 h-3.5"
+                  data-icon="solar:arrow-right-linear"
+                ></span>
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Link de Texto</span
+              >
+            </div>
+
+            <!-- Large CTA -->
+            <div class="flex items-center gap-4">
+              <button
+                class="font-label flex items-center gap-4 pl-8 pr-6 py-4 rounded font-semibold text-xs uppercase tracking-widest transition-all shadow-lg group/btn"
+                style="
+                  background-color: var(--cream-50);
+                  color: var(--brown-800);
+                  border: 1px solid var(--cream-300);
+                "
+              >
+                Comecar Agora
+                <div
+                  class="w-6 h-6 rounded-full flex items-center justify-center group-hover/btn:scale-110 transition-transform"
+                  style="
+                    background-color: var(--brown-800);
+                    color: var(--cream-50);
+                  "
+                >
+                  <span
+                    class="iconify w-3.5 h-3.5"
+                    data-icon="solar:arrow-right-linear"
+                  ></span>
+                </div>
+              </button>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >CTA Grande</span
+              >
+            </div>
+          </div>
+
+          <!-- Badges & Status -->
+          <div class="space-y-8">
+            <h4
+              class="text-sm font-label font-semibold pb-2"
+              style="
+                color: var(--brown-800);
+                border-bottom: 1px solid rgba(90, 50, 34, 0.15);
+              "
+            >
+              Badges & Indicadores
+            </h4>
+
+            <div class="flex items-center gap-4">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-label font-bold uppercase tracking-widest"
+                style="
+                  background-color: var(--sage-100);
+                  border: 1px solid var(--sage-200);
+                  color: var(--sage-700);
+                "
+              >
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                    style="background-color: var(--sage-500)"
+                  ></span>
+                  <span
+                    class="relative inline-flex rounded-full h-2 w-2"
+                    style="background-color: var(--sage-500)"
+                  ></span>
+                </span>
+                Conteudo Novo
+              </div>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Status Positivo</span
+              >
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div
+                class="text-xs font-label px-3 py-1.5 rounded"
+                style="
+                  background-color: var(--sage-50);
+                  border: 1px solid var(--sage-200);
+                  color: var(--sage-700);
+                "
+              >
+                Psicologia Cognitiva
+              </div>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Tag de Categoria</span
+              >
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded flex items-center justify-center"
+                style="
+                  background-color: rgba(201, 169, 110, 0.15);
+                  color: var(--gold);
+                "
+              >
+                <span
+                  class="iconify w-5 h-5"
+                  data-icon="solar:brain-linear"
+                ></span>
+              </div>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Caixa de Icone</span
+              >
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-1">
+                <span
+                  class="iconify w-[18px] h-[18px]"
+                  data-icon="solar:star-bold"
+                  style="color: var(--gold)"
+                ></span>
+                <span
+                  class="iconify w-[18px] h-[18px]"
+                  data-icon="solar:star-bold"
+                  style="color: var(--gold)"
+                ></span>
+                <span
+                  class="iconify w-[18px] h-[18px]"
+                  data-icon="solar:star-bold"
+                  style="color: var(--gold)"
+                ></span>
+                <span
+                  class="iconify w-[18px] h-[18px]"
+                  data-icon="solar:star-bold"
+                  style="color: var(--gold)"
+                ></span>
+                <span
+                  class="iconify w-[18px] h-[18px]"
+                  data-icon="solar:star-bold"
+                  style="color: var(--gold)"
+                ></span>
+              </div>
+              <span class="text-xs font-label" style="color: var(--brown-400)"
+                >Avaliacao</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="mt-16">
+          <h4
+            class="text-sm font-label font-semibold pb-6 mb-6"
+            style="
+              color: var(--brown-800);
+              border-bottom: 1px solid rgba(90, 50, 34, 0.15);
+            "
+          >
+            Cards & Containers
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Content Card (Dark) -->
+            <div
+              class="group hover:shadow-xl transition-all duration-300 flex flex-col rounded p-8 relative overflow-hidden"
+              style="background-color: var(--brown-700); color: var(--cream-50)"
+            >
+              <div
+                class="w-12 h-12 rounded-lg flex items-center justify-center mb-8 relative z-10"
+                style="
+                  background-color: var(--sage-800);
+                  color: var(--sage-300);
+                "
+              >
+                <span
+                  class="iconify w-6 h-6"
+                  data-icon="solar:brain-linear"
+                ></span>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="text-lg font-semibold mb-2 tracking-tight"
+                  style="color: var(--cream-50)"
+                >
+                  Psicologia Cognitiva
+                </h3>
+                <p
+                  class="text-sm leading-relaxed"
+                  style="color: var(--brown-300)"
+                >
+                  Compreenda como os processos mentais influenciam suas decisoes
+                  e comportamentos diarios.
+                </p>
+              </div>
+            </div>
+
+            <!-- Quote Card (Light) -->
+            <div
+              class="group transition-all duration-300 p-8 rounded"
+              style="
+                background-color: var(--cream-50);
+                border: 1px solid rgba(90, 50, 34, 0.1);
+              "
+            >
+              <div
+                class="font-decorative text-3xl mb-4 leading-none"
+                style="color: var(--sage-400); opacity: 0.6"
+              >
+                "
+              </div>
+              <p
+                class="text-base leading-relaxed mb-6"
+                style="
+                  color: var(--brown-600);
+                  font-family: &quot;Lora&quot;, serif;
+                "
+              >
+                "Os valores servem como as colunas em que se apoiariam nossas
+                vidas."
+              </p>
+              <div
+                class="flex items-center gap-4 pt-4"
+                style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
+              >
+                <div
+                  class="w-8 h-8 rounded-full overflow-hidden"
+                  style="background-color: var(--brown-300)"
+                ></div>
+                <div>
+                  <h4
+                    class="font-medium text-sm"
+                    style="color: var(--brown-800)"
+                  >
+                    Instituto CogCom
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Card -->
+            <div
+              class="group cursor-default p-6 rounded"
+              style="
+                background-color: var(--cream-100);
+                border: 1px solid rgba(90, 50, 34, 0.08);
+              "
+            >
+              <div
+                class="text-4xl font-semibold tracking-tight mb-2 group-hover:text-[var(--sage-600)] transition-colors"
+                style="color: var(--brown-800)"
+              >
+                +2.500
+              </div>
+              <div
+                class="h-0.5 w-12 mb-3 group-hover:w-full transition-all duration-700 ease-out"
+                style="background-color: var(--sage-500)"
+              ></div>
+              <p class="text-sm leading-snug" style="color: var(--brown-500)">
+                Pessoas impactadas por nossos conteudos sobre psicologia e
+                autoconhecimento.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Layout & Spacing -->
+    <section
+      id="layout"
+      class="ds-section relative z-10"
+      style="background-color: var(--brown-800)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label">05 / Layout & Grid</span>
+
+        <!-- Post Layout Demo -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Formato de Post (Instagram)
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <!-- Post Dark -->
+          <div
+            class="relative aspect-[4/5] rounded overflow-hidden flex flex-col items-center justify-center text-center p-8"
+            style="background-color: var(--brown-700)"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Valores</span
+              >
+              <span class="text-[8px]" style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Objetivos</span
+              >
+            </div>
+            <!-- Circle with placeholder -->
+            <div
+              class="w-24 h-24 rounded-full mb-6 flex items-center justify-center"
+              style="background-color: var(--sage-200)"
+            >
+              <span
+                class="iconify w-10 h-10"
+                data-icon="solar:hand-stars-linear"
+                style="color: var(--sage-700)"
+              ></span>
+            </div>
+            <h3
+              class="text-lg font-semibold leading-snug"
+              style="color: var(--cream-50)"
+            >
+              Os valores servem como as "colunas"
+            </h3>
+            <p
+              class="font-decorative text-sm mt-3"
+              style="color: var(--cream-300)"
+            >
+              sendo as bases sobre as quais se apoiam nossos objetivos.
+            </p>
+            <div
+              class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Psicologia</span
+              >
+              <span class="text-[8px]" style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Metas</span
+              >
+            </div>
+          </div>
+
+          <!-- Post Dark 2 -->
+          <div
+            class="relative aspect-[4/5] rounded overflow-hidden flex flex-col items-start justify-center text-left p-8"
+            style="background-color: var(--brown-700)"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Valores</span
+              >
+              <span class="text-[8px]" style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Objetivos</span
+              >
+            </div>
+            <h3
+              class="text-2xl font-bold leading-[1.15]"
+              style="color: var(--cream-50)"
+            >
+              Suas metas para 2026
+            </h3>
+            <p class="text-sm mt-2" style="color: var(--cream-300)">
+              estao de acordo com seus
+            </p>
+            <span
+              class="font-decorative text-4xl mt-1"
+              style="color: var(--sage-300)"
+              >Valores</span
+            >
+            <p class="text-xl font-medium mt-0" style="color: var(--cream-50)">
+              e objetivos?
+            </p>
+            <div
+              class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Psicologia</span
+              >
+              <span class="text-[8px]" style="color: var(--cream-300)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--cream-50)"
+                >Metas</span
+              >
+            </div>
+          </div>
+
+          <!-- Post Light -->
+          <div
+            class="relative aspect-[4/5] rounded overflow-hidden flex flex-col items-center justify-center text-center p-8"
+            style="background-color: var(--cream-200)"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Valores</span
+              >
+              <span class="text-[8px]" style="color: var(--brown-400)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Objetivos</span
+              >
+            </div>
+            <span
+              class="font-decorative text-5xl leading-none"
+              style="color: var(--brown-300); opacity: 0.5"
+              >Valores</span
+            >
+            <h3
+              class="text-lg font-semibold leading-snug mt-2"
+              style="color: var(--brown-800)"
+            >
+              O planejamento de metas pode ser aprimorado
+            </h3>
+            <p
+              class="font-decorative text-sm mt-3"
+              style="color: var(--brown-500)"
+            >
+              se voce entender a importancia dos valores e objetivos.
+            </p>
+            <span
+              class="font-decorative text-4xl leading-none mt-4"
+              style="color: var(--brown-300); opacity: 0.4"
+              >Objetivos</span
+            >
+            <div
+              class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3 font-label"
+            >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Psicologia</span
+              >
+              <span class="text-[8px]" style="color: var(--brown-400)"
+                >@institutocogcom</span
+              >
+              <span
+                class="text-[8px] font-semibold uppercase tracking-[0.2em]"
+                style="color: var(--brown-700)"
+                >Metas</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid System -->
+        <h4
+          class="font-label text-sm font-semibold mb-6"
+          style="color: var(--cream-50)"
+        >
+          Sistema de Grid
+        </h4>
+        <div
+          class="relative w-full h-[400px] rounded overflow-hidden mb-8"
+          style="
+            background-color: var(--brown-700);
+            border: 1px solid rgba(242, 229, 208, 0.1);
+          "
+        >
+          <div class="absolute inset-0">
+            <div class="grid-line-v" style="left: 6%"></div>
+            <div class="grid-line-v" style="left: 50%"></div>
+            <div class="grid-line-v" style="right: 6%"></div>
+            <div class="grid-line-h" style="top: 8%"></div>
+            <div class="grid-line-h" style="bottom: 8%"></div>
+
+            <div
+              class="absolute inset-0 p-8 flex flex-col items-center justify-center gap-2"
+            >
+              <p
+                class="font-label text-sm p-2 rounded"
+                style="
+                  color: var(--cream-300);
+                  background-color: rgba(242, 229, 208, 0.05);
+                "
+              >
+                Padding lateral: 6% | Header/Footer: 8%
+              </p>
+              <p class="font-label text-xs" style="color: var(--brown-400)">
+                Proporcao de post: 4:5 (Instagram)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Motion & Interaction -->
+    <section
+      id="motion"
+      class="ds-section relative z-10"
+      style="background-color: var(--cream-200); color: var(--brown-800)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label" style="color: var(--brown-500)"
+          >06 / Motion</span
+        >
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div
+            class="p-8 rounded"
+            style="border: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <h4
+              class="text-sm font-label font-semibold mb-4"
+              style="color: var(--brown-800)"
+            >
+              Animacao Reveal
+            </h4>
+            <div
+              class="p-6 rounded overflow-hidden"
+              style="background-color: var(--cream-100)"
+            >
+              <div
+                class="animate-reveal shadow-sm p-4 rounded text-center"
+                style="
+                  background-color: var(--cream-50);
+                  color: var(--brown-500);
+                "
+              >
+                Recarregue para ver "animate-reveal"
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="p-8 rounded relative overflow-hidden"
+            style="border: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <h4
+              class="text-sm font-label font-semibold mb-4"
+              style="color: var(--brown-800)"
+            >
+              Animacao Beam
+            </h4>
+            <div
+              class="h-32 relative overflow-hidden rounded"
+              style="background-color: var(--brown-700)"
+            >
+              <div
+                class="beam-h"
+                style="animation: beam-h 2s infinite; top: 50%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) Icons -->
+    <section
+      id="icons"
+      class="ds-section relative z-10"
+      style="background-color: var(--brown-700)"
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <span class="ds-label">07 / Icones (Solar)</span>
+
+        <div class="flex flex-wrap gap-8" style="color: var(--cream-300)">
+          <div class="flex flex-col items-center gap-2">
+            <span class="iconify w-8 h-8" data-icon="solar:brain-linear"></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >brain</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:hand-stars-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >hand-stars</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:heart-pulse-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >heart-pulse</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:shield-check-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >shield-check</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:arrow-right-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >arrow-right</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:users-group-two-rounded-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >users-group</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span class="iconify w-8 h-8" data-icon="solar:star-bold"></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >star</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:book-2-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >book</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:lightbulb-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >lightbulb</span
+            >
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <span
+              class="iconify w-8 h-8"
+              data-icon="solar:target-linear"
+            ></span>
+            <span class="text-[10px] font-label" style="color: var(--brown-400)"
+              >target</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-12 text-center"
+      style="
+        background-color: var(--brown-900);
+        border-top: 1px solid rgba(242, 229, 208, 0.08);
+      "
+    >
+      <p class="font-label text-sm" style="color: var(--brown-400)">
+        Instituto CogCom Design System &bull; @institutocogcom
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px", threshold: 0.1 }
+        );
+        document.querySelectorAll(".scroll-reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
