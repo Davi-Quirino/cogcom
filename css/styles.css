@@ -369,20 +369,18 @@ h6 {
 
   .hero-text h1 {
     color: var(--brown-900) !important;
-    font-size: 2.25rem !important;
+    font-size: 2rem !important;
     margin-top: -0.25rem !important;
-    line-height: 1.05 !important;
-    max-width: 17rem;
+    line-height: 1.1 !important;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     padding-bottom: 0.25rem;
   }
 
   .hero-text h1 span {
-    display: block;
+    display: inline;
   }
 
   .hero-text h1 br {
