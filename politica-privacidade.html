@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Politica de Privacidade | CogCom</title>
+    <meta
+      name="description"
+      content="Politica de Privacidade da CogCom em conformidade com a LGPD."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brown-950: #2c1810;
+        --brown-900: #3e241a;
+        --brown-800: #543324;
+        --brown-700: #6b402d;
+        --brown-500: #9c664e;
+        --brown-400: #b5826a;
+        --brown-300: #cda48f;
+        --cream-100: #f4ebe1;
+        --cream-50: #faf5f0;
+        --gold: #c9a96e;
+        --gold-muted: #b4965f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Lora", "Georgia", serif;
+        background: var(--brown-700);
+        color: var(--cream-50);
+      }
+
+      .font-label {
+        font-family: "Montserrat", "Arial", sans-serif;
+      }
+
+      .font-display {
+        font-family: "Playfair Display", "Georgia", serif;
+      }
+
+      .font-decorative {
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        font-style: italic;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(8px);
+        background: rgba(62, 36, 26, 0.92);
+        border-bottom: 1px solid rgba(242, 229, 208, 0.12);
+      }
+
+      .topbar-inner,
+      .container {
+        width: min(1200px, 92%);
+        margin: 0 auto;
+      }
+
+      .topbar-inner {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: var(--cream-50);
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+
+      .top-links {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .top-links a {
+        color: var(--brown-300);
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .top-links a:hover {
+        color: var(--gold);
+      }
+
+      main {
+        padding: 3rem 0 4rem;
+      }
+
+      .hero {
+        margin-bottom: 1.3rem;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .eyebrow-line {
+        width: 2.5rem;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .eyebrow span {
+        color: var(--gold-muted);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        color: var(--cream-50);
+      }
+
+      .subtitle {
+        margin: 0.8rem 0 0;
+        color: var(--brown-300);
+        font-size: 1.05rem;
+      }
+
+      .section {
+        background: var(--cream-50);
+        color: var(--brown-800);
+        border: 1px solid rgba(90, 50, 34, 0.12);
+        border-radius: 12px;
+        padding: 1.3rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .section h2 {
+        margin: 0 0 0.65rem;
+        font-size: 1.1rem;
+        color: var(--brown-900);
+      }
+
+      p {
+        margin: 0 0 0.8rem;
+        color: var(--brown-700);
+        line-height: 1.7;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      ul,
+      ol {
+        margin: 0.4rem 0 0.8rem 1.1rem;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 0.4rem;
+        color: var(--brown-700);
+      }
+
+      a.link {
+        color: var(--brown-900);
+      }
+
+      .footer-note {
+        margin-top: 1.1rem;
+        color: var(--brown-400);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 800px) {
+        .top-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <strong class="font-label">CogCom</strong>
+        </a>
+        <nav class="top-links font-label" aria-label="Navegacao">
+          <a href="index.html">Inicio</a>
+          <a href="lgpd.html">LGPD</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="hero">
+          <div class="eyebrow font-label">
+            <div class="eyebrow-line" aria-hidden="true"></div>
+            <span>Privacidade e Dados</span>
+          </div>
+          <h1 class="font-display">Politica de Privacidade</h1>
+          <p class="subtitle font-decorative">
+            COGCOM SOLUCOES EM SAUDE COMPORTAMENTAL LTDA
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">1. OBJETIVO DESTA POLITICA</h2>
+          <p>
+            A CogCom doravante denominada COGCOM SOLUCOES EM SAUDE
+            COMPORTAMENTAL LTDA e controladora dos dados pessoais. Emprega os
+            melhores esforcos para fornecer medidas de protecao adequadas em
+            todas as suas operacoes e para implementar as politicas e os
+            procedimentos mais consistentes, efetivos e rigorosos. Por
+            reconhecer a importancia da sua privacidade, desenvolvemos esta
+            Politica para informa-lo a respeito das condicoes sob as quais
+            Tratamos e Protegemos seus Dados Pessoais. Esta Politica tambem
+            descreve seus direitos e como voce pode entrar em contato conosco
+            para exerce-los ou nos fazer quaisquer perguntas que voce possa ter
+            sobre a protecao de seus Dados Pessoais.
+          </p>
+          <p>
+            Os termos dessa Politica se aplicam aos Usuarios e/ou Visitantes do
+            website
+            <a class="link" href="https://cogcom.com.br/">https://cogcom.com.br/</a>,
+            CogCom - YouTube, @cogcom.hub Instagram tambem conhecidos como
+            CANAIS DIGITAIS.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">2. ORIGEM DOS DADOS PESSOAIS</h2>
+          <p>
+            A CogCom coleta e trata os seus Dados Pessoais por meio do
+            fornecimento atraves do preenchimento do formulario de interesse em
+            conexao com servico de profissionais de psicologia, psiquiatria
+            e/ou nutricao atraves do site
+            <a class="link" href="https://cogcom.com.br/">https://cogcom.com.br/</a>.
+          </p>
+          <p>As informacoes coletadas pela CogCom incluem:</p>
+          <ul>
+            <li>
+              nome completo, cpf, rg, data de nascimento, endereco, e-mail,
+              genero, numero de telefone celular, idade, informacoes sobre
+              saude geral e especifica do titular, religiao, estilo de vida.
+            </li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            3. FINALIDADES PARA AS QUAIS UTILIZAMOS DADOS PESSOAIS
+          </h2>
+          <p>
+            Os Dados Pessoais que a CogCom coleta sao utilizados para fornecer
+            os seus servicos, garantir que funcionem conforme o esperado, para
+            aprimora-los e, tambem, para ajudar a melhorar a confiabilidade e
+            seguranca de todos os nossos servicos.
+          </p>
+          <p>
+            Especificamente, a CogCom podera utilizar seus Dados Pessoais para
+            as seguintes finalidades:
+          </p>
+          <ul>
+            <li>
+              Administrar, prestar os servicos de conexao entre pacientes e
+              profissionais de saude, viabilizando agendamentos e atendimentos
+              e garantindo a comunicacao eficiente entre as partes conectadas,
+              e cumprir as obrigacoes decorrentes dos servicos disponibilizados
+              pela CogCom;
+            </li>
+            <li>
+              Informar sobre novidades, servicos, funcionalidades, conteudos,
+              beneficios, noticias e demais eventos relevantes e de
+              relacionamento com os usuarios;
+            </li>
+            <li>Criacao de plano de acao de melhoria de nossos servicos/produtos;</li>
+            <li>
+              Colaborar e/ou cumprir ordem judicial ou requisicao por
+              autoridade administrativa;
+            </li>
+            <li>
+              Qualquer outra finalidade sera informada a voce, se aplicavel,
+              quando coletamos seus dados.
+            </li>
+          </ul>
+          <p>A CogCom nao vende e/ou comercializa informacoes que possam identifica-lo.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            4. HIPOTESE DE TRATAMENTO DE DADOS PESSOAIS
+          </h2>
+          <p>
+            A CogCom realiza o Tratamento dos Dados Pessoais como parte do
+            desempenho e gestao de nosso relacionamento contratual com voce, em
+            nosso legitimo interesse, desde que os requisitos legais para tanto
+            sejam atendidos, em conformidade com certas obrigacoes legais ou
+            regulatorias, ou quando for necessario para o exercicio regular de
+            direitos em processo judicial, administrativo ou arbitral. Seus
+            Dados Pessoais tambem podem ser tratados com base em seu previo
+            consentimento, caso, sob certas circunstancias, seu consentimento
+            seja solicitado.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">5. COMPARTILHAMENTO DE DADOS PESSOAIS</h2>
+          <p>
+            A seguranca e a confidencialidade de seus Dados Pessoais sao de
+            grande importancia para nos. E por isso que restringimos o acesso a
+            seus Dados Pessoais somente a nossa equipe devidamente autorizada
+            que precise ter conhecimento sobre tais dados para processar suas
+            requisicoes ou fornecer o(s) servico(s) solicitado(s).
+          </p>
+          <p>
+            Nao divulgaremos seus Dados Pessoais a terceiros nao autorizados. No
+            entanto, podemos compartilhar seus Dados Pessoais com entidades
+            relacionadas a CogCom e com prestadores de servicos autorizados, com
+            os quais trabalhamos (por exemplo: Call Center; agentes de
+            relacionamento; servicos de BackOffice; consultores nas areas de
+            psicologia, psiquiatria e nutricionismo; etc.), a quem podemos
+            recorrer com o proposito de prestar nossos servicos. Nesses casos,
+            garantimos que os seus Dados Pessoais sejam tratados apenas para
+            propositos legitimos, especificos, explicitos e informados a voce,
+            sem possibilidade de Tratamento posterior de forma incompativel com
+            a finalidade informada.
+          </p>
+          <p>
+            Alem disso, podemos compartilhar Dados Pessoais a seu respeito,
+            quando acreditamos, de boa-fe, que temos a obrigacao de:
+          </p>
+          <ol>
+            <li>cumprir uma lei, regulamento ou ordem judicial;</li>
+            <li>
+              responder solicitacoes de informacao feitas por orgao regulador,
+              autoridade policial e demais autoridades publicas, inclusive em
+              casos relativos a seguranca nacional;
+            </li>
+            <li>
+              fazer cumprir e/ou proteger propriedade ou direitos da CogCom,
+              inclusive para investigar fraudes e ajudar a prevenir ameacas de
+              seguranca, inclusive da informacao, ou outras atividades
+              criminosas ou maliciosas; ou
+            </li>
+            <li>garantir a seguranca de clientes e parceiros da CogCom.</li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">6. ARMAZENAMENTO DE SEUS DADOS PESSOAIS</h2>
+          <p>
+            Armazenamos seus Dados Pessoais em nossas bases, em ambiente seguro,
+            garantindo o sigilo e a sua confidencialidade, somente pelo tempo
+            necessario para cumprir as finalidades para as quais foram
+            coletados, observados os eventuais prazos legais e a necessidade de
+            defesa da CogCom em processos. No entanto, eventualmente, podemos ter
+            que manter os seus Dados Pessoais por um periodo superior, por motivo
+            de leis ou regulamentos aplicaveis. Findo o prazo e a necessidade
+            legal, os seus Dados Pessoais serao excluidos com uso de metodos de
+            descarte seguro ou utilizados de forma anonimizada para fins
+            estatisticos.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">7. DADOS PESSOAIS SENSIVEIS</h2>
+          <p>
+            Caso seja estritamente necessario coletar tais dados para atingir a
+            finalidade para a qual o tratamento de dados e realizado, o faremos
+            de acordo com as exigencias legais locais para a protecao de Dados
+            Pessoais e, em particular, com seu previo consentimento especifico e
+            destacado, para finalidades especificas sob as condicoes descritas
+            nesta Politica.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            8. TRANSFERENCIA INTERNACIONAL DE DADOS PESSOAIS
+          </h2>
+          <p>
+            Como a CogCom utiliza ferramentas internacionais, eventualmente, seus
+            Dados Pessoais podem ser transferidos para destinatarios localizados
+            fora do Brasil e autorizados a realizar servicos em nosso nome. Na
+            hipotese de transferencia internacional com destinatarios localizados
+            em outros paises, adotaremos as medidas necessarias para assegurar a
+            existencia de garantias adequadas para a protecao dos seus Dados
+            Pessoais de acordo com a LGPD e em observancia as protecoes descritas
+            na presente Politica.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            9. EXERCICIO DE SEUS DIREITOS DECORRENTES DA LGPD
+          </h2>
+          <p>
+            A CogCom respeita os direitos que voce possui na qualidade de titular
+            de Dados Pessoais e possibilita seu exercicio em conformidade com o
+            artigo 18 da Lei n. 13.709/2018.
+          </p>
+          <p>
+            Para exercer qualquer um dos seus direitos acima mencionados, veja a
+            secao: 13. FALE CONOSCO SOBRE SEUS DIREITOS DECORRENTES DA LGPD.
+          </p>
+          <p>
+            Para garantir a sua privacidade, e como medida de seguranca e
+            prevencao a fraude, podemos solicitar a comprovacao da sua identidade
+            antes de efetivarmos os seus direitos.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            10. SEGURANCA APLICAVEL A PROTECAO DE DADOS PESSOAIS
+          </h2>
+          <p>
+            Implementamos as melhores praticas de mercado de seguranca tecnicas e
+            administrativas possiveis para proteger os seus Dados Pessoais de
+            acessos nao autorizados e de situacoes acidentais ou ilicitas de
+            destruicao, perda, alteracao, comunicacao ou difusao, conforme
+            determina a legislacao vigente.
+          </p>
+          <p>
+            No entanto, esteja ciente de que nenhuma empresa pode eliminar
+            totalmente os riscos de seguranca associados ao Tratamento de Dados
+            Pessoais. Para a sua seguranca, e indispensavel que voce se proteja
+            do acesso nao autorizado ao seu computador, celular ou outro
+            dispositivo utilizado para acesso, pois seu acesso e pessoal e
+            intransferivel, sendo de sua unica e exclusiva responsabilidade.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            11. ACESSOS E ATUALIZACOES DA NOSSA POLITICA DE PRIVACIDADE
+          </h2>
+          <p>
+            Ao acessar os CANAIS DIGITAIS da CogCom, voce concorda expressamente
+            com esta Politica.
+          </p>
+          <p>
+            Para sua propria seguranca, voce devera ler, certificar-se de haver
+            entendido todas as condicoes estabelecidas nesta Politica, assim como
+            nos demais documentos a ela incorporados por referencia.
+          </p>
+          <p>
+            Ao aceitar os termos dessa Politica, voce concorda expressamente em
+            fornecer somente Dados Pessoais verdadeiros, atuais e precisos. Voce
+            sera o unico responsavel pelas informacoes falsas, desatualizadas ou
+            imprecisas que fornece diretamente para a CogCom.
+          </p>
+          <p>
+            Caso ocorra qualquer alteracao na presente Politica, publicaremos a
+            nova versao nos CANAIS DIGITAIS, na qual indicara a data em que se
+            deu a revisao, para que voce possa estar sempre ciente do conteudo
+            atualizado.
+          </p>
+          <p>
+            Todas as modificacoes entrarao em vigor imediatamente apos a
+            publicacao da Politica de Privacidade revisada, a menos que
+            especificado de outra forma. Assim, recomendamos que voce consulte
+            periodicamente esta Politica, a fim de cientificar sobre as
+            respectivas alteracoes.
+          </p>
+          <p>
+            A data da ultima atualizacao desta Politica e indicada no final deste
+            documento e reflete a data efetiva desta Politica. As versoes
+            anteriores desta Politica poderao ser solicitadas pelo e-mail
+            indicado nesta politica.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">12. LEI APLICAVEL E JURISDICAO</h2>
+          <p>
+            A presente Politica de Privacidade sera regida, interpretada e
+            executada segundo a legislacao brasileira, no idioma portugues, sendo
+            eleito o Foro da Comarca de Florianopolis/SC para dirimir qualquer
+            litigio ou controversia envolvendo o presente documento, salvo
+            ressalva especifica de competencia pessoal, territorial ou funcional
+            pela legislacao aplicavel. Fora do Estado, a JUSPRO - Justica Sem
+            Processo Mediacao e Conciliacao S/S Ltda. como Camara de Mediacao apta
+            a dirimir as questoes envolvendo os Usuarios titulares dos dados, nos
+            termos do artigo 52, paragrafo 7 da Lei Geral de Protecao de Dados.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            13. FALE CONOSCO SOBRE SEUS DIREITOS DECORRENTES DA LGPD
+          </h2>
+          <p>
+            A CogCom, nomeou o Sr. Joao Lucas Soares como Encarregado de Dados que
+            estara a frente das novas praticas a ser adotadas pela CogCom, que ja
+            estao implementadas sob constante atualizacoes e revisoes, portanto
+            formalizado neste documento a partir de Marco de 2025, sempre
+            objetivando a manutencao da SEGURANCA DOS DADOS adotados pela CogCom.
+            Linha direta pelo telefone: (51)933005747 ou e-mail
+            <a class="link" href="mailto:lgpd@cogcom.com.br"
+              >lgpd@cogcom.com.br</a
+            >.
+          </p>
+          <p>
+            Para o exercicio de qualquer um dos seus direitos mencionados na secao
+            09 da presente Politica, por exemplo, direito de acesso ou correcao
+            dos seus Dados Pessoais, envie a sua solicitacao para o seguinte
+            endereco: ou por e-mail
+            <a class="link" href="mailto:lgpd@cogcom.com.br"
+              >lgpd@cogcom.com.br</a
+            >
+            com o assunto: "LGPD - DPO (cliente)".
+          </p>
+          <p>
+            Se voce tiver alguma duvida sobre nossas praticas em relacao a
+            privacidade, entre em contato com o nosso Encarregado de Protecao de
+            Dados.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="font-display">
+            14. ULTIMA ATUALIZACAO E VERSOES ANTERIORES
+          </h2>
+          <p>
+            A ultima atualizacao desta Politica de Privacidade foi realizada em
+            24/03/2025.
+          </p>
+        </section>
+
+        <p class="footer-note font-label">
+          CogCom | Conectando voce a saude. Com responsabilidade, seguranca e
+          cuidado.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LGPD | CogCom</title>
+    <meta
+      name="description"
+      content="Aviso de Protecao e Privacidade de Dados da CogCom em conformidade com a LGPD."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brown-950: #2c1810;
+        --brown-900: #3e241a;
+        --brown-800: #543324;
+        --brown-700: #6b402d;
+        --brown-500: #9c664e;
+        --brown-400: #b5826a;
+        --brown-300: #cda48f;
+        --cream-200: #ebe0d3;
+        --cream-100: #f4ebe1;
+        --cream-50: #faf5f0;
+        --gold: #c9a96e;
+        --gold-muted: #b4965f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Lora", "Georgia", serif;
+        background: var(--brown-700);
+        color: var(--cream-50);
+      }
+
+      .font-label {
+        font-family: "Montserrat", "Arial", sans-serif;
+      }
+
+      .font-display {
+        font-family: "Playfair Display", "Georgia", serif;
+      }
+
+      .font-decorative {
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        font-style: italic;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(8px);
+        background: rgba(62, 36, 26, 0.92);
+        border-bottom: 1px solid rgba(242, 229, 208, 0.12);
+      }
+
+      .topbar-inner,
+      .container {
+        width: min(1200px, 92%);
+        margin: 0 auto;
+      }
+
+      .topbar-inner {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: var(--cream-50);
+        text-decoration: none;
+      }
+
+      .brand-dot {
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 999px;
+        background: var(--gold);
+      }
+
+      .top-links {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .top-links a {
+        color: var(--brown-300);
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      .top-links a:hover {
+        color: var(--gold);
+      }
+
+      main {
+        padding: 3rem 0 4rem;
+      }
+
+      .hero {
+        margin-bottom: 1.5rem;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .eyebrow-line {
+        width: 2.5rem;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .eyebrow span {
+        color: var(--gold-muted);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        color: var(--cream-50);
+      }
+
+      .subtitle {
+        margin: 0.8rem 0 0;
+        color: var(--brown-300);
+        font-size: 1.15rem;
+      }
+
+      .card {
+        background: var(--cream-50);
+        color: var(--brown-800);
+        border: 1px solid rgba(90, 50, 34, 0.12);
+        border-radius: 12px;
+        padding: 1.4rem 1.35rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .card h2 {
+        margin: 0 0 0.7rem;
+        font-size: 1.25rem;
+        color: var(--brown-900);
+      }
+
+      .card p {
+        margin: 0 0 0.8rem;
+        line-height: 1.7;
+        color: var(--brown-700);
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card ul {
+        margin: 0.6rem 0 0;
+        padding-left: 1.1rem;
+      }
+
+      .card li {
+        margin-bottom: 0.45rem;
+        color: var(--brown-700);
+      }
+
+      a.link {
+        color: var(--brown-900);
+      }
+
+      .footer-note {
+        margin-top: 1.2rem;
+        color: var(--brown-400);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 800px) {
+        .top-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="index.html">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <strong class="font-label">CogCom</strong>
+        </a>
+        <nav class="top-links font-label" aria-label="Navegacao">
+          <a href="index.html">Inicio</a>
+          <a href="politica-privacidade.html">Politica de Privacidade</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="hero">
+          <div class="eyebrow font-label">
+            <div class="eyebrow-line" aria-hidden="true"></div>
+            <span>Lei Geral de Protecao de Dados</span>
+          </div>
+          <h1 class="font-display">Aviso de Protecao e Privacidade de Dados</h1>
+          <p class="subtitle font-decorative">
+            Compromisso com responsabilidade, seguranca e cuidado.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 class="font-display">Compromisso da CogCom</h2>
+          <p>A CogCom valoriza a sua confianca e respeita a sua privacidade.</p>
+          <p>
+            Em conformidade com a Lei Geral de Protecao de Dados Pessoais (LGPD
+            - Lei n 13.709/2018), informamos que os dados coletados em nosso
+            site sao utilizados com responsabilidade, exclusivamente para fins
+            de conexao com profissionais de saude da nossa rede, e aprimoramento
+            da sua experiencia conosco.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 class="font-display">Tratamento dos dados</h2>
+          <p>
+            Os dados fornecidos por voce sao tratados com seguranca e sigilo,
+            seguindo os principios da transparencia, necessidade, finalidade e
+            adequacao.
+          </p>
+          <p>
+            Utilizamos tecnologias confiaveis para proteger as suas informacoes
+            e garantir que estejam acessiveis apenas por pessoas autorizadas.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 class="font-display">Seus direitos</h2>
+          <p>
+            Voce tem o direito de acessar, corrigir ou solicitar a exclusao dos
+            seus dados pessoais, bem como esclarecer qualquer duvida relacionada
+            ao seu tratamento.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2 class="font-display">Contato do Encarregado de Dados (DPO)</h2>
+          <p>
+            Caso tenha duvidas, solicitacoes ou queira exercer seus direitos
+            como titular de dados, entre em contato:
+          </p>
+          <ul>
+            <li>
+              <strong>E-mail:</strong>
+              <a class="link" href="mailto:lgpd@cogcom.com.br"
+                >lgpd@cogcom.com.br</a
+              >
+            </li>
+            <li>
+              <strong>Telefone/WhatsApp:</strong>
+              <a class="link" href="tel:+5551933005747">(51) 93300-5747</a> e
+              <a class="link" href="tel:+5547933008836">(47) 93300-8836</a>
+            </li>
+            <li>
+              <strong>Encarregado (DPO):</strong> Joao Lucas Soares e Rubia
+              Alencastro
+            </li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2 class="font-display">Politica de Privacidade</h2>
+          <p>
+            Ao continuar navegando em nosso site, voce declara estar ciente e
+            de acordo com a nossa Politica de Privacidade, disponivel no rodape
+            da pagina.
+          </p>
+          <p>
+            <a class="link" href="politica-privacidade.html"
+              >Acessar Politica de Privacidade</a
+            >
+          </p>
+        </section>
+
+        <p class="footer-note font-label">
+          CogCom | Conectando voce a saude. Com responsabilidade, seguranca e
+          cuidado.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

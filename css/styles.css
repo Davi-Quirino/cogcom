@@ -17,6 +17,17 @@
   --gold-light: #d4bc8a;
   --gold-muted: #b89b6a;
 
+  --sage-900: #1b2b24;
+  --sage-800: #263c32;
+  --sage-700: #345143;
+  --sage-600: #446957;
+  --sage-500: #55826c;
+  --sage-400: #749e8a;
+  --sage-300: #9abca9;
+  --sage-200: #c2dacd;
+  --sage-100: #e1efe7;
+  --sage-50:  #f0f7f3;
+
   --grid-color: rgba(242, 229, 208, 0.08);
   --beam-color: #c9a96e;
 }
@@ -496,4 +507,29 @@ h6 {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+}
+
+/* ─── Expandable Service Card (Ler mais / Ler menos) ─── */
+
+.service-more {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 400ms ease, margin-top 500ms ease;
+}
+
+[data-service-card].is-expanded .service-more {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.service-toggle-arrow {
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-service-card].is-expanded .service-toggle-arrow {
+  transform: rotate(180deg);
 }

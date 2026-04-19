@@ -30,17 +30,149 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=3" />
 
     <!-- Vendor Scripts -->
     <script src="js/vendor/tailwind.js"></script>
     <script src="js/vendor/iconify.js"></script>
     <script src="js/vendor/lucide.js"></script>
+    <style>
+      body.is-loading-initial {
+        overflow: hidden;
+      }
+
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(
+            circle at 50% 20%,
+            rgba(201, 169, 110, 0.12),
+            transparent 45%
+          ),
+          linear-gradient(135deg, var(--brown-900), var(--brown-700));
+        transition:
+          opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+          visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      #initial-loader.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-content {
+        width: min(320px, 86vw);
+        text-align: center;
+      }
+
+      .loader-brain-wrap {
+        filter: drop-shadow(0 0 24px rgba(201, 169, 110, 0.2));
+      }
+
+      .loader-brain-svg {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .loader-brain-base {
+        fill: rgba(250, 245, 240, 0.22);
+      }
+
+      .loader-brain-fill-layer {
+        fill: rgba(201, 169, 110, 0.9);
+      }
+
+      #loader-brain-fill-rect {
+        transition:
+          y 0.22s ease-out,
+          height 0.22s ease-out;
+      }
+
+      .loader-caption {
+        margin-top: 0.7rem;
+        color: var(--brown-300);
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .loader-percent {
+        margin-top: 0.35rem;
+        color: var(--cream-50);
+        font-size: clamp(1.65rem, 5vw, 2.2rem);
+        line-height: 1;
+      }
+    </style>
+    <noscript>
+      <style>
+        #initial-loader {
+          display: none !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body
-    class="min-h-screen w-full relative overflow-x-hidden antialiased pb-20 md:pb-0"
+    class="min-h-screen w-full relative overflow-x-hidden antialiased pb-20 md:pb-0 is-loading-initial"
     style="background-color: var(--brown-700); color: var(--cream-50)"
   >
+    <div id="initial-loader" aria-live="polite" aria-label="Carregando página">
+      <div class="loader-content">
+        <div class="loader-brain-wrap">
+          <svg
+            class="loader-brain-svg"
+            viewBox="0 0 463 463"
+            role="img"
+            aria-label="Cérebro carregando"
+          >
+            <defs>
+              <g id="loader-brain-shape">
+                <path
+                  d="M151.245,222.446C148.054,237.039,135.036,248,119.5,248c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5c23.774,0,43.522-17.557,46.966-40.386c14.556-1.574,27.993-8.06,38.395-18.677c2.899-2.959,2.85-7.708-0.109-10.606c-2.958-2.897-7.707-2.851-10.606,0.108C184.947,202.829,172.643,208,159.5,208c-26.743,0-48.5-21.757-48.5-48.5c0-4.143-3.358-7.5-7.5-7.5s-7.5,3.357-7.5,7.5C96,191.715,120.119,218.384,151.245,222.446z"
+                />
+                <path
+                  d="M183,287.5c0-4.143-3.358-7.5-7.5-7.5c-35.014,0-63.5,28.486-63.5,63.5c0,0.362,0.013,0.725,0.019,1.088C109.23,344.212,106.39,344,103.5,344c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5c26.743,0,48.5,21.757,48.5,48.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5c0-26.611-16.462-49.437-39.731-58.867c-0.178-1.699-0.269-3.418-0.269-5.133c0-26.743,21.757-48.5,48.5-48.5C179.642,295,183,291.643,183,287.5z"
+                />
+                <path
+                  d="M439,223.5c0-17.075-6.82-33.256-18.875-45.156c1.909-6.108,2.875-12.426,2.875-18.844c0-30.874-22.152-56.659-51.394-62.329C373.841,91.6,375,85.628,375,79.5c0-19.557-11.883-36.387-28.806-43.661C317.999,13.383,287.162,0,263.5,0c-13.153,0-24.817,6.468-32,16.384C224.317,6.468,212.653,0,199.5,0c-23.662,0-54.499,13.383-82.694,35.839C99.883,43.113,88,59.943,88,79.5c0,6.128,1.159,12.1,3.394,17.671C62.152,102.841,40,128.626,40,159.5c0,6.418,0.965,12.735,2.875,18.844C30.82,190.244,24,206.425,24,223.5c0,13.348,4.149,25.741,11.213,35.975C27.872,270.087,24,282.466,24,295.5c0,23.088,12.587,44.242,32.516,55.396C56.173,353.748,56,356.626,56,359.5c0,31.144,20.315,58.679,49.79,68.063C118.611,449.505,141.965,463,167.5,463c27.995,0,52.269-16.181,64-39.674c11.731,23.493,36.005,39.674,64,39.674c25.535,0,48.889-13.495,61.71-35.437c29.475-9.385,49.79-36.92,49.79-68.063c0-2.874-0.173-5.752-0.516-8.604C426.413,339.742,439,318.588,439,295.5c0-13.034-3.872-25.413-11.213-36.025C434.851,249.241,439,236.848,439,223.5z M167.5,448c-21.029,0-40.191-11.594-50.009-30.256c-0.973-1.849-2.671-3.208-4.688-3.751C88.19,407.369,71,384.961,71,359.5c0-3.81,0.384-7.626,1.141-11.344c0.702-3.447-1.087-6.92-4.302-8.35C50.32,332.018,39,314.626,39,295.5c0-8.699,2.256-17.014,6.561-24.379C56.757,280.992,71.436,287,87.5,287c4.142,0,7.5-3.357,7.5-7.5s-3.358-7.5-7.5-7.5C60.757,272,39,250.243,39,223.5c0-14.396,6.352-27.964,17.428-37.221c2.5-2.09,3.365-5.555,2.14-8.574C56.2,171.869,55,165.744,55,159.5c0-26.743,21.757-48.5,48.5-48.5s48.5,21.757,48.5,48.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5c0-33.642-26.302-61.243-59.421-63.355C104.577,91.127,103,85.421,103,79.5c0-13.369,8.116-24.875,19.678-29.859c0.447-0.133,0.885-0.307,1.308-0.527C127.568,47.752,131.447,47,135.5,47c12.557,0,23.767,7.021,29.256,18.325c1.81,3.727,6.298,5.281,10.023,3.47c3.726-1.809,5.28-6.296,3.47-10.022c-6.266-12.903-18.125-22.177-31.782-25.462C165.609,21.631,184.454,15,199.5,15c13.509,0,24.5,10.99,24.5,24.5v97.051c-6.739-5.346-15.25-8.551-24.5-8.551c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5c13.509,0,24.5,10.99,24.5,24.5v180.279c-9.325-12.031-22.471-21.111-37.935-25.266c-3.999-1.071-8.114,1.297-9.189,5.297c-1.075,4.001,1.297,8.115,5.297,9.189C206.8,343.616,224,366.027,224,391.5C224,422.654,198.654,448,167.5,448z M395.161,339.807c-3.215,1.43-5.004,4.902-4.302,8.35c0.757,3.718,1.141,7.534,1.141,11.344c0,25.461-17.19,47.869-41.803,54.493c-2.017,0.543-3.716,1.902-4.688,3.751C335.691,436.406,316.529,448,295.5,448c-31.154,0-56.5-25.346-56.5-56.5c0-2.109-0.098-4.2-0.281-6.271c0.178-0.641,0.281-1.314,0.281-2.012V135.5c0-13.51,10.991-24.5,24.5-24.5c4.142,0,7.5-3.357,7.5-7.5s-3.358-7.5-7.5-7.5c-9.25,0-17.761,3.205-24.5,8.551V39.5c0-13.51,10.991-24.5,24.5-24.5c15.046,0,33.891,6.631,53.033,18.311c-13.657,3.284-25.516,12.559-31.782,25.462c-1.81,3.727-0.256,8.214,3.47,10.022c3.726,1.81,8.213,0.257,10.023-3.47C303.733,54.021,314.943,47,327.5,47c4.053,0,7.933,0.752,11.514,2.114c0.422,0.22,0.86,0.393,1.305,0.526C351.883,54.624,360,66.13,360,79.5c0,5.921-1.577,11.627-4.579,16.645C322.302,98.257,296,125.858,296,159.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5c0-26.743,21.757-48.5,48.5-48.5s48.5,21.757,48.5,48.5c0,6.244-1.2,12.369-3.567,18.205c-1.225,3.02-0.36,6.484,2.14,8.574C417.648,195.536,424,209.104,424,223.5c0,26.743-21.757,48.5-48.5,48.5c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5c16.064,0,30.743-6.008,41.939-15.879c4.306,7.365,6.561,15.68,6.561,24.379C424,314.626,412.68,332.018,395.161,339.807z"
+                />
+                <path
+                  d="M359.5,240c-15.536,0-28.554-10.961-31.745-25.554C358.881,210.384,383,183.715,383,151.5c0-4.143-3.358-7.5-7.5-7.5s-7.5,3.357-7.5,7.5c0,26.743-21.757,48.5-48.5,48.5c-13.143,0-25.447-5.171-34.646-14.561c-2.898-2.958-7.647-3.007-10.606-0.108s-3.008,7.647-0.109,10.606c10.402,10.617,23.839,17.103,38.395,18.677C315.978,237.443,335.726,255,359.5,255c4.142,0,7.5-3.357,7.5-7.5S363.642,240,359.5,240z"
+                />
+                <path
+                  d="M335.5,328c-2.89,0-5.73,0.212-8.519,0.588c0.006-0.363,0.019-0.726,0.019-1.088c0-35.014-28.486-63.5-63.5-63.5c-4.142,0-7.5,3.357-7.5,7.5s3.358,7.5,7.5,7.5c26.743,0,48.5,21.757,48.5,48.5c0,1.714-0.091,3.434-0.269,5.133C288.462,342.063,272,364.889,272,391.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5c0-26.743,21.757-48.5,48.5-48.5c4.142,0,7.5-3.357,7.5-7.5S339.642,328,335.5,328z"
+                />
+              </g>
+              <clipPath id="loader-fill-clip-rect">
+                <rect
+                  id="loader-brain-fill-rect"
+                  x="0"
+                  y="463"
+                  width="463"
+                  height="0"
+                />
+              </clipPath>
+            </defs>
+
+            <g class="loader-brain-base">
+              <use href="#loader-brain-shape"></use>
+            </g>
+            <g class="loader-brain-fill-layer" clip-path="url(#loader-fill-clip-rect)">
+              <use href="#loader-brain-shape"></use>
+            </g>
+          </svg>
+        </div>
+        <p class="loader-caption font-label">Preparando sua experiência</p>
+        <p id="loader-percent-text" class="loader-percent font-label">0%</p>
+      </div>
+    </div>
+
     <!-- Mobile Menu Overlay -->
     <div
       class="fixed inset-0 z-[60] backdrop-blur-xl hidden-menu flex flex-col pt-32 px-8"
@@ -66,33 +198,35 @@
       >
         <a
           class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#quem-somos"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Quem somos</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#para-voce"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Para você</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
+          href="#jornada"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+          >Jornada</a
+        >
+        <a
+          class="hover:text-[var(--gold)] transition-colors pb-4"
           href="#especialidades"
           style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
-          >Sobre o atendimento</a
-        >
-        <a
-          class="hover:text-[var(--gold)] transition-colors pb-4"
-          href="#como-funciona"
-          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
-          >Nossa história</a
-        >
-        <a
-          class="hover:text-[var(--gold)] transition-colors pb-4"
-          href="#por-que"
-          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
-          >Iniciativas parceiras</a
-        >
-        <a
-          class="hover:text-[var(--gold)] transition-colors pb-4"
-          href="#faq"
-          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
-          >Podcasts</a
+          >Especialidades</a
         >
       </nav>
       <div class="mt-auto mb-12">
         <a
           class="flex w-full items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 rounded transition-all shadow-lg hover:shadow-xl"
-          href="#"
+          href="https://wa.me/5538998653602"
+          target="_blank"
+          rel="noopener noreferrer"
           style="background-color: var(--gold); color: var(--brown-900)"
         >
           Agendar atendimento
@@ -108,49 +242,39 @@
         border-bottom: 1px solid rgba(242, 229, 208, 0.1);
       "
     >
-      <div class="flex items-center gap-3">
-        <div
-          class="w-8 h-8 rounded flex items-center justify-center"
-          style="
-            background-color: rgba(201, 169, 110, 0.15);
-            color: var(--gold);
-          "
-        >
-          <span
-            class="iconify w-5 h-5"
-            data-icon="solar:add-square-linear"
-          ></span>
-        </div>
-        <span
-          class="font-label font-bold tracking-tight"
-          style="color: var(--cream-50)"
-          >CogCom</span
-        >
-      </div>
+      <a href="#hero-wrapper" class="flex items-center">
+        <img
+          src="logo cogcom transp.png"
+          alt="Logo CogCom"
+          class="h-10 md:h-11 w-auto object-contain"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
       <div
         class="hidden md:flex gap-6 text-xs font-label font-semibold uppercase tracking-wider"
         style="color: var(--brown-400)"
       >
-        <a
-          href="#especialidades"
-          class="hover:text-[var(--gold)] transition-colors"
-          >Sobre o atendimento</a
+        <a href="#quem-somos" class="hover:text-[var(--gold)] transition-colors"
+          >Quem somos</a
+        >
+        <a href="#para-voce" class="hover:text-[var(--gold)] transition-colors"
+          >Para você</a
         >
         <a
-          href="#como-funciona"
+          href="#jornada"
           class="hover:text-[var(--gold)] transition-colors"
-          >Nossa história</a
+          >Jornada</a
         >
-        <a href="#por-que" class="hover:text-[var(--gold)] transition-colors"
-          >Iniciativas parceiras</a
-        >
-        <a href="#faq" class="hover:text-[var(--gold)] transition-colors"
-          >Podcasts</a
+        <a href="#especialidades" class="hover:text-[var(--gold)] transition-colors"
+          >Especialidades</a
         >
       </div>
       <div class="flex items-center gap-4">
         <a
-          href="#"
+          href="https://wa.me/5538998653602"
+          target="_blank"
+          rel="noopener noreferrer"
           class="hidden md:flex items-center gap-2 text-xs font-label font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
           style="background-color: var(--gold); color: var(--brown-900)"
         >
@@ -263,19 +387,19 @@
           <div class="hero-text">
             <!-- Decorative Script -->
             <div
-              class="font-decorative text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[8rem] leading-[0.9] animate-reveal delay-200 mobile-decorative-text"
+              class="font-decorative text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[8rem] leading-[1] mt-8 md:mt-12 animate-reveal delay-200 mobile-decorative-text"
               style="color: var(--gold); opacity: 0.3"
             >
-              Terapia
+              Cuidado
             </div>
 
             <!-- Main Headline -->
             <h1
-              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight -mt-6 md:-mt-8 animate-reveal delay-300"
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mt-2 md:mt-3 animate-reveal delay-300"
               style="color: var(--cream-50)"
             >
-              <span>Baseada em</span>
-              <span>evidência</span>
+              <span class="block">em saúde mental</span>
+              <span class="block">para quem precisa</span>
             </h1>
             <!-- <h2
               class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1] mt-2 animate-reveal delay-500"
@@ -285,19 +409,21 @@
             </h2> -->
 
             <!-- Body text -->
-            <p
-              class="font-decorative text-lg md:text-xl mt-6 leading-relaxed animate-reveal delay-700"
+            <div
+              class="font-decorative text-lg md:text-xl mt-6 leading-relaxed animate-reveal delay-700 space-y-2"
               style="
                 color: var(--brown-300);
                 font-style: italic;
                 max-width: 32rem;
               "
             >
-              O Instituto CogCom conecta você a psicólogos especializados em
-              abordagens com comprovação científica. Atendimento 100% online,
-              com profissionais selecionados para o seu caso, não
-              aleatoriamente.
-            </p>
+              <p>Você não precisa lidar com tudo sozinho.</p>
+              <p>
+                No Instituto CogCom, oferecemos um espaço seguro, acolhedor e
+                baseado em ciência para te ajudar a compreender e lidar com o
+                que você está vivendo.
+              </p>
+            </div>
 
             <!-- CTA -->
             <div
@@ -369,7 +495,7 @@
                   class="flex gap-10 items-center w-max animate-marquee will-change-transform"
                 >
                   <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    class="flex items-center gap-2 font-label font-semibold text-sm whitespace-nowrap"
                     style="color: var(--cream-300)"
                   >
                     <span
@@ -379,37 +505,17 @@
                     PSICOLOGIA
                   </div>
                   <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    class="flex items-center gap-2 font-label font-semibold text-sm whitespace-nowrap"
                     style="color: var(--cream-300)"
                   >
                     <span
                       class="iconify w-4 h-4"
-                      data-icon="solar:stethoscope-linear"
+                      data-icon="solar:heart-pulse-linear"
                     ></span>
-                    PSIQUIATRIA
+                    AVALIAÇÃO NEUROPSICOLOGA
                   </div>
                   <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
-                    style="color: var(--cream-300)"
-                  >
-                    <span
-                      class="iconify w-4 h-4"
-                      data-icon="solar:shield-check-linear"
-                    ></span>
-                    NUTRIÇÃO
-                  </div>
-                  <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
-                    style="color: var(--cream-300)"
-                  >
-                    <span
-                      class="iconify w-4 h-4"
-                      data-icon="solar:graph-up-linear"
-                    ></span>
-                    ENDOCRINOLOGIA
-                  </div>
-                  <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
+                    class="flex items-center gap-2 font-label font-semibold text-sm whitespace-nowrap"
                     style="color: var(--cream-300)"
                   >
                     <span
@@ -417,36 +523,6 @@
                       data-icon="solar:heart-pulse-linear"
                     ></span>
                     PSICOLOGIA
-                  </div>
-                  <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
-                    style="color: var(--cream-300)"
-                  >
-                    <span
-                      class="iconify w-4 h-4"
-                      data-icon="solar:stethoscope-linear"
-                    ></span>
-                    PSIQUIATRIA
-                  </div>
-                  <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
-                    style="color: var(--cream-300)"
-                  >
-                    <span
-                      class="iconify w-4 h-4"
-                      data-icon="solar:shield-check-linear"
-                    ></span>
-                    NUTRIÇÃO
-                  </div>
-                  <div
-                    class="flex items-center gap-2 font-label font-semibold text-sm"
-                    style="color: var(--cream-300)"
-                  >
-                    <span
-                      class="iconify w-4 h-4"
-                      data-icon="solar:graph-up-linear"
-                    ></span>
-                    ENDOCRINOLOGIA
                   </div>
                 </div>
               </div>
@@ -486,8 +562,437 @@
       </section>
     </div>
 
+    <!-- Quem Somos Section -->
+    <section
+      id="quem-somos"
+      class="relative w-full overflow-hidden z-10"
+      style="background-color: var(--cream-100); color: var(--brown-800)"
+      aria-label="Quem somos — Instituto de Psicologia"
+    >
+      <div
+        class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-[6%] py-20 lg:py-28"
+      >
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <!-- Left: Portrait image with gold frame -->
+          <div
+            class="w-full lg:flex-1 flex justify-center lg:justify-start scroll-reveal"
+          >
+            <div
+              class="relative overflow-hidden shadow-2xl"
+              style="
+                width: min(460px, 100%);
+                aspect-ratio: 4 / 5;
+                border-radius: 1rem;
+                border: 2px solid var(--gold-muted);
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80"
+                alt="Ambiente acolhedor de escuta clínica"
+                loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
+            </div>
+          </div>
+
+          <!-- Right: Text -->
+          <div class="w-full lg:flex-1">
+            <div class="flex items-center gap-3 mb-5 scroll-reveal">
+              <div
+                class="w-10 h-px"
+                style="background-color: var(--gold)"
+              ></div>
+              <span
+                class="font-label text-xs font-bold uppercase tracking-widest"
+                style="color: var(--gold-muted)"
+                >Acolhimento & Identidade</span
+              >
+            </div>
+
+            <!-- Main heading (first paragraph as opening statement) -->
+            <h2
+              class="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.15] tracking-tight scroll-reveal delay-100"
+              style="
+                color: var(--brown-900);
+                font-family: &quot;Playfair Display&quot;, serif;
+              "
+            >
+              Nós somos um Instituto de Psicologia criado para
+              <span
+                class="font-decorative font-normal italic"
+                style="color: var(--gold-muted)"
+                >acolher você</span
+              >
+              em momentos de sofrimento emocional.
+            </h2>
+
+            <!-- Decorative divider -->
+            <div
+              class="h-px w-16 my-8 scroll-reveal delay-200"
+              style="background-color: var(--gold)"
+            ></div>
+
+            <!-- Body paragraphs -->
+            <div class="space-y-5 max-w-xl">
+              <p
+                class="font-decorative text-lg md:text-xl leading-relaxed scroll-reveal delay-200"
+                style="color: var(--brown-700)"
+              >
+                Se você está passando por dificuldades, se sente sobrecarregado
+                ou não sabe como lidar com o que está vivendo, aqui é um espaço
+                onde você pode encontrar ajuda profissional com escuta, cuidado
+                e respeito pela sua experiência.
+              </p>
+
+              <p
+                class="text-base md:text-[17px] leading-relaxed scroll-reveal delay-300"
+                style="
+                  color: var(--brown-500);
+                  font-family: &quot;Lora&quot;, serif;
+                "
+              >
+                Nosso compromisso é oferecer um ambiente seguro, onde você possa
+                falar sobre o que está sentindo sem julgamentos, e receber um
+                acompanhamento fundamentado nas melhores evidências científicas.
+              </p>
+
+              <p
+                class="text-base md:text-[17px] leading-relaxed scroll-reveal delay-300"
+                style="
+                  color: var(--brown-500);
+                  font-family: &quot;Lora&quot;, serif;
+                "
+              >
+                Os atendimentos são realizados de forma online, por
+                profissionais preparados e supervisionados, com foco em te
+                ajudar a compreender melhor o que você vive e te ajudar a
+                construir caminhos para uma melhor qualidade de vida.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para Você Section -->
+    <section
+      id="para-voce"
+      class="relative w-full overflow-hidden z-10"
+      style="background-color: var(--cream-25); color: var(--brown-800)"
+      aria-label="O CogCom é para você"
+    >
+      <div
+        class="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-[6%] py-20 lg:py-28"
+      >
+        <!-- Header -->
+        <div class="max-w-3xl mb-16 lg:mb-20">
+          <div class="flex items-center gap-3 mb-5 scroll-reveal">
+            <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+            <span
+              class="font-label text-xs font-bold uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Perfil & Indicação</span
+            >
+          </div>
+
+          <!-- Main heading -->
+          <h2
+            class="text-3xl md:text-4xl lg:text-[3rem] font-semibold leading-[1.1] tracking-tight mt-3 scroll-reveal delay-100"
+            style="
+              color: var(--brown-900);
+              font-family: &quot;Playfair Display&quot;, serif;
+            "
+          >
+            O CogCom é
+            <span
+              class="font-decorative font-normal italic"
+              style="color: var(--gold-muted)"
+              >para você</span
+            >
+            que:
+          </h2>
+        </div>
+
+        <!-- Bullet Grid -->
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-6xl">
+          <!-- Item 1 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-100"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Está passando por um
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >sofrimento psicológico</em
+              >
+              e sente que precisa de ajuda profissional.
+            </p>
+          </li>
+
+          <!-- Item 2 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-200"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Já tentou
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >lidar sozinho(a)</em
+              >, mas não tem sido suficiente.
+            </p>
+          </li>
+
+          <!-- Item 3 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-300"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Quer
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >entender melhor</em
+              >
+              o que está acontecendo com você.
+            </p>
+          </li>
+
+          <!-- Item 4 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-500"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Quer um
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >acompanhamento estruturado</em
+              >, com objetivo claro.
+            </p>
+          </li>
+
+          <!-- Item 5 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-500"
+            style="
+              border-bottom: 1px solid rgba(90, 50, 34, 0.12);
+              animation-delay: 0.6s;
+              transition-delay: 0.6s;
+            "
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Busca cuidado com profissionais qualificados e intervenções
+              baseadas em
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >evidências científicas</em
+              >.
+            </p>
+          </li>
+
+          <!-- Item 6 -->
+          <li
+            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-700"
+            style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
+          >
+            <div
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-sm"
+              style="
+                background-color: var(--brown-800);
+                border: 1px solid var(--gold-muted);
+                color: var(--gold-light);
+              "
+            >
+              <span
+                class="iconify w-5 h-5"
+                data-icon="solar:check-circle-linear"
+              ></span>
+            </div>
+            <p
+              class="text-base md:text-[17px] leading-relaxed pt-1.5"
+              style="
+                color: var(--brown-800);
+                font-family: &quot;Lora&quot;, serif;
+              "
+            >
+              Busca um lugar de
+              <em
+                class="font-decorative not-italic"
+                style="
+                  color: var(--gold-muted);
+                  font-style: italic;
+                  font-weight: 500;
+                "
+                >escuta sem julgamentos</em
+              >, com acolhimento e direcionamento para construir uma vida mais
+              significativa.
+            </p>
+          </li>
+        </ul>
+
+        <!-- Closing line -->
+        <div
+          class="mt-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6 scroll-reveal delay-700"
+        >
+          <p
+            class="font-decorative text-xl md:text-2xl italic leading-snug max-w-xl"
+            style="color: var(--brown-500)"
+          >
+            Se você se identificou em um ou mais pontos, este lugar é para você.
+          </p>
+
+          <a
+            href="https://wa.me/5538998653602"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-lg font-label hover:scale-[1.02] self-start md:self-auto"
+            style="
+              background-color: var(--gold);
+              border: 1px solid var(--gold-muted);
+            "
+          >
+            <span class="text-sm font-medium" style="color: var(--brown-900)"
+              >Agendar atendimento</span
+            >
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-0.5"
+              style="background-color: var(--brown-900); color: var(--cream-50)"
+            >
+              <span
+                class="iconify w-4 h-4"
+                data-icon="solar:arrow-right-linear"
+              ></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Pulsing Dots Steps Section -->
     <section
+      id="jornada"
       class="w-full relative z-10 overflow-hidden"
       style="
         background-color: var(--cream-25);
@@ -498,11 +1003,14 @@
       <div class="lg:px-[6%] max-w-[1600px] mx-auto px-6 py-24 lg:py-32">
         <!-- Section Header -->
         <div class="text-center mb-16 scroll-reveal">
-          <span
-            class="font-label text-[10px] font-bold uppercase tracking-[0.25em] block mb-4"
-            style="color: var(--gold-muted)"
-            >Nosso Processo</span
-          >
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+            <span
+              class="font-label text-xs font-bold uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Jornada & Processo</span
+            >
+          </div>
           <h2
             class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05]"
             style="color: var(--brown-900)"
@@ -542,8 +1050,8 @@
                 font-family: &quot;Lora&quot;, serif;
               "
             >
-              Você entra em contato com a CogCom por meio de um formulário
-              personalizado para que possamos entender sua real demanda.
+              Você preenche um formulário personalizado, que nos ajuda a
+              compreender com mais precisão a sua necessidade.
             </p>
           </article>
 
@@ -572,8 +1080,8 @@
                 font-family: &quot;Lora&quot;, serif;
               "
             >
-              A CogCom analisa sua resposta com cuidado por meio de nosso time e
-              busca o melhor profissional parceiro para o seu caso.
+              Nossa equipe analisa suas respostas com atenção e identifica o
+              profissional mais adequado para o seu caso.
             </p>
           </article>
 
@@ -602,8 +1110,8 @@
                 font-family: &quot;Lora&quot;, serif;
               "
             >
-              Ao encontrarmos o profissional ideal para você, entramos em
-              contato para estabelecer a conexão.
+              Assim que encontramos o profissional ideal, entramos em contato
+              com você.
             </p>
           </article>
 
@@ -632,7 +1140,7 @@
                 font-family: &quot;Lora&quot;, serif;
               "
             >
-              Pronto! Seu atendimento será realizado.
+              Pronto! Seu atendimento é iniciado.
             </p>
           </article>
         </div>
@@ -672,6 +1180,14 @@
         class="relative z-10 lg:px-[6%] max-w-[1600px] mr-auto ml-auto pr-6 pl-6"
       >
         <div class="mb-20 lg:mb-24 flex flex-col items-center text-center">
+          <div class="flex items-center gap-3 mb-6 scroll-reveal">
+            <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+            <span
+              class="font-label text-xs font-bold uppercase tracking-widest"
+              style="color: var(--gold-muted)"
+              >Especialidades & Cuidado</span
+            >
+          </div>
           <h2
             id="especialidades"
             class="lg:text-5xl xl:text-6xl md:text-4xl text-[28px] leading-[1.2] font-medium tracking-tight mb-8 scroll-reveal mx-auto"
@@ -689,6 +1205,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <!-- Card 1 -->
           <div
+            data-service-card
             class="scroll-reveal delay-200 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             style="
               background-color: #ffffff;
@@ -731,37 +1248,63 @@
                 class="text-3xl font-semibold mb-6 tracking-tight"
                 style="color: var(--brown-900)"
               >
-                Psicologia
+                Psicoterapia
               </h3>
-              <p
-                class="text-lg font-light leading-relaxed mb-10 flex-grow"
-                style="color: var(--brown-700)"
-              >
-                Conecte-se a psicólogos que atuam com base em ciência, empatia e
-                experiência clínica, utilizando abordagens atualizadas e
-                personalizadas para você, respeitando sua história, seus
-                objetivos e seu tempo.
-              </p>
+              <div class="flex-grow mb-10">
+                <p
+                  class="text-lg font-light leading-relaxed"
+                  style="color: var(--brown-700)"
+                >
+                  É um processo de acompanhamento psicológico que ajuda você a
+                  entender melhor seus pensamentos, emoções e comportamentos,
+                  além de desenvolver formas mais eficazes de lidar com
+                  dificuldades e reduzir o sofrimento.
+                </p>
+
+                <div
+                  class="service-more space-y-4 text-lg font-light leading-relaxed"
+                  style="color: var(--brown-700)"
+                  aria-hidden="true"
+                >
+                  <p>
+                    Conecte-se a psicólogos que atuam com base nas melhores
+                    evidências científicas, aliando técnica, escuta qualificada
+                    e experiência clínica.
+                  </p>
+                  <p>
+                    O atendimento é estruturado para ir além do acolhimento:
+                    buscamos compreender o seu caso com atenção e construir
+                    intervenções que realmente façam sentido para a sua
+                    realidade, sempre respeitando sua história, seu ritmo e seus
+                    objetivos.
+                  </p>
+                </div>
+              </div>
 
               <div
                 class="flex flex-col gap-6 pt-8 mt-auto"
                 style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
               >
                 <button
-                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 group/link w-fit"
+                  type="button"
+                  aria-expanded="false"
+                  onclick="toggleServiceCard(this)"
+                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 w-fit"
                   style="color: var(--brown-500)"
                   onmouseover="this.style.color = 'var(--brown-800)'"
                   onmouseout="this.style.color = 'var(--brown-500)'"
                 >
-                  Quero saber mais
+                  <span data-toggle-label>Ler mais</span>
                   <span
-                    class="iconify w-4 h-4 transition-transform group-hover/link:translate-y-1"
+                    class="iconify w-4 h-4 service-toggle-arrow"
                     data-icon="solar:arrow-down-linear"
                   ></span>
                 </button>
 
                 <a
-                  href="#"
+                  href="https://wa.me/5538998653602"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
                   style="
                     background-color: var(--brown-800);
@@ -778,6 +1321,7 @@
 
           <!-- Card 2 -->
           <div
+            data-service-card
             class="scroll-reveal delay-400 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             style="
               background-color: #ffffff;
@@ -822,34 +1366,61 @@
               >
                 Avaliação Neuropsicológica
               </h3>
-              <p
-                class="text-lg font-light leading-relaxed mb-10 flex-grow"
-                style="color: var(--brown-700)"
-              >
-                Indicado para casos como TDAH, TEA e altas habilidades, o
-                processo é feito 100% online, com testes validados e devolutiva
-                técnica. Auxilia no diagnóstico e na definição de tratamentos.
-              </p>
+              <div class="flex-grow mb-10">
+                <p
+                  class="text-lg font-light leading-relaxed"
+                  style="color: var(--brown-700)"
+                >
+                  É um processo que investiga como o seu cérebro está
+                  funcionando em áreas como atenção, memória e raciocínio,
+                  auxiliando na identificação de condições como TDAH, TEA e
+                  outras questões cognitivas.
+                </p>
+
+                <div
+                  class="service-more space-y-4 text-lg font-light leading-relaxed"
+                  style="color: var(--brown-700)"
+                  aria-hidden="true"
+                >
+                  <p>
+                    Indicada para investigação diagnóstica para condições como
+                    por exemplo TDAH, Autismo (TEA), Borderline, a avaliação é
+                    realizada de forma 100% online, com instrumentos validados
+                    cientificamente.
+                  </p>
+                  <p>
+                    O processo inclui análise detalhada do funcionamento
+                    cognitivo e comportamental, além de uma devolutiva técnica
+                    clara, que auxilia no diagnóstico e direciona os próximos
+                    passos do tratamento.
+                  </p>
+                </div>
+              </div>
 
               <div
                 class="flex flex-col gap-6 pt-8 mt-auto"
                 style="border-top: 1px solid rgba(90, 50, 34, 0.1)"
               >
                 <button
-                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 group/link w-fit"
+                  type="button"
+                  aria-expanded="false"
+                  onclick="toggleServiceCard(this)"
+                  class="font-label text-xs font-semibold uppercase tracking-wide transition-colors flex items-center gap-2 w-fit"
                   style="color: var(--brown-500)"
                   onmouseover="this.style.color = 'var(--brown-800)'"
                   onmouseout="this.style.color = 'var(--brown-500)'"
                 >
-                  Quero saber mais
+                  <span data-toggle-label>Ler mais</span>
                   <span
-                    class="iconify w-4 h-4 transition-transform group-hover/link:translate-y-1"
+                    class="iconify w-4 h-4 service-toggle-arrow"
                     data-icon="solar:arrow-down-linear"
                   ></span>
                 </button>
 
                 <a
-                  href="#"
+                  href="https://wa.me/5538998653602"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
                   style="
                     background-color: var(--brown-800);
@@ -866,814 +1437,683 @@
         </div>
       </div>
     </section>
-    <!-- Why Choose Us Section -->
-    <section
-      id="por-que"
-      class="relative z-20 w-full overflow-hidden"
-      style="
-        background-color: var(--cream-25);
-        border-top: 1px solid rgba(90, 50, 34, 0.1);
-      "
-    >
-      <!-- Decorative Grid -->
-      <div class="absolute inset-0 pointer-events-none hidden lg:block">
-        <div
-          class="grid-line-v"
-          style="left: 6%; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-        <div
-          class="grid-line-v"
-          style="left: 28%; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-        <div
-          class="grid-line-v"
-          style="left: 62%; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-        <div
-          class="grid-line-v"
-          style="right: 6%; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-        <div
-          class="grid-line-h"
-          style="top: 0; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-        <div
-          class="grid-line-h"
-          style="bottom: 0; background: rgba(90, 50, 34, 0.05)"
-        ></div>
-      </div>
-
-      <div
-        class="max-w-[1600px] mx-auto px-6 lg:px-[6%] py-24 lg:py-32 relative z-10"
+    <!-- Why Choose Us Section (temporariamente desativada) -->
+    <template id="por-que-disabled">
+      <section
+        id="por-que"
+        class="relative z-20 w-full overflow-hidden"
+        style="
+          background-color: var(--cream-25);
+          border-top: 1px solid rgba(90, 50, 34, 0.1);
+        "
       >
-        <!-- Top Header -->
+        <!-- Decorative Grid -->
+        <div class="absolute inset-0 pointer-events-none hidden lg:block">
+          <div
+            class="grid-line-v"
+            style="left: 6%; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+          <div
+            class="grid-line-v"
+            style="left: 28%; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+          <div
+            class="grid-line-v"
+            style="left: 62%; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+          <div
+            class="grid-line-v"
+            style="right: 6%; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+          <div
+            class="grid-line-h"
+            style="top: 0; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+          <div
+            class="grid-line-h"
+            style="bottom: 0; background: rgba(90, 50, 34, 0.05)"
+          ></div>
+        </div>
+
         <div
-          class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-20 items-end"
+          class="max-w-[1600px] mx-auto px-6 lg:px-[6%] py-24 lg:py-32 relative z-10"
         >
-          <div class="lg:col-span-7 scroll-reveal">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-px bg-[var(--gold)]"></div>
-              <span
-                class="font-label text-xs font-bold uppercase tracking-widest"
-                style="color: var(--gold-muted)"
-                >Propósito & Cuidado</span
-              >
-            </div>
-            <h2
-              class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]"
-              style="color: var(--brown-900)"
-            >
-              Por que as pessoas buscam cuidados em saúde através da
-              <span class="font-decorative" style="color: var(--brown-500)"
-                >CogCom?</span
-              >
-            </h2>
-          </div>
-          <div class="lg:col-span-5 scroll-reveal delay-100 lg:pb-2">
-            <div
-              class="pl-6"
-              style="border-left: 1px solid rgba(201, 169, 110, 0.3)"
-            >
-              <p
-                class="text-lg md:text-xl font-light leading-relaxed mb-4"
-                style="color: var(--brown-600)"
-              >
-                Os profissionais parceiros utilizam métodos baseados em ciência
-                para ajudar você a lidar com desafios reais da vida.
-              </p>
-              <p
-                class="text-sm font-label font-semibold tracking-widest uppercase"
-                style="color: var(--brown-400)"
-              >
-                Veja algumas das principais razões que levam pessoas a buscar
-                suporte profissional.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Content Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-20">
-          <!-- Interactive Card 1 - Alta Performance -->
+          <!-- Top Header -->
           <div
-            class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-200"
-            style="
-              background-color: var(--cream-50);
-              border: 1px solid rgba(90, 50, 34, 0.1);
-            "
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 mb-20 items-end"
           >
-            <!-- Text Side -->
-            <div
-              class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]"
-            >
-              <div class="flex items-center gap-4 mb-8">
-                <div
-                  class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700"
-                  style="
-                    background-color: rgba(201, 169, 110, 0.15);
-                    color: var(--gold);
-                  "
-                >
-                  <span
-                    class="iconify w-6 h-6"
-                    data-icon="solar:graph-up-linear"
-                  ></span>
-                </div>
+            <div class="lg:col-span-7 scroll-reveal">
+              <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-px bg-[var(--gold)]"></div>
                 <span
-                  class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-500)"
+                  class="font-label text-xs font-bold uppercase tracking-widest"
+                  style="color: var(--gold-muted)"
+                  >Confiança & Evidência</span
                 >
-                  <span
-                    class="group-hover:text-[var(--gold)] transition-colors duration-700"
-                    >Alta Performance</span
-                  >
-                </span>
               </div>
-
-              <h3
-                class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700"
+              <h2
+                class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]"
                 style="color: var(--brown-900)"
               >
-                <span
-                  class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                  >Desenvolvimento Pessoal</span
+                Por que as pessoas buscam cuidados em saúde através da
+                <span class="font-decorative" style="color: var(--brown-500)"
+                  >CogCom?</span
                 >
-              </h3>
-
-              <p
-                class="text-lg font-light leading-relaxed transition-colors duration-700 mb-10"
-                style="color: var(--brown-600)"
-              >
-                <span
-                  class="group-hover:text-[var(--brown-300)] transition-colors duration-700"
-                  >Profissionais ajudam você a desenvolver habilidades para se
-                  tornar mais organizado, produtivo e construir relações mais
-                  saudáveis com as pessoas.</span
-                >
-              </p>
-
+              </h2>
+            </div>
+            <div class="lg:col-span-5 scroll-reveal delay-100 lg:pb-2">
               <div
-                class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10"
-                style="background-color: var(--gold)"
-              ></div>
-
-              <div class="flex items-center justify-between">
-                <span
-                  class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-800)"
+                class="pl-6"
+                style="border-left: 1px solid rgba(201, 169, 110, 0.3)"
+              >
+                <p
+                  class="text-lg md:text-xl font-light leading-relaxed mb-4"
+                  style="color: var(--brown-600)"
                 >
-                  <span
-                    class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                    >Descubra como podemos ajudar</span
-                  >
-                </span>
-                <div
-                  class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700"
-                  style="border-color: var(--gold); color: var(--gold)"
+                  Os profissionais parceiros utilizam métodos baseados em
+                  ciência para ajudar você a lidar com desafios reais da vida.
+                </p>
+                <p
+                  class="text-sm font-label font-semibold tracking-widest uppercase"
+                  style="color: var(--brown-400)"
                 >
-                  <span
-                    class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1"
-                    data-icon="solar:arrow-right-linear"
-                  ></span>
-                </div>
+                  Veja algumas das principais razões que levam pessoas a buscar
+                  suporte profissional.
+                </p>
               </div>
             </div>
+          </div>
 
-            <!-- Image Side -->
-            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80"
-                alt="Desenvolvimento Pessoal e Produtividade"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-
-              <!-- Overlays -->
+          <!-- Content Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-20">
+            <!-- Interactive Card 1 - Alta Performance -->
+            <div
+              class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-200"
+              style="
+                background-color: var(--cream-50);
+                border: 1px solid rgba(90, 50, 34, 0.1);
+              "
+            >
+              <!-- Text Side -->
               <div
-                class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
-                style="
-                  background-color: var(--brown-900);
-                  mix-blend-mode: multiply;
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
-                style="
-                  background: linear-gradient(
-                    to left,
-                    transparent,
-                    var(--cream-50)
-                  );
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
-                style="
-                  background: linear-gradient(
-                    to left,
-                    transparent,
-                    var(--brown-900)
-                  );
-                "
-              ></div>
-
-              <!-- Interactive UI elements -->
-              <div
-                class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(250, 245, 240, 0.95);
-                  border: 1px solid rgba(201, 169, 110, 0.2);
-                "
+                class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]"
               >
-                <div class="flex items-center gap-3">
-                  <span class="relative flex h-2 w-2">
-                    <span
-                      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                      style="background-color: var(--gold)"
-                    ></span>
-                    <span
-                      class="relative inline-flex rounded-full h-2 w-2"
-                      style="background-color: var(--gold)"
-                    ></span>
-                  </span>
-                  <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--brown-900)"
-                    >Produtividade Ativa</span
-                  >
-                </div>
-              </div>
-
-              <!-- Progress graphic -->
-              <div
-                class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(62, 36, 26, 0.85);
-                  border: 1px solid rgba(201, 169, 110, 0.15);
-                "
-              >
-                <div class="flex justify-between items-center mb-3">
-                  <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--cream-50)"
-                    >Evolução Contínua</span
-                  >
-                  <span
-                    class="iconify w-4 h-4"
-                    data-icon="solar:chart-square-linear"
-                    style="color: var(--gold)"
-                  ></span>
-                </div>
-                <div
-                  class="w-full h-1.5 rounded-full overflow-hidden"
-                  style="background-color: rgba(250, 245, 240, 0.1)"
-                >
+                <div class="flex items-center gap-4 mb-8">
                   <div
-                    class="h-full rounded-full transition-all duration-1000 w-0 group-hover:w-[85%] ease-out"
+                    class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700"
                     style="
-                      background-color: var(--gold);
-                      transition-delay: 300ms;
+                      background-color: rgba(201, 169, 110, 0.15);
+                      color: var(--gold);
                     "
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Card 2 - Sono -->
-          <div
-            class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row-reverse scroll-reveal delay-300"
-            style="
-              background-color: var(--cream-50);
-              border: 1px solid rgba(90, 50, 34, 0.1);
-            "
-          >
-            <!-- Text Side -->
-            <div
-              class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]"
-            >
-              <div class="flex items-center gap-4 mb-8">
-                <div
-                  class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700"
-                  style="
-                    background-color: rgba(201, 169, 110, 0.15);
-                    color: var(--gold);
-                  "
-                >
-                  <span
-                    class="iconify w-6 h-6"
-                    data-icon="solar:moon-sleep-linear"
-                  ></span>
-                </div>
-                <span
-                  class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-500)"
-                >
-                  <span
-                    class="group-hover:text-[var(--gold)] transition-colors duration-700"
-                    >Qualidade de Vida</span
                   >
-                </span>
-              </div>
-
-              <h3
-                class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700"
-                style="color: var(--brown-900)"
-              >
-                <span
-                  class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                  >Sono e Descanso</span
-                >
-              </h3>
-
-              <p
-                class="text-lg font-light leading-relaxed transition-colors duration-700 mb-6"
-                style="color: var(--brown-600)"
-              >
-                <span
-                  class="group-hover:text-[var(--brown-300)] transition-colors duration-700"
-                  >Receba os melhores cuidados baseados em ciência para
-                  desenvolver uma rotina de sono saudável e, assim, ter uma vida
-                  mais funcional.</span
-                >
-              </p>
-
-              <!-- Symptoms List -->
-              <div
-                class="mb-10 flex flex-col gap-3 transition-colors duration-700"
-                style="color: var(--brown-500)"
-              >
-                <p
-                  class="text-xs font-label font-bold uppercase tracking-widest mb-1 group-hover:text-[var(--gold-muted)] transition-colors duration-700"
-                >
-                  Sintomas Mais Comuns:
-                </p>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Sonolência durante o dia.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Dificuldade de concentração e falta de disposição.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Irritação constante durante o dia.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Ronco enquanto dorme.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Dificuldade para dormir ou insônia.</span
-                  >
-                </div>
-              </div>
-
-              <div
-                class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10"
-                style="background-color: var(--gold)"
-              ></div>
-
-              <div class="flex items-center justify-between">
-                <span
-                  class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-800)"
-                >
-                  <span
-                    class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                    >Descubra como podemos ajudar</span
-                  >
-                </span>
-                <div
-                  class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700"
-                  style="border-color: var(--gold); color: var(--gold)"
-                >
-                  <span
-                    class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1"
-                    data-icon="solar:arrow-right-linear"
-                  ></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Image Side -->
-            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?auto=format&fit=crop&w=1000&q=80"
-                alt="Sono Saudável e Qualidade de Vida"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-
-              <!-- Overlays -->
-              <div
-                class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
-                style="
-                  background-color: var(--brown-900);
-                  mix-blend-mode: multiply;
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
-                style="
-                  background: linear-gradient(
-                    to right,
-                    transparent,
-                    var(--cream-50)
-                  );
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
-                style="
-                  background: linear-gradient(
-                    to right,
-                    transparent,
-                    var(--brown-900)
-                  );
-                "
-              ></div>
-
-              <!-- Interactive UI elements -->
-              <div
-                class="absolute top-8 left-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(250, 245, 240, 0.95);
-                  border: 1px solid rgba(201, 169, 110, 0.2);
-                "
-              >
-                <div class="flex items-center gap-3">
-                  <span
-                    class="iconify w-4 h-4"
-                    data-icon="solar:star-fall-minimalistic-linear"
-                    style="color: var(--gold)"
-                  ></span>
-                  <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--brown-900)"
-                    >Sono Reparador</span
-                  >
-                </div>
-              </div>
-
-              <!-- Pulse Graphic -->
-              <div
-                class="absolute bottom-8 left-8 right-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(62, 36, 26, 0.85);
-                  border: 1px solid rgba(201, 169, 110, 0.15);
-                "
-              >
-                <div class="flex justify-between items-center mb-3">
-                  <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--cream-50)"
-                    >Ciclo Circadiano</span
-                  >
-                  <span
-                    class="iconify w-4 h-4"
-                    data-icon="solar:alarm-linear"
-                    style="color: var(--gold)"
-                  ></span>
-                </div>
-                <div
-                  class="w-full flex items-center justify-between gap-1 opacity-70"
-                >
-                  <div
-                    class="w-1 h-3 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.1s"
-                  ></div>
-                  <div
-                    class="w-1 h-5 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.2s"
-                  ></div>
-                  <div
-                    class="w-1 h-8 rounded-full bg-[var(--gold-muted)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.3s"
-                  ></div>
-                  <div
-                    class="w-1 h-4 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.4s"
-                  ></div>
-                  <div
-                    class="w-1 h-6 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.5s"
-                  ></div>
-                  <div
-                    class="w-1 h-3 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.6s"
-                  ></div>
-                  <div
-                    class="w-1 h-2 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
-                    style="animation-delay: 0.7s"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interactive Card 3 - Ansiedade -->
-          <div
-            class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-400"
-            style="
-              background-color: var(--cream-50);
-              border: 1px solid rgba(90, 50, 34, 0.1);
-            "
-          >
-            <!-- Text Side -->
-            <div
-              class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]"
-            >
-              <div class="flex items-center gap-4 mb-8">
-                <div
-                  class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700"
-                  style="
-                    background-color: rgba(201, 169, 110, 0.15);
-                    color: var(--gold);
-                  "
-                >
-                  <span
-                    class="iconify w-6 h-6"
-                    data-icon="solar:heart-pulse-linear"
-                  ></span>
-                </div>
-                <span
-                  class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-500)"
-                >
-                  <span
-                    class="group-hover:text-[var(--gold)] transition-colors duration-700"
-                    >Saúde Mental</span
-                  >
-                </span>
-              </div>
-
-              <h3
-                class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700"
-                style="color: var(--brown-900)"
-              >
-                <span
-                  class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                  >Ansiedade</span
-                >
-              </h3>
-
-              <p
-                class="text-lg font-light leading-relaxed transition-colors duration-700 mb-6"
-                style="color: var(--brown-600)"
-              >
-                <span
-                  class="group-hover:text-[var(--brown-300)] transition-colors duration-700"
-                  >A preocupação constante e prejudicial com o que virá ou não
-                  acontecer pode ser cuidada de forma humanizada e baseada em
-                  ciência.</span
-                >
-              </p>
-
-              <!-- Symptoms List -->
-              <div
-                class="mb-10 flex flex-col gap-3 transition-colors duration-700"
-                style="color: var(--brown-500)"
-              >
-                <p
-                  class="text-xs font-label font-bold uppercase tracking-widest mb-1 group-hover:text-[var(--gold-muted)] transition-colors duration-700"
-                >
-                  Sintomas Mais Comuns:
-                </p>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Inquietação, medo ou preocupação constantes, sem um motivo
-                    claro para isso.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Sentimento de cansaço sem fazer esforços e baixa
-                    concentração nas tarefas.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Dificuldade para dormir ou despertar várias vezes durante a
-                    noite.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Coração acelerado e falta de ar.</span
-                  >
-                </div>
-                <div class="flex items-start gap-3">
-                  <span
-                    class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
-                    data-icon="solar:info-circle-linear"
-                  ></span>
-                  <span
-                    class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
-                    >Tensão muscular sem razão aparente.</span
-                  >
-                </div>
-              </div>
-
-              <div
-                class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10"
-                style="background-color: var(--gold)"
-              ></div>
-
-              <div class="flex items-center justify-between">
-                <span
-                  class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700"
-                  style="color: var(--brown-800)"
-                >
-                  <span
-                    class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
-                    >Descubra como podemos ajudar</span
-                  >
-                </span>
-                <div
-                  class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700"
-                  style="border-color: var(--gold); color: var(--gold)"
-                >
-                  <span
-                    class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1"
-                    data-icon="solar:arrow-right-linear"
-                  ></span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Image Side -->
-            <div class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden">
-              <img
-                src="https://plus.unsplash.com/premium_photo-1698530141308-ec79dbb514c4?auto=format&fit=crop&w=1000&q=80"
-                alt="Mulher sentada no sofá cobrindo o rosto com as mãos"
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-
-              <!-- Overlays -->
-              <div
-                class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
-                style="
-                  background-color: var(--brown-900);
-                  mix-blend-mode: multiply;
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
-                style="
-                  background: linear-gradient(
-                    to left,
-                    transparent,
-                    var(--cream-50)
-                  );
-                "
-              ></div>
-
-              <div
-                class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
-                style="
-                  background: linear-gradient(
-                    to left,
-                    transparent,
-                    var(--brown-900)
-                  );
-                "
-              ></div>
-
-              <!-- Interactive UI elements -->
-              <div
-                class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(250, 245, 240, 0.95);
-                  border: 1px solid rgba(201, 169, 110, 0.2);
-                "
-              >
-                <div class="flex items-center gap-3">
-                  <span class="relative flex h-2 w-2">
                     <span
-                      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                      style="background-color: var(--gold)"
+                      class="iconify w-6 h-6"
+                      data-icon="solar:graph-up-linear"
                     ></span>
+                  </div>
+                  <span
+                    class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700"
+                    style="color: var(--brown-500)"
+                  >
                     <span
-                      class="relative inline-flex rounded-full h-2 w-2"
-                      style="background-color: var(--gold)"
-                    ></span>
+                      class="group-hover:text-[var(--gold)] transition-colors duration-700"
+                      >Alta Performance</span
+                    >
                   </span>
+                </div>
+
+                <h3
+                  class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700"
+                  style="color: var(--brown-900)"
+                >
                   <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--brown-900)"
-                    >Cuidado Constante</span
+                    class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
+                    >Desenvolvimento Pessoal</span
                   >
+                </h3>
+
+                <p
+                  class="text-lg font-light leading-relaxed transition-colors duration-700 mb-10"
+                  style="color: var(--brown-600)"
+                >
+                  <span
+                    class="group-hover:text-[var(--brown-300)] transition-colors duration-700"
+                    >Profissionais ajudam você a desenvolver habilidades para se
+                    tornar mais organizado, produtivo e construir relações mais
+                    saudáveis com as pessoas.</span
+                  >
+                </p>
+
+                <div
+                  class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10"
+                  style="background-color: var(--gold)"
+                ></div>
+
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700"
+                    style="color: var(--brown-800)"
+                  >
+                    <span
+                      class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
+                      >Descubra como podemos ajudar</span
+                    >
+                  </span>
+                  <div
+                    class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700"
+                    style="border-color: var(--gold); color: var(--gold)"
+                  >
+                    <span
+                      class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1"
+                      data-icon="solar:arrow-right-linear"
+                    ></span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Heart Pulse Graphic -->
+              <!-- Image Side -->
               <div
-                class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                style="
-                  background-color: rgba(62, 36, 26, 0.85);
-                  border: 1px solid rgba(201, 169, 110, 0.15);
-                "
+                class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden"
               >
-                <div class="flex justify-between items-center mb-3">
-                  <span
-                    class="font-label text-[10px] font-bold uppercase tracking-widest"
-                    style="color: var(--cream-50)"
-                    >Regulação Emocional</span
-                  >
-                  <span
-                    class="iconify w-4 h-4"
-                    data-icon="solar:heart-pulse-linear"
-                    style="color: var(--gold)"
-                  ></span>
-                </div>
+                <img
+                  src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80"
+                  alt="Desenvolvimento Pessoal e Produtividade"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+
+                <!-- Overlays -->
                 <div
-                  class="relative w-full h-8 overflow-hidden flex items-center justify-center"
+                  class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
+                  style="
+                    background-color: var(--brown-900);
+                    mix-blend-mode: multiply;
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                  style="
+                    background: linear-gradient(
+                      to left,
+                      transparent,
+                      var(--cream-50)
+                    );
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
+                  style="
+                    background: linear-gradient(
+                      to left,
+                      transparent,
+                      var(--brown-900)
+                    );
+                  "
+                ></div>
+
+                <!-- Interactive UI elements -->
+                <div
+                  class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(250, 245, 240, 0.95);
+                    border: 1px solid rgba(201, 169, 110, 0.2);
+                  "
                 >
-                  <svg
-                    class="w-full h-full opacity-50 stroke-[var(--gold)]"
-                    viewBox="0 0 100 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div class="flex items-center gap-3">
+                    <span class="relative flex h-2 w-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                        style="background-color: var(--gold)"
+                      ></span>
+                      <span
+                        class="relative inline-flex rounded-full h-2 w-2"
+                        style="background-color: var(--gold)"
+                      ></span>
+                    </span>
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--brown-900)"
+                      >Produtividade Ativa</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Progress graphic -->
+                <div
+                  class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(62, 36, 26, 0.85);
+                    border: 1px solid rgba(201, 169, 110, 0.15);
+                  "
+                >
+                  <div class="flex justify-between items-center mb-3">
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--cream-50)"
+                      >Evolução Contínua</span
+                    >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:chart-square-linear"
+                      style="color: var(--gold)"
+                    ></span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 rounded-full overflow-hidden"
+                    style="background-color: rgba(250, 245, 240, 0.1)"
                   >
-                    <path
-                      class="group-hover:animate-[dash_3s_linear_infinite]"
-                      stroke-dasharray="200"
-                      stroke-dashoffset="200"
-                      d="M0 10 L30 10 L35 0 L45 20 L50 10 L100 10"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <style>
-                    @keyframes dash {
-                      to {
-                        stroke-dashoffset: 0;
+                    <div
+                      class="h-full rounded-full transition-all duration-1000 w-0 group-hover:w-[85%] ease-out"
+                      style="
+                        background-color: var(--gold);
+                        transition-delay: 300ms;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Card 2 - Sono -->
+            <div
+              class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row-reverse scroll-reveal delay-300"
+              style="
+                background-color: var(--cream-50);
+                border: 1px solid rgba(90, 50, 34, 0.1);
+              "
+            >
+              <!-- Image Side -->
+              <div
+                class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?auto=format&fit=crop&w=1000&q=80"
+                  alt="Sono Saudável e Qualidade de Vida"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+
+                <!-- Overlays -->
+                <div
+                  class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
+                  style="
+                    background-color: var(--brown-900);
+                    mix-blend-mode: multiply;
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                  style="
+                    background: linear-gradient(
+                      to right,
+                      transparent,
+                      var(--cream-50)
+                    );
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 right-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
+                  style="
+                    background: linear-gradient(
+                      to right,
+                      transparent,
+                      var(--brown-900)
+                    );
+                  "
+                ></div>
+
+                <!-- Interactive UI elements -->
+                <div
+                  class="absolute top-8 left-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(250, 245, 240, 0.95);
+                    border: 1px solid rgba(201, 169, 110, 0.2);
+                  "
+                >
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:star-fall-minimalistic-linear"
+                      style="color: var(--gold)"
+                    ></span>
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--brown-900)"
+                      >Sono Reparador</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Pulse Graphic -->
+                <div
+                  class="absolute bottom-8 left-8 right-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(62, 36, 26, 0.85);
+                    border: 1px solid rgba(201, 169, 110, 0.15);
+                  "
+                >
+                  <div class="flex justify-between items-center mb-3">
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--cream-50)"
+                      >Ciclo Circadiano</span
+                    >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:alarm-linear"
+                      style="color: var(--gold)"
+                    ></span>
+                  </div>
+                  <div
+                    class="w-full flex items-center justify-between gap-1 opacity-70"
+                  >
+                    <div
+                      class="w-1 h-3 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.1s"
+                    ></div>
+                    <div
+                      class="w-1 h-5 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.2s"
+                    ></div>
+                    <div
+                      class="w-1 h-8 rounded-full bg-[var(--gold-muted)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.3s"
+                    ></div>
+                    <div
+                      class="w-1 h-4 rounded-full bg-[var(--brown-400)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.4s"
+                    ></div>
+                    <div
+                      class="w-1 h-6 rounded-full bg-[var(--brown-500)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.5s"
+                    ></div>
+                    <div
+                      class="w-1 h-3 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.6s"
+                    ></div>
+                    <div
+                      class="w-1 h-2 rounded-full bg-[var(--brown-600)] group-hover:animate-[pulse_1s_ease-in-out_infinite]"
+                      style="animation-delay: 0.7s"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Card 3 - Ansiedade -->
+            <div
+              class="lg:col-span-12 group cursor-default relative rounded-sm overflow-hidden flex flex-col lg:flex-row scroll-reveal delay-400"
+              style="
+                background-color: var(--cream-50);
+                border: 1px solid rgba(90, 50, 34, 0.1);
+              "
+            >
+              <!-- Text Side -->
+              <div
+                class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10 transition-colors duration-700 group-hover:bg-[var(--brown-900)]"
+              >
+                <div class="flex items-center gap-4 mb-8">
+                  <div
+                    class="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-700"
+                    style="
+                      background-color: rgba(201, 169, 110, 0.15);
+                      color: var(--gold);
+                    "
+                  >
+                    <span
+                      class="iconify w-6 h-6"
+                      data-icon="solar:heart-pulse-linear"
+                    ></span>
+                  </div>
+                  <span
+                    class="font-label text-xs font-bold uppercase tracking-widest transition-colors duration-700"
+                    style="color: var(--brown-500)"
+                  >
+                    <span
+                      class="group-hover:text-[var(--gold)] transition-colors duration-700"
+                      >Saúde Mental</span
+                    >
+                  </span>
+                </div>
+
+                <h3
+                  class="text-3xl lg:text-4xl font-semibold leading-[1.1] mb-6 transition-colors duration-700"
+                  style="color: var(--brown-900)"
+                >
+                  <span
+                    class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
+                    >Ansiedade</span
+                  >
+                </h3>
+
+                <p
+                  class="text-lg font-light leading-relaxed transition-colors duration-700 mb-6"
+                  style="color: var(--brown-600)"
+                >
+                  <span
+                    class="group-hover:text-[var(--brown-300)] transition-colors duration-700"
+                    >A preocupação constante e prejudicial com o que virá ou não
+                    acontecer pode ser cuidada de forma humanizada e baseada em
+                    ciência.</span
+                  >
+                </p>
+
+                <!-- Symptoms List -->
+                <div
+                  class="mb-10 flex flex-col gap-3 transition-colors duration-700"
+                  style="color: var(--brown-500)"
+                >
+                  <p
+                    class="text-xs font-label font-bold uppercase tracking-widest mb-1 group-hover:text-[var(--gold-muted)] transition-colors duration-700"
+                  >
+                    Sintomas Mais Comuns:
+                  </p>
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
+                      data-icon="solar:info-circle-linear"
+                    ></span>
+                    <span
+                      class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
+                      >Inquietação, medo ou preocupação constantes, sem um
+                      motivo claro para isso.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
+                      data-icon="solar:info-circle-linear"
+                    ></span>
+                    <span
+                      class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
+                      >Sentimento de cansaço sem fazer esforços e baixa
+                      concentração nas tarefas.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
+                      data-icon="solar:info-circle-linear"
+                    ></span>
+                    <span
+                      class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
+                      >Dificuldade para dormir ou despertar várias vezes durante
+                      a noite.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
+                      data-icon="solar:info-circle-linear"
+                    ></span>
+                    <span
+                      class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
+                      >Coração acelerado e falta de ar.</span
+                    >
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="iconify w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-[var(--gold)] transition-colors duration-700"
+                      data-icon="solar:info-circle-linear"
+                    ></span>
+                    <span
+                      class="text-sm font-light group-hover:text-[var(--cream-100)] transition-colors duration-700"
+                      >Tensão muscular sem razão aparente.</span
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="w-full h-px mb-8 transition-opacity duration-700 opacity-20 group-hover:opacity-10"
+                  style="background-color: var(--gold)"
+                ></div>
+
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label text-xs font-semibold uppercase tracking-widest transition-colors duration-700"
+                    style="color: var(--brown-800)"
+                  >
+                    <span
+                      class="group-hover:text-[var(--cream-50)] transition-colors duration-700"
+                      >Descubra como podemos ajudar</span
+                    >
+                  </span>
+                  <div
+                    class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-700"
+                    style="border-color: var(--gold); color: var(--gold)"
+                  >
+                    <span
+                      class="iconify w-5 h-5 transition-transform duration-700 group-hover:translate-x-1"
+                      data-icon="solar:arrow-right-linear"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Image Side -->
+              <div
+                class="w-full lg:w-1/2 relative min-h-[400px] overflow-hidden"
+              >
+                <img
+                  src="https://plus.unsplash.com/premium_photo-1698530141308-ec79dbb514c4?auto=format&fit=crop&w=1000&q=80"
+                  alt="Mulher sentada no sofá cobrindo o rosto com as mãos"
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+
+                <!-- Overlays -->
+                <div
+                  class="absolute inset-0 transition-opacity duration-700 opacity-0 group-hover:opacity-30"
+                  style="
+                    background-color: var(--brown-900);
+                    mix-blend-mode: multiply;
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                  style="
+                    background: linear-gradient(
+                      to left,
+                      transparent,
+                      var(--cream-50)
+                    );
+                  "
+                ></div>
+
+                <div
+                  class="absolute inset-0 w-1/2 left-0 transition-opacity duration-700 opacity-0 group-hover:opacity-100"
+                  style="
+                    background: linear-gradient(
+                      to left,
+                      transparent,
+                      var(--brown-900)
+                    );
+                  "
+                ></div>
+
+                <!-- Interactive UI elements -->
+                <div
+                  class="absolute top-8 right-8 backdrop-blur-md px-5 py-3 rounded shadow-xl transition-all duration-700 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(250, 245, 240, 0.95);
+                    border: 1px solid rgba(201, 169, 110, 0.2);
+                  "
+                >
+                  <div class="flex items-center gap-3">
+                    <span class="relative flex h-2 w-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                        style="background-color: var(--gold)"
+                      ></span>
+                      <span
+                        class="relative inline-flex rounded-full h-2 w-2"
+                        style="background-color: var(--gold)"
+                      ></span>
+                    </span>
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--brown-900)"
+                      >Cuidado Constante</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Heart Pulse Graphic -->
+                <div
+                  class="absolute bottom-8 right-8 left-1/4 backdrop-blur-md p-5 rounded shadow-xl transition-all duration-700 delay-100 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                  style="
+                    background-color: rgba(62, 36, 26, 0.85);
+                    border: 1px solid rgba(201, 169, 110, 0.15);
+                  "
+                >
+                  <div class="flex justify-between items-center mb-3">
+                    <span
+                      class="font-label text-[10px] font-bold uppercase tracking-widest"
+                      style="color: var(--cream-50)"
+                      >Regulação Emocional</span
+                    >
+                    <span
+                      class="iconify w-4 h-4"
+                      data-icon="solar:heart-pulse-linear"
+                      style="color: var(--gold)"
+                    ></span>
+                  </div>
+                  <div
+                    class="relative w-full h-8 overflow-hidden flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-full h-full opacity-50 stroke-[var(--gold)]"
+                      viewBox="0 0 100 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        class="group-hover:animate-[dash_3s_linear_infinite]"
+                        stroke-dasharray="200"
+                        stroke-dashoffset="200"
+                        d="M0 10 L30 10 L35 0 L45 20 L50 10 L100 10"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <style>
+                      @keyframes dash {
+                        to {
+                          stroke-dashoffset: 0;
+                        }
                       }
-                    }
-                  </style>
+                    </style>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </template>
 
     <!-- Premium Video Background Section -->
     <section
@@ -1681,10 +2121,12 @@
     >
       <!-- Video Background -->
       <video
+        id="bg-clinic-video"
         autoplay
         loop
         muted
         playsinline
+        preload="auto"
         class="absolute inset-0 w-full h-full object-cover z-0"
       >
         <source src="assets/videos/bg-clinic.mp4" type="video/mp4" />
@@ -1697,19 +2139,20 @@
       <div
         class="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center"
       >
-        <!-- H2 Title -->
-        <h2
-          class="font-label text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 text-white/80"
-        >
-          Cuidado baseado em ciência
-        </h2>
+        <div class="inline-flex items-center gap-3 mb-6">
+          <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+          <span
+            class="font-label text-xs font-bold uppercase tracking-widest text-white/80"
+            >Ciência & Transformação</span
+          >
+        </div>
 
         <!-- Large Serif Subtitle -->
         <p
           class="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-8 text-white drop-shadow-sm"
           style="font-family: &quot;Playfair Display&quot;, serif"
         >
-          Saúde mental e física por quem leva a
+          Saúde mental por quem leva a
           <span class="font-decorative italic" style="color: var(--gold-light)"
             >ciência a sério.</span
           >
@@ -1752,6 +2195,14 @@
       <div
         class="lg:px-[6%] max-w-[1600px] mr-auto ml-auto pr-6 pl-6 pt-24 pb-24"
       >
+        <div class="flex items-center gap-3 mb-6 scroll-reveal">
+          <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+          <span
+            class="font-label text-xs font-bold uppercase tracking-widest"
+            style="color: var(--gold-muted)"
+            >Dúvidas & Orientação</span
+          >
+        </div>
         <!-- Section Header -->
         <div class="flex items-start justify-between mb-16 scroll-reveal">
           <h2
@@ -3586,24 +4037,6 @@
                   href="#especialidades"
                   style="color: var(--brown-400)"
                 >
-                  Consulta com Psiquiatra
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#especialidades"
-                  style="color: var(--brown-400)"
-                >
-                  Consulta com Nutricionista
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#especialidades"
-                  style="color: var(--brown-400)"
-                >
                   Avaliação Neuropsicológica
                 </a>
               </li>
@@ -3620,25 +4053,7 @@
               <li>
                 <a
                   class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#como-funciona"
-                  style="color: var(--brown-400)"
-                >
-                  Nossa história
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#"
-                  style="color: var(--brown-400)"
-                >
-                  Iniciativas parceiras
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#"
+                  href="lgpd.html"
                   style="color: var(--brown-400)"
                 >
                   LGPD
@@ -3647,7 +4062,7 @@
               <li>
                 <a
                   class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#"
+                  href="politica-privacidade.html"
                   style="color: var(--brown-400)"
                 >
                   Política de Privacidade
@@ -3693,7 +4108,9 @@
           <div class="flex gap-4 items-center">
             <a
               class="transition-colors hover:text-[var(--gold)] flex items-center gap-2"
-              href="#"
+              href="https://instagram.com/institutocogcom"
+              target="_blank"
+              rel="noopener noreferrer"
               style="color: var(--brown-400)"
             >
               <span
@@ -3713,12 +4130,26 @@
     <!-- App Scripts -->
     <script src="js/main.js"></script>
 
+    <!-- Expandable service cards (Ler mais / Ler menos) -->
+    <script>
+      function toggleServiceCard(btn) {
+        var card = btn.closest("[data-service-card]");
+        if (!card) return;
+        var expanded = card.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+        var label = btn.querySelector("[data-toggle-label]");
+        if (label) label.textContent = expanded ? "Ler menos" : "Ler mais";
+        var more = card.querySelector(".service-more");
+        if (more) more.setAttribute("aria-hidden", expanded ? "false" : "true");
+      }
+    </script>
+
     <!-- Bottom Mobile Navigation -->
     <nav
       class="fixed bottom-0 left-0 right-0 z-[100] md:hidden flex items-end justify-between px-6 pb-4 pt-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] rounded-t-3xl"
       style="background-color: var(--cream-25)"
     >
-      <a href="#" class="flex flex-col items-center gap-1 group w-12">
+      <a href="#hero-wrapper" class="flex flex-col items-center gap-1 group w-12">
         <span
           class="iconify w-6 h-6"
           data-icon="solar:home-2-bold"
@@ -3731,7 +4162,7 @@
         >
       </a>
       <a
-        href="#especialidades"
+        href="#quem-somos"
         class="flex flex-col items-center gap-1 group w-16"
       >
         <span
@@ -3742,7 +4173,7 @@
         <span
           class="text-[10px] font-medium font-label"
           style="color: var(--brown-800)"
-          >Tratamentos</span
+          >Quem</span
         >
       </a>
 
@@ -3768,10 +4199,7 @@
         </div>
       </a>
 
-      <a
-        href="#como-funciona"
-        class="flex flex-col items-center gap-1 group w-12"
-      >
+      <a href="#jornada" class="flex flex-col items-center gap-1 group w-12">
         <span
           class="iconify w-6 h-6"
           data-icon="solar:user-bold"
@@ -3780,10 +4208,10 @@
         <span
           class="text-[10px] font-medium font-label"
           style="color: var(--brown-800)"
-          >Sobre</span
+          >Jornada</span
         >
       </a>
-      <a href="#contato" class="flex flex-col items-center gap-1 group w-12">
+      <a href="#especialidades" class="flex flex-col items-center gap-1 group w-12">
         <span
           class="iconify w-6 h-6"
           data-icon="solar:phone-bold"
@@ -3792,7 +4220,7 @@
         <span
           class="text-[10px] font-medium font-label"
           style="color: var(--brown-800)"
-          >Contato</span
+          >Especial.</span
         >
       </a>
     </nav>
@@ -3810,5 +4238,163 @@
         data-icon="ri:whatsapp-fill"
       ></span>
     </a>
+    <script>
+      (function () {
+        var loader = document.getElementById("initial-loader");
+        var loaderFill = document.getElementById("loader-brain-fill-rect");
+        var loaderPercent = document.getElementById("loader-percent-text");
+        if (!loader || !loaderFill || !loaderPercent) return;
+
+        var startTime = performance.now();
+        var minimumVisibleMs = 1200;
+        var hasFinished = false;
+        var animatedProgress = 0;
+        var targetProgress = 0;
+        var brainMaxHeight = 463;
+
+        var checkpoints = {
+          dom: { weight: 18, done: document.readyState !== "loading" },
+          fonts: { weight: 12, done: false },
+          heroVideo: { weight: 24, done: false },
+          clinicVideo: { weight: 24, done: false },
+          windowLoad: { weight: 22, done: false },
+        };
+
+        function recalculateTarget() {
+          var total = 0;
+          Object.keys(checkpoints).forEach(function (key) {
+            if (checkpoints[key].done) total += checkpoints[key].weight;
+          });
+          targetProgress = Math.min(100, Math.max(0, total));
+        }
+
+        function markDone(checkpointKey) {
+          if (!checkpoints[checkpointKey] || checkpoints[checkpointKey].done)
+            return;
+          checkpoints[checkpointKey].done = true;
+          recalculateTarget();
+        }
+
+        function setVisualProgress(value) {
+          var clamped = Math.max(0, Math.min(100, value));
+          var fillHeight = (brainMaxHeight * clamped) / 100;
+          loaderFill.setAttribute("height", fillHeight.toFixed(2));
+          loaderFill.setAttribute(
+            "y",
+            (brainMaxHeight - fillHeight).toFixed(2),
+          );
+          loaderPercent.textContent = Math.round(clamped) + "%";
+        }
+
+        function completeLoader() {
+          if (hasFinished) return;
+          hasFinished = true;
+          loader.classList.add("is-hidden");
+          document.body.classList.remove("is-loading-initial");
+          window.setTimeout(function () {
+            loader.remove();
+          }, 700);
+        }
+
+        function everyCheckpointDone() {
+          return Object.keys(checkpoints).every(function (key) {
+            return checkpoints[key].done;
+          });
+        }
+
+        function trackVideo(videoEl, checkpointKey) {
+          if (!videoEl) {
+            markDone(checkpointKey);
+            return;
+          }
+
+          if (videoEl.readyState >= 3) {
+            markDone(checkpointKey);
+            return;
+          }
+
+          var settled = false;
+          var fallbackTimer = null;
+
+          function finishVideoCheckpoint() {
+            if (settled) return;
+            settled = true;
+            videoEl.removeEventListener("loadeddata", finishVideoCheckpoint);
+            videoEl.removeEventListener("canplay", finishVideoCheckpoint);
+            videoEl.removeEventListener(
+              "canplaythrough",
+              finishVideoCheckpoint,
+            );
+            if (fallbackTimer) window.clearTimeout(fallbackTimer);
+            markDone(checkpointKey);
+          }
+
+          videoEl.addEventListener("loadeddata", finishVideoCheckpoint, {
+            once: true,
+          });
+          videoEl.addEventListener("canplay", finishVideoCheckpoint, {
+            once: true,
+          });
+          videoEl.addEventListener("canplaythrough", finishVideoCheckpoint, {
+            once: true,
+          });
+
+          fallbackTimer = window.setTimeout(finishVideoCheckpoint, 5500);
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+              markDone("dom");
+            },
+            { once: true },
+          );
+        }
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function () {
+            markDone("fonts");
+          });
+        } else {
+          markDone("fonts");
+        }
+
+        var heroVideo = document.getElementById("hero-video");
+        var clinicVideo = document.getElementById("bg-clinic-video");
+        trackVideo(heroVideo, "heroVideo");
+        trackVideo(clinicVideo, "clinicVideo");
+
+        window.addEventListener(
+          "load",
+          function () {
+            markDone("windowLoad");
+          },
+          { once: true },
+        );
+
+        recalculateTarget();
+        setVisualProgress(0);
+
+        (function animate() {
+          animatedProgress += (targetProgress - animatedProgress) * 0.12;
+          if (Math.abs(targetProgress - animatedProgress) < 0.08) {
+            animatedProgress = targetProgress;
+          }
+
+          setVisualProgress(animatedProgress);
+
+          if (everyCheckpointDone() && animatedProgress >= 99.9) {
+            var elapsed = performance.now() - startTime;
+            if (elapsed >= minimumVisibleMs) {
+              completeLoader();
+              return;
+            }
+          }
+
+          requestAnimationFrame(animate);
+        })();
+      })();
+    </script>
   </body>
 </html>
