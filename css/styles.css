@@ -277,13 +277,17 @@ h6 {
 }
 
 .pulse-dot {
+  position: absolute;
+  top: clamp(0.9rem, 1.2vw, 1.3rem);
+  left: 50%;
+  transform: translateX(-50%);
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background-color: var(--gold);
   animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   z-index: 2;
-  margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-top: 0;
 }
 
 .pulse-dot::before {
@@ -297,23 +301,32 @@ h6 {
 /* ─── Steps Grid ─── */
 
 .step-number-wrapper {
-  display: grid;
-  place-items: center;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: clamp(8rem, 14vw, 14rem);
+  padding-top: clamp(1.5rem, 2vw, 2rem);
 }
 
 .step-number-wrapper > * {
-  grid-area: 1 / 1;
+  grid-area: auto;
 }
 
 .step-number {
+  display: block;
+  width: 1.1ch;
+  text-align: center;
   font-family: "Playfair Display", "Georgia", serif;
   font-weight: 700;
   font-size: clamp(8rem, 14vw, 14rem);
-  line-height: 0.85;
+  line-height: 0.88;
   color: var(--brown-200);
   opacity: 0.2;
   user-select: none;
   padding: 0 0.05em;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .steps-grid {
@@ -321,6 +334,11 @@ h6 {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   align-items: center;
+}
+
+/* Ajuste optico do glifo "4" nesta fonte */
+.steps-grid > article:nth-child(4) .step-number-wrapper {
+  transform: translateX(-0.04em);
 }
 
 /* ─── Mobile Responsive (max-width: 1023px) ─── */

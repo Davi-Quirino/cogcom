@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="scroll-smooth" lang="pt-BR">
   <head>
     <meta charset="utf-8" />
@@ -23,39 +23,39 @@
     <style>
       :root {
         /* Primary - Marrons Sofisticados */
-        --brown-950: #2C1810;
-        --brown-900: #3E241A;
+        --brown-950: #2c1810;
+        --brown-900: #3e241a;
         --brown-800: #543324;
-        --brown-700: #6B402D;
-        --brown-600: #85533D;
-        --brown-500: #9C664E;
-        --brown-400: #B5826A;
-        --brown-300: #CDA48F;
-        --brown-200: #E0C5B6;
+        --brown-700: #6b402d;
+        --brown-600: #85533d;
+        --brown-500: #9c664e;
+        --brown-400: #b5826a;
+        --brown-300: #cda48f;
+        --brown-200: #e0c5b6;
 
         /* Neutrals - Cremes Suaves */
-        --cream-300: #DFCDBC;
-        --cream-200: #EBE0D3;
-        --cream-100: #F4EBE1;
-        --cream-50:  #FAF5F0;
-        --cream-25:  #FFFEFC;
+        --cream-300: #dfcdbc;
+        --cream-200: #ebe0d3;
+        --cream-100: #f4ebe1;
+        --cream-50: #faf5f0;
+        --cream-25: #fffefc;
 
         /* Accents - Dourado Clássico */
-        --gold: #C9A96E;
-        --gold-light: #E0C797;
-        --gold-muted: #B4965F;
+        --gold: #c9a96e;
+        --gold-light: #e0c797;
+        --gold-muted: #b4965f;
 
         /* Secondary - Sage Green (Equilíbrio e Saúde Mental) */
-        --sage-900: #1B2B24;
-        --sage-800: #263C32;
+        --sage-900: #1b2b24;
+        --sage-800: #263c32;
         --sage-700: #345143;
         --sage-600: #446957;
-        --sage-500: #55826C;
-        --sage-400: #749E8A;
-        --sage-300: #9ABCA9;
-        --sage-200: #C2DACD;
-        --sage-100: #E1EFE7;
-        --sage-50:  #F0F7F3;
+        --sage-500: #55826c;
+        --sage-400: #749e8a;
+        --sage-300: #9abca9;
+        --sage-200: #c2dacd;
+        --sage-100: #e1efe7;
+        --sage-50: #f0f7f3;
 
         --grid-color: rgba(250, 245, 240, 0.05);
         --beam-color: var(--sage-400);
@@ -368,13 +368,17 @@
         class="hidden md:flex gap-6 text-xs font-label font-semibold uppercase tracking-wider"
         style="color: var(--brown-400)"
       >
-        <a href="#typography" class="hover:text-[var(--sage-400)] transition-colors"
+        <a
+          href="#typography"
+          class="hover:text-[var(--sage-400)] transition-colors"
           >Tipografia</a
         >
         <a href="#colors" class="hover:text-[var(--sage-400)] transition-colors"
           >Cores</a
         >
-        <a href="#components" class="hover:text-[var(--sage-400)] transition-colors"
+        <a
+          href="#components"
+          class="hover:text-[var(--sage-400)] transition-colors"
           >Componentes</a
         >
         <a href="#layout" class="hover:text-[var(--sage-400)] transition-colors"
@@ -1312,7 +1316,10 @@
             <div class="flex items-center gap-4">
               <button
                 class="font-label flex items-center gap-2 text-xs font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
-                style="background-color: var(--sage-600); color: var(--cream-50)"
+                style="
+                  background-color: var(--sage-600);
+                  color: var(--cream-50);
+                "
               >
                 Iniciar Terapia
               </button>
@@ -2055,7 +2062,7 @@
               }
             });
           },
-          { root: null, rootMargin: "0px", threshold: 0.1 }
+          { root: null, rootMargin: "0px", threshold: 0.1 },
         );
         document.querySelectorAll(".scroll-reveal").forEach(function (el) {
           observer.observe(el);
