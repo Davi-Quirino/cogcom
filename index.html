@@ -109,6 +109,17 @@
         font-size: clamp(1.65rem, 5vw, 2.2rem);
         line-height: 1;
       }
+
+      @media (max-width: 1023px) {
+        body #hero-wrapper #hero-video {
+          width: 86vw !important;
+          left: 50% !important;
+          height: 100vh !important;
+          object-fit: contain !important;
+          object-position: center center !important;
+          transform: translateX(-50%) translateY(-3%) !important;
+        }
+      }
     </style>
     <noscript>
       <style>
@@ -4167,16 +4178,16 @@
           >Início</span
         >
       </a>
-      <a href="#quem-somos" class="flex flex-col items-center gap-1 group w-16">
+      <a href="#para-voce" class="flex flex-col items-center gap-1 group w-16">
         <span
           class="iconify w-6 h-6"
-          data-icon="solar:heart-bold"
+          data-icon="solar:user-bold"
           style="color: var(--brown-800)"
         ></span>
         <span
           class="text-[10px] font-medium font-label"
           style="color: var(--brown-800)"
-          >Quem</span
+          >Para você</span
         >
       </a>
 
@@ -4202,10 +4213,10 @@
         </div>
       </a>
 
-      <a href="#jornada" class="flex flex-col items-center gap-1 group w-12">
+      <a href="#jornada" class="flex flex-col items-center gap-1 group w-14">
         <span
           class="iconify w-6 h-6"
-          data-icon="solar:user-bold"
+          data-icon="solar:compass-bold"
           style="color: var(--brown-800)"
         ></span>
         <span
@@ -4216,17 +4227,17 @@
       </a>
       <a
         href="#especialidades"
-        class="flex flex-col items-center gap-1 group w-12"
+        class="flex flex-col items-center gap-1 group w-20"
       >
         <span
           class="iconify w-6 h-6"
-          data-icon="solar:phone-bold"
+          data-icon="solar:heart-pulse-linear"
           style="color: var(--brown-800)"
         ></span>
         <span
-          class="text-[10px] font-medium font-label"
+          class="text-[9px] font-medium font-label text-center leading-tight"
           style="color: var(--brown-800)"
-          >Especial.</span
+          >Especialidades</span
         >
       </a>
     </nav>

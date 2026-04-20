@@ -340,9 +340,11 @@ h6 {
   }
 
   #hero-video {
-    width: 160vw !important;
-    left: -30vw !important;
-    transform: scale(0.625) translateY(-5%) !important;
+    width: 92vw !important;
+    left: 50% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: translateX(-50%) translateY(-3%) !important;
     transform-origin: center center !important;
   }
 
