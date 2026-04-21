@@ -418,54 +418,30 @@
               class="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-10 animate-reveal delay-700"
             >
               <button
-                class="group hidden md:flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-sm font-label"
+                class="group hidden md:flex items-center gap-4 pl-8 pr-3 py-3 rounded-full transition-all shadow-sm font-label"
                 style="
                   background-color: var(--cream-50);
                   border: 1px solid var(--cream-200);
                 "
               >
                 <span
-                  class="text-sm font-medium"
+                  class="text-base font-medium"
                   style="color: var(--brown-800)"
                   >Agendar atendimento</span
                 >
                 <div
-                  class="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                  class="w-11 h-11 rounded-full flex items-center justify-center transition-colors"
                   style="
                     background-color: var(--brown-700);
                     color: var(--cream-50);
                   "
                 >
                   <span
-                    class="iconify w-4 h-4"
+                    class="iconify w-5 h-5"
                     data-icon="solar:arrow-right-linear"
                   ></span>
                 </div>
               </button>
-              <div class="flex flex-col text-left">
-                <span
-                  class="text-xs font-semibold uppercase tracking-wide font-label"
-                  style="color: var(--cream-50)"
-                  >Atendimento</span
-                >
-                <div class="flex items-center gap-2">
-                  <span class="relative flex h-2 w-2">
-                    <span
-                      class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                      style="background-color: var(--gold)"
-                    ></span>
-                    <span
-                      class="relative inline-flex rounded-full h-2 w-2"
-                      style="background-color: var(--gold)"
-                    ></span>
-                  </span>
-                  <span
-                    class="text-xs font-label"
-                    style="color: var(--cream-300)"
-                    >100% ONLINE</span
-                  >
-                </div>
-              </div>
             </div>
 
             <!-- In Network -->
@@ -590,7 +566,7 @@
 
             <!-- Main heading (first paragraph as opening statement) -->
             <h2
-              class="text-3xl md:text-4xl lg:text-[3rem] font-semibold leading-[1.1] tracking-tight mt-3 text-center scroll-reveal delay-100"
+              class="text-3xl md:text-4xl lg:text-[3rem] font-semibold leading-[1.1] tracking-tight mt-3 max-w-xl scroll-reveal delay-100"
               style="
                 color: var(--brown-900);
                 font-family: &quot;Playfair Display&quot;, serif;
@@ -870,7 +846,7 @@
 
           <!-- Item 6 -->
           <li
-            class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-700"
+            class="group flex items-start gap-5 py-6 transition-all duration-500 scroll-reveal delay-700"
             style="border-bottom: 1px solid rgba(90, 50, 34, 0.12)"
           >
             <div
@@ -4101,12 +4077,22 @@
       function toggleServiceCard(btn) {
         var card = btn.closest("[data-service-card]");
         if (!card) return;
-        var expanded = card.classList.toggle("is-expanded");
-        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
-        var label = btn.querySelector("[data-toggle-label]");
-        if (label) label.textContent = expanded ? "Ler menos" : "Ler mais";
-        var more = card.querySelector(".service-more");
-        if (more) more.setAttribute("aria-hidden", expanded ? "false" : "true");
+        var shouldExpand = !card.classList.contains("is-expanded");
+        var allCards = document.querySelectorAll("[data-service-card]");
+
+        allCards.forEach(function (currentCard) {
+          currentCard.classList.toggle("is-expanded", shouldExpand);
+
+          var toggleBtn = currentCard.querySelector("button[aria-expanded]");
+          if (toggleBtn) {
+            toggleBtn.setAttribute("aria-expanded", shouldExpand ? "true" : "false");
+            var label = toggleBtn.querySelector("[data-toggle-label]");
+            if (label) label.textContent = shouldExpand ? "Ler menos" : "Ler mais";
+          }
+
+          var more = currentCard.querySelector(".service-more");
+          if (more) more.setAttribute("aria-hidden", shouldExpand ? "false" : "true");
+        });
       }
     </script>
 
