@@ -250,7 +250,7 @@
 
     <!-- Navbar -->
     <nav
-      class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-16 flex items-center justify-between animate-reveal"
+      class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-20 flex items-center justify-between animate-reveal"
       style="
         background-color: rgba(74, 37, 24, 0.92);
         border-bottom: 1px solid rgba(242, 229, 208, 0.1);
@@ -260,13 +260,13 @@
         <img
           src="logo cogcom transp.png"
           alt="Logo CogCom"
-          class="h-10 md:h-11 w-auto object-contain"
+          class="h-12 md:h-[3.25rem] w-auto object-contain"
           loading="eager"
           decoding="async"
         />
       </a>
       <div
-        class="hidden md:flex gap-6 text-xs font-label font-semibold uppercase tracking-wider"
+        class="hidden md:flex gap-8 text-sm font-label font-semibold uppercase tracking-wider"
         style="color: var(--brown-400)"
       >
         <a href="#quem-somos" class="hover:text-[var(--gold)] transition-colors"
@@ -289,7 +289,7 @@
           href="https://wa.me/5538998653602"
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden md:flex items-center gap-2 text-xs font-label font-semibold uppercase tracking-wider py-2.5 px-5 rounded transition-all shadow-md hover:shadow-lg"
+          class="hidden md:flex items-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-3 px-6 rounded transition-all shadow-md hover:shadow-lg"
           style="background-color: var(--gold); color: var(--brown-900)"
         >
           Agendar atendimento
@@ -524,9 +524,7 @@
       style="background-color: var(--cream-100); color: var(--brown-800)"
       aria-label="Quem somos — Instituto de Psicologia"
     >
-      <div
-        class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28"
-      >
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <!-- Left: Portrait image with gold frame -->
           <div
@@ -552,7 +550,9 @@
 
           <!-- Right: Text -->
           <div class="w-full lg:flex-1">
-            <div class="flex items-center justify-center gap-3 mb-5 scroll-reveal">
+            <div
+              class="flex items-center justify-center gap-3 mb-5 scroll-reveal"
+            >
               <div
                 class="w-10 h-px"
                 style="background-color: var(--gold)"
@@ -573,9 +573,7 @@
               "
             >
               Instituto de Psicologia criado para
-              <span
-                class="font-semibold"
-                style="color: var(--brown-700)"
+              <span class="font-semibold" style="color: var(--brown-700)"
                 >acolher você</span
               >
               em momentos de sofrimento emocional.
@@ -651,7 +649,9 @@
       >
         <!-- Header -->
         <div class="max-w-3xl mx-auto mb-16 lg:mb-20 text-center">
-          <div class="flex items-center justify-center gap-3 mb-5 scroll-reveal">
+          <div
+            class="flex items-center justify-center gap-3 mb-5 scroll-reveal"
+          >
             <div class="w-10 h-px" style="background-color: var(--gold)"></div>
             <span
               class="font-label text-xs font-bold uppercase tracking-widest"
@@ -669,9 +669,7 @@
             "
           >
             O CogCom é
-            <span
-              class="font-semibold"
-              style="color: var(--brown-700)"
+            <span class="font-semibold" style="color: var(--brown-700)"
               >para você</span
             >
             que:
@@ -679,7 +677,9 @@
         </div>
 
         <!-- Bullet Grid -->
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-6xl mx-auto">
+        <ul
+          class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 max-w-6xl mx-auto"
+        >
           <!-- Item 1 -->
           <li
             class="group flex items-start gap-5 py-6 transition-all duration-500 hover:pl-2 scroll-reveal delay-100"
@@ -739,8 +739,8 @@
               "
             >
               Já tentou
-              <strong style="color: var(--brown-700)">lidar sozinho(a)</strong
-              >, mas não tem sido suficiente.
+              <strong style="color: var(--brown-700)">lidar sozinho(a)</strong>,
+              mas não tem sido suficiente.
             </p>
           </li>
 
@@ -1136,7 +1136,7 @@
             "
           >
             Confira as especialidades dos <br class="md:hidden" />profissionais
-            parceiros da
+            da
             <span style="color: var(--brown-700)" class="font-semibold"
               >CogCom</span
             >
@@ -4085,20 +4085,25 @@
 
           var toggleBtn = currentCard.querySelector("button[aria-expanded]");
           if (toggleBtn) {
-            toggleBtn.setAttribute("aria-expanded", shouldExpand ? "true" : "false");
+            toggleBtn.setAttribute(
+              "aria-expanded",
+              shouldExpand ? "true" : "false",
+            );
             var label = toggleBtn.querySelector("[data-toggle-label]");
-            if (label) label.textContent = shouldExpand ? "Ler menos" : "Ler mais";
+            if (label)
+              label.textContent = shouldExpand ? "Ler menos" : "Ler mais";
           }
 
           var more = currentCard.querySelector(".service-more");
-          if (more) more.setAttribute("aria-hidden", shouldExpand ? "false" : "true");
+          if (more)
+            more.setAttribute("aria-hidden", shouldExpand ? "false" : "true");
         });
       }
     </script>
 
     <!-- Bottom Mobile Navigation -->
     <nav
-      class="fixed bottom-0 left-0 right-0 z-[100] md:hidden flex items-end justify-between px-6 pb-4 pt-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] rounded-t-3xl"
+      class="fixed bottom-0 left-0 right-0 z-[100] md:hidden flex items-center justify-between px-7 h-[112px] shadow-[0_-4px_20px_rgba(0,0,0,0.08)] rounded-t-3xl"
       style="background-color: var(--cream-25)"
     >
       <a
