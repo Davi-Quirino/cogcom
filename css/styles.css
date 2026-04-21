@@ -443,6 +443,14 @@ h6 {
     margin-bottom: 0 !important;
   }
 
+  #hero-text-content .hero-text h2 {
+    font-size: 1.95rem !important;
+    line-height: 1.24 !important;
+    max-width: 12.5em !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
   .hero-cta {
     align-items: center !important;
     margin-top: 0.5rem !important;
@@ -454,20 +462,29 @@ h6 {
   .hero-cta button {
     background-color: var(--brown-900) !important;
     border-color: var(--brown-800) !important;
-    width: 100%;
+    width: auto !important;
+    max-width: 92vw;
     justify-content: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    gap: 0.6rem !important;
+    padding: 0.55rem 0.55rem 0.55rem 1rem !important;
   }
 
-  .hero-cta button span.text-sm {
+  .hero-cta button > span:first-child {
     color: var(--cream-50) !important;
-    font-size: 1rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.2 !important;
   }
 
-  .hero-cta button div {
+  .hero-cta button > div {
     background-color: var(--gold) !important;
     color: var(--brown-900) !important;
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  .hero-cta button > div .iconify {
+    width: 0.95rem !important;
+    height: 0.95rem !important;
   }
 
   .hero-cta .flex-col {
@@ -476,6 +493,26 @@ h6 {
 
   #hero-text-content .hero-text .mt-12 {
     margin-top: 1rem !important;
+  }
+
+  /* Segunda sessao (Quem somos) centralizada no mobile */
+  #quem-somos > .relative.z-10 {
+    max-width: 680px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  #quem-somos h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #quem-somos .space-y-5 {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
