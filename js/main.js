@@ -110,6 +110,9 @@ function initVideoScrub() {
     "position:absolute;top:0;left:0;width:100%;height:100%;" +
     "object-fit:cover;object-position:80% center;z-index:0;" +
     "transform:translate3d(0,0,0);backface-visibility:hidden";
+  canvas.style.opacity = "0";
+  canvas.style.transition = "opacity 220ms ease";
+  video.style.opacity = "0";
   video.parentElement.insertBefore(canvas, video.nextSibling);
 
   function drawFrame() {
@@ -120,30 +123,31 @@ function initVideoScrub() {
 
   function startScrub() {
     var duration = video.duration;
+    // Skip initial dark frames on all devices so the book is visible immediately.
+    var startOffset = 0.8;
+    var startTime = Math.min(startOffset, Math.max(duration - 0.01, 0));
+    var playableDuration = Math.max(duration - startTime, 0.01);
+
     canvas.width = video.videoWidth || 1920;
     canvas.height = video.videoHeight || 1080;
     video.pause();
-    video.currentTime = 0;
-
     video.addEventListener("seeked", drawFrame);
 
-    if (video.readyState >= 2) {
+    var initialFrameDrawn = false;
+    function revealInitialFrame() {
+      if (initialFrameDrawn) return;
+      initialFrameDrawn = true;
       drawFrame();
-      video.style.opacity = "0";
-    } else {
-      video.addEventListener(
-        "canplay",
-        function () {
-          drawFrame();
-          video.style.opacity = "0";
-        },
-        { once: true }
-      );
+      canvas.style.opacity = "1";
     }
+
+    video.addEventListener("seeked", revealInitialFrame, { once: true });
+    video.currentTime = startTime;
+    window.setTimeout(revealInitialFrame, 240);
 
     var proxy = { t: 0 };
     gsap.to(proxy, {
-      t: duration,
+      t: 1,
       ease: "none",
       scrollTrigger: {
         trigger: "#hero-wrapper",
@@ -152,7 +156,10 @@ function initVideoScrub() {
         scrub: 0.3,
       },
       onUpdate: function () {
-        video.currentTime = proxy.t;
+        video.currentTime = Math.min(
+          duration - 0.01,
+          startTime + proxy.t * playableDuration
+        );
       },
     });
   }
