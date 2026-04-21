@@ -277,10 +277,8 @@ h6 {
 }
 
 .pulse-dot {
-  position: absolute;
-  top: clamp(0.9rem, 1.2vw, 1.3rem);
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  display: inline-block;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -288,6 +286,7 @@ h6 {
   animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   z-index: 2;
   margin-top: 0;
+  flex-shrink: 0;
 }
 
 .pulse-dot::before {
@@ -303,11 +302,11 @@ h6 {
 .step-number-wrapper {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   width: 100%;
   min-height: clamp(8rem, 14vw, 14rem);
-  padding-top: clamp(1.5rem, 2vw, 2rem);
+  padding-top: 0;
 }
 
 .step-number-wrapper > * {
