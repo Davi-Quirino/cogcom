@@ -26,7 +26,7 @@
   --sage-300: #9abca9;
   --sage-200: #c2dacd;
   --sage-100: #e1efe7;
-  --sage-50:  #f0f7f3;
+  --sage-50: #f0f7f3;
 
   --grid-color: rgba(242, 229, 208, 0.08);
   --beam-color: #c9a96e;
@@ -90,6 +90,7 @@ h6 {
     transform: translateY(20px);
     opacity: 0;
   }
+
   100% {
     clip-path: inset(0 0 0 0);
     transform: translateY(0);
@@ -98,8 +99,13 @@ h6 {
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .animate-reveal {
@@ -118,11 +124,30 @@ h6 {
   transform: translateY(0);
 }
 
-.delay-100 { animation-delay: 0.1s; transition-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; transition-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; transition-delay: 0.3s; }
-.delay-500 { animation-delay: 0.5s; transition-delay: 0.5s; }
-.delay-700 { animation-delay: 0.7s; transition-delay: 0.7s; }
+.delay-100 {
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+  transition-delay: 0.7s;
+}
 
 /* ─── FAQ ─── */
 
@@ -137,17 +162,43 @@ h6 {
 /* ─── Beam Effects ─── */
 
 @keyframes beam-h {
-  0% { left: -200px; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
+  0% {
+    left: -200px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
 
 @keyframes beam-v {
-  0% { top: -200px; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: -200px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 .beam-h {
@@ -221,12 +272,10 @@ h6 {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(58, 26, 14, 0.55) 0%,
-    rgba(58, 26, 14, 0.25) 40%,
-    rgba(58, 26, 14, 0.6) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(58, 26, 14, 0.55) 0%,
+      rgba(58, 26, 14, 0.25) 40%,
+      rgba(58, 26, 14, 0.6) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -250,13 +299,25 @@ h6 {
 /* ─── Marquee ─── */
 
 @keyframes float-text {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -266,10 +327,13 @@ h6 {
 /* ─── Pulse Dot ─── */
 
 @keyframes pulse-dot {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5);
   }
+
   50% {
     transform: scale(1.15);
     box-shadow: 0 0 0 12px rgba(201, 169, 110, 0);
@@ -309,7 +373,7 @@ h6 {
   padding-top: 0;
 }
 
-.step-number-wrapper > * {
+.step-number-wrapper>* {
   grid-area: auto;
 }
 
@@ -336,32 +400,46 @@ h6 {
 }
 
 /* Ajuste optico do glifo "4" nesta fonte */
-.steps-grid > article:nth-child(4) .step-number-wrapper {
+.steps-grid>article:nth-child(4) .step-number-wrapper {
   transform: translateX(-0.04em);
 }
 
 /* ─── Mobile Responsive (max-width: 1023px) ─── */
 
 @media (max-width: 1023px) {
+
+  #hero-wrapper {
+    height: 240vh;
+    background-color: var(--brown-950);
+  }
+
+  #hero-wrapper>section {
+    background-color: var(--brown-950) !important;
+  }
+
   #hero-video,
   .hero-canvas {
     top: 0 !important;
     bottom: auto !important;
-    height: 100vh !important;
+    left: 50% !important;
     width: 100vw !important;
-    object-fit: cover !important;
-    object-position: center 80% !important;
+    height: 100dvh !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: translateX(-50%) translateY(-24%) scale(1.18) !important;
+    transform-origin: center center !important;
     -webkit-mask-image: none !important;
     mask-image: none !important;
-    transform: none !important;
   }
 
   #hero-video {
-    width: 92vw !important;
+    top: 0 !important;
     left: 50% !important;
+    width: 100vw !important;
+    height: 100dvh !important;
     object-fit: contain !important;
     object-position: center center !important;
-    transform: translateX(-50%) translateY(-3%) !important;
+    transform: translateX(-50%) translateY(-24%) scale(1.18) !important;
     transform-origin: center center !important;
   }
 
@@ -373,11 +451,13 @@ h6 {
     width: 100%;
     background-color: var(--cream-25);
     border-radius: 40px 40px 0 0;
-    padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+    min-height: 58dvh;
+    padding: 1.75rem 1.25rem 1.5rem 1.25rem;
     margin: 0;
     box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     z-index: 50;
@@ -420,12 +500,10 @@ h6 {
   }
 
   .hero-video-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(58, 26, 14, 0.4) 0%,
-      rgba(58, 26, 14, 0.1) 40%,
-      rgba(58, 26, 14, 0.5) 100%
-    ) !important;
+    background: linear-gradient(to bottom,
+        rgba(58, 26, 14, 0.68) 0%,
+        rgba(58, 26, 14, 0.2) 38%,
+        rgba(58, 26, 14, 0.7) 100%) !important;
   }
 
   .hero-text p {
@@ -469,20 +547,20 @@ h6 {
     padding: 0.55rem 0.55rem 0.55rem 1rem !important;
   }
 
-  .hero-cta button > span:first-child {
+  .hero-cta button>span:first-child {
     color: var(--cream-50) !important;
     font-size: 0.86rem !important;
     line-height: 1.2 !important;
   }
 
-  .hero-cta button > div {
+  .hero-cta button>div {
     background-color: var(--gold) !important;
     color: var(--brown-900) !important;
     width: 2rem !important;
     height: 2rem !important;
   }
 
-  .hero-cta button > div .iconify {
+  .hero-cta button>div .iconify {
     width: 0.95rem !important;
     height: 0.95rem !important;
   }
@@ -496,7 +574,7 @@ h6 {
   }
 
   /* Segunda sessao (Quem somos) centralizada no mobile */
-  #quem-somos > .relative.z-10 {
+  #quem-somos>.relative.z-10 {
     max-width: 680px !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -519,6 +597,7 @@ h6 {
 /* ─── Desktop (min-width: 1024px) ─── */
 
 @media (min-width: 1024px) {
+
   #hero-video,
   .hero-canvas {
     left: auto !important;

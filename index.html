@@ -111,13 +111,20 @@
       }
 
       @media (max-width: 1023px) {
-        body #hero-wrapper #hero-video {
-          width: 86vw !important;
+        body #hero-wrapper > section {
+          background-color: var(--brown-950) !important;
+        }
+
+        body #hero-wrapper #hero-video,
+        body #hero-wrapper .hero-canvas {
+          width: 100vw !important;
           left: 50% !important;
-          height: 100vh !important;
+          top: 0 !important;
+          height: 100dvh !important;
           object-fit: contain !important;
           object-position: center center !important;
-          transform: translateX(-50%) translateY(-3%) !important;
+          transform: translateX(-50%) translateY(-24%) scale(1.18) !important;
+          transform-origin: center center !important;
         }
       }
     </style>
