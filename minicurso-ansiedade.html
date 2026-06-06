@@ -1,0 +1,558 @@
+<!doctype html>
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minicurso de Ansiedade · Instituto CogCom</title>
+    <meta
+      name="description"
+      content="Minicurso online para estudantes e profissionais de psicologia: entenda com precisão clínica quando a ansiedade deixa de ser normal e se torna um transtorno. 18/07, 15h às 18h, com certificado. R$ 57."
+    />
+    <meta name="theme-color" content="#621C11" />
+    <meta property="og:title" content="Ansiedade: Onde Termina o Normal e Começa o Diagnóstico" />
+    <meta
+      property="og:description"
+      content="Minicurso online com certificado para estudantes e profissionais de psicologia. 18/07, 15h às 18h. R$ 57."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ====================================================================
+         NOTA PARA O DESENVOLVEDOR
+         Esta página foi construída para encaixar no projeto existente da CogCom.
+         - Em produção, troque os CDNs abaixo pelos vendor locais já usados no site
+           (js/vendor/tailwind.js e js/vendor/iconify.js) e pelo css/styles.css.
+         - As variáveis de cor seguem a paleta do briefing + design system.
+         - Substitua os placeholders marcados com [DEV] (foto e nome da professora,
+           link do botão de inscrição/checkout).
+    ==================================================================== -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <style>
+      :root {
+        /* Paleta do briefing (base) */
+        --brown-950: #2c1810;
+        --brown-900: #3e241a;
+        --brown-800: #543324;
+        --brown-700: #621c11; /* fundo principal — briefing */
+        --brown-600: #7a3324;
+        --brown-500: #9f6955; /* texto secundário / muted — briefing */
+        --brown-400: #b5826a;
+        --brown-300: #cda48f;
+        --brown-200: #e0c5b6;
+
+        --cream-300: #dfcdbc;
+        --cream-200: #ebe0d3;
+        --cream-100: #f4ebe1;
+        --cream-50: #fdecd8; /* texto principal — briefing */
+        --cream-25: #fffefc;
+
+        /* Acento / botão (briefing) + dourado do design system */
+        --accent: #e7d3c5; /* destaque / botão / CTA — briefing */
+        --accent-dark: #cdb3a2;
+        --gold: #c9a96e;
+        --gold-light: #e0c797;
+        --gold-muted: #b4965f;
+
+        /* Sage — saúde mental */
+        --sage-700: #345143;
+        --sage-600: #446957;
+        --sage-500: #55826c;
+        --sage-400: #749e8a;
+        --sage-300: #9abca9;
+        --sage-200: #c2dacd;
+        --sage-100: #e1efe7;
+        --sage-50: #f0f7f3;
+
+        --grid-color: rgba(253, 236, 216, 0.06);
+        --beam-color: var(--gold);
+      }
+
+      body {
+        font-family: "Lora", "Georgia", serif;
+        background-color: var(--brown-700);
+        color: var(--cream-50);
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Playfair Display", "Georgia", serif;
+      }
+      .font-decorative {
+        font-family: "Playfair Display", "Georgia", serif;
+        font-style: italic;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      .font-label {
+        font-family: "Montserrat", "Arial", sans-serif;
+      }
+
+      /* Grid lines */
+      .grid-line-v {
+        position: absolute; top: 0; bottom: 0; width: 1px;
+        background: var(--grid-color); z-index: 0;
+      }
+      .grid-line-h {
+        position: absolute; left: 0; right: 0; height: 1px;
+        background: var(--grid-color); z-index: 0;
+      }
+
+      /* Reveal + scroll animations */
+      @keyframes reveal-up {
+        0% { clip-path: inset(100% 0 0 0); transform: translateY(20px); opacity: 0; }
+        100% { clip-path: inset(0 0 0 0); transform: translateY(0); opacity: 1; }
+      }
+      .animate-reveal { opacity: 0; animation: reveal-up 1s cubic-bezier(0.16,1,0.3,1) forwards; }
+      .scroll-reveal {
+        opacity: 0; transform: translateY(20px);
+        transition: all 1s cubic-bezier(0.16,1,0.3,1);
+      }
+      .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+      .delay-100 { animation-delay: .1s; transition-delay: .1s; }
+      .delay-200 { animation-delay: .2s; transition-delay: .2s; }
+      .delay-300 { animation-delay: .3s; transition-delay: .3s; }
+      .delay-500 { animation-delay: .5s; transition-delay: .5s; }
+      .delay-700 { animation-delay: .7s; transition-delay: .7s; }
+
+      /* Beams */
+      @keyframes beam-h {
+        0% { left: -200px; opacity: 0; } 10% { opacity: 1; }
+        90% { opacity: 1; } 100% { left: 100%; opacity: 0; }
+      }
+      @keyframes beam-v {
+        0% { top: -200px; opacity: 0; } 10% { opacity: 1; }
+        90% { opacity: 1; } 100% { top: 100%; opacity: 0; }
+      }
+      .beam-h {
+        position: absolute; height: 1px; width: 200px; z-index: 10; opacity: 0;
+        background: linear-gradient(90deg, transparent, var(--beam-color), transparent);
+      }
+      .beam-v {
+        position: absolute; width: 1px; height: 200px; z-index: 10; opacity: 0;
+        background: linear-gradient(180deg, transparent, var(--beam-color), transparent);
+      }
+
+      .cta-pill {
+        transition: transform .2s cubic-bezier(0.16,1,0.3,1), box-shadow .2s;
+      }
+      .cta-pill:hover { transform: scale(1.02); }
+
+      .learn-card { transition: transform .5s cubic-bezier(0.16,1,0.3,1), box-shadow .5s, border-color .5s; }
+      .learn-card:hover { transform: translateY(-6px); }
+    </style>
+  </head>
+
+  <body class="min-h-screen w-full relative overflow-x-hidden antialiased">
+    <!-- ===================== NAVBAR ===================== -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-16 flex items-center justify-between"
+      style="background-color: rgba(98,28,17,0.92); border-bottom: 1px solid rgba(253,236,216,0.1);"
+    >
+      <a href="#topo" class="font-label font-bold tracking-tight text-sm" style="color: var(--cream-50)">
+        INSTITUTO COGCOM
+        <span class="font-normal hidden sm:inline" style="color: var(--brown-400)">· Minicurso</span>
+      </a>
+      <a
+        href="#inscricao"
+        class="font-label flex items-center gap-2 text-xs font-semibold uppercase tracking-wider py-2.5 px-5 rounded-full cta-pill shadow-md"
+        style="background-color: var(--accent); color: var(--brown-900);"
+      >
+        Garantir vaga · R$ 57
+      </a>
+    </nav>
+
+    <!-- ===================== DOBRA 1 — HERO ===================== -->
+    <section
+      id="topo"
+      class="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-16"
+      style="background-color: var(--brown-700);"
+    >
+      <!-- Grid lines + beams -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="grid-line-v" style="left: 6%"></div>
+        <div class="grid-line-v" style="left: 50%">
+          <div class="beam-v" style="animation: beam-v 8s infinite 1s"></div>
+        </div>
+        <div class="grid-line-v" style="right: 6%"></div>
+        <div class="grid-line-h" style="top: 10%">
+          <div class="beam-h" style="animation: beam-h 6s infinite"></div>
+        </div>
+        <div class="grid-line-h" style="bottom: 10%"></div>
+      </div>
+
+      <!-- Header bar -->
+      <div class="absolute top-16 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100" style="color: var(--cream-50)">Psicologia</span>
+        <span class="text-xs font-medium tracking-wider animate-reveal delay-200 hidden sm:block" style="color: var(--brown-300)">@institutocogcom</span>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100" style="color: var(--cream-50)">Diagnóstico</span>
+      </div>
+
+      <div class="relative z-10 w-full max-w-4xl mx-auto px-8 text-center">
+        <!-- Eyebrow -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 animate-reveal delay-100 font-label"
+          style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.3);"
+        >
+          <span class="iconify w-3.5 h-3.5" data-icon="solar:calendar-linear" style="color: var(--gold-light)"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.15em]" style="color: var(--gold-light)">
+            Instituto CogCom · 18 de julho · 15h às 18h
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight animate-reveal delay-300"
+          style="color: var(--cream-50)"
+        >
+          Quando a ansiedade<br />
+          deixa de ser
+          <span class="font-decorative font-medium" style="color: var(--gold)">normal</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+          class="font-decorative text-lg md:text-2xl mt-8 leading-relaxed max-w-2xl mx-auto animate-reveal delay-500"
+          style="color: var(--brown-300)"
+        >
+          Um encontro online para quem precisa se aprofundar e entender com mais
+          precisão quando a ansiedade deixa de ser normal e se torna um transtorno.
+        </p>
+
+        <!-- Info icons -->
+        <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 mt-10 animate-reveal delay-700 font-label">
+          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
+            <span class="iconify w-4 h-4" data-icon="solar:videocamera-linear" style="color: var(--gold)"></span> 100% online
+          </span>
+          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
+            <span class="iconify w-4 h-4" data-icon="solar:clock-circle-linear" style="color: var(--gold)"></span> 3 horas de imersão
+          </span>
+          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
+            <span class="iconify w-4 h-4" data-icon="solar:diploma-linear" style="color: var(--gold)"></span> Com certificado
+          </span>
+          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
+            <span class="iconify w-4 h-4" data-icon="solar:calendar-date-linear" style="color: var(--gold)"></span> 18/07 · 15h–18h
+          </span>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 flex flex-col items-center gap-3 animate-reveal delay-700">
+          <a
+            href="#inscricao"
+            class="group flex items-center gap-4 pl-8 pr-3 py-3.5 rounded-full cta-pill shadow-xl font-label w-full max-w-sm justify-center"
+            style="background-color: var(--accent); color: var(--brown-900);"
+          >
+            <span class="text-sm md:text-base font-semibold">Garantir minha vaga por R$ 57</span>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background-color: var(--brown-900); color: var(--accent);">
+              <span class="iconify w-4 h-4 group-hover:translate-x-0.5 transition-transform" data-icon="solar:arrow-right-linear"></span>
+            </div>
+          </a>
+          <span class="text-xs font-label tracking-wide" style="color: var(--brown-400)">
+            Vagas limitadas · Acesso imediato ao certificado
+          </span>
+        </div>
+      </div>
+
+      <!-- Footer bar -->
+      <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--cream-50)">Ciência</span>
+        <span class="text-xs font-medium tracking-wider hidden sm:block" style="color: var(--brown-300)">@institutocogcom</span>
+        <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--cream-50)">Clínica</span>
+      </div>
+    </section>
+
+    <!-- ===================== DOBRA 2 — PROBLEMA + SOLUÇÃO ===================== -->
+    <section
+      class="relative w-full overflow-hidden z-10 py-24 lg:py-32"
+      style="background-color: var(--cream-100); color: var(--brown-800);"
+    >
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <!-- Label -->
+        <div class="flex items-center gap-3 mb-5 scroll-reveal">
+          <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+          <span class="font-label text-xs font-bold uppercase tracking-widest" style="color: var(--brown-500)">
+            O problema que ninguém resolve bem
+          </span>
+        </div>
+
+        <!-- Heading -->
+        <h2
+          class="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.15] tracking-tight scroll-reveal delay-100"
+          style="color: var(--brown-900)"
+        >
+          A linha entre <span class="font-decorative" style="color: var(--brown-500)">“todo mundo sente”</span>
+          e <span class="font-decorative" style="color: var(--brown-500)">“precisa de tratamento”</span>
+          é mais tênue do que parece.
+        </h2>
+
+        <!-- Paragraph 1 -->
+        <p class="text-lg leading-relaxed mt-8 scroll-reveal delay-200" style="color: var(--brown-500)">
+          Você já sentiu insegurança na hora de dizer para um paciente — ou para si
+          mesmo — se aquela ansiedade ainda é normal ou se cruzou para o território
+          patológico? Não se preocupe, isso é muito comum.
+        </p>
+
+        <!-- Pain list -->
+        <ul class="mt-10 flex flex-col gap-4">
+          <li class="flex items-start gap-4 scroll-reveal delay-200">
+            <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5" style="background-color: rgba(159,105,85,0.14); color: var(--brown-600);">
+              <span class="iconify w-4 h-4" data-icon="solar:danger-triangle-linear"></span>
+            </span>
+            <p class="text-base md:text-lg leading-relaxed" style="color: var(--brown-700)">
+              Ansiedade adaptativa e transtorno compartilham os mesmos sintomas iniciais.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 scroll-reveal delay-300">
+            <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5" style="background-color: rgba(159,105,85,0.14); color: var(--brown-600);">
+              <span class="iconify w-4 h-4" data-icon="solar:danger-triangle-linear"></span>
+            </span>
+            <p class="text-base md:text-lg leading-relaxed" style="color: var(--brown-700)">
+              A formação tradicional ensina categorias, mas raramente ensina a transição entre elas.
+            </p>
+          </li>
+          <li class="flex items-start gap-4 scroll-reveal delay-500">
+            <span class="shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-0.5" style="background-color: rgba(159,105,85,0.14); color: var(--brown-600);">
+              <span class="iconify w-4 h-4" data-icon="solar:danger-triangle-linear"></span>
+            </span>
+            <p class="text-base md:text-lg leading-relaxed" style="color: var(--brown-700)">
+              Na prática clínica, a decisão precisa ser tomada rápido — sem a segurança que a teoria deveria ter dado.
+            </p>
+          </li>
+        </ul>
+
+        <!-- Quote -->
+        <blockquote
+          class="mt-12 pl-6 py-2 scroll-reveal delay-300"
+          style="border-left: 3px solid var(--gold);"
+        >
+          <p class="font-decorative text-xl md:text-2xl leading-relaxed" style="color: var(--brown-600)">
+            “O objetivo não é diagnosticar mais. É diagnosticar com mais precisão,
+            entendendo o contexto do paciente.”
+          </p>
+        </blockquote>
+
+        <!-- Paragraph 2 -->
+        <p class="text-lg leading-relaxed mt-10 scroll-reveal delay-500" style="color: var(--brown-500)">
+          É exatamente esse raciocínio clínico que você vai construir nas 3 horas do
+          minicurso: da neurobiologia da ansiedade normal até os critérios que
+          definem o ponto de inflexão para o patológico.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== DOBRA 3 — CONTEÚDO + CTA ===================== -->
+    <section
+      class="relative w-full overflow-hidden z-10 py-24 lg:py-32"
+      style="background-color: var(--brown-700);"
+    >
+      <!-- Decorative grid -->
+      <div class="absolute inset-0 pointer-events-none hidden lg:block z-0">
+        <div class="grid-line-v" style="left: 6%"></div>
+        <div class="grid-line-v" style="right: 6%"></div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="flex items-center justify-center gap-3 mb-5 scroll-reveal">
+            <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+            <span class="font-label text-xs font-bold uppercase tracking-widest" style="color: var(--gold-muted)">
+              O que você vai aprender
+            </span>
+          </div>
+          <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-semibold leading-[1.1] tracking-tight scroll-reveal delay-100" style="color: var(--cream-50)">
+            3 horas que valem
+            <span class="font-decorative" style="color: var(--gold)">meses de dúvida.</span>
+          </h2>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Card 1 -->
+          <div class="learn-card p-8 rounded-lg scroll-reveal delay-100" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+              <span class="iconify w-6 h-6" data-icon="solar:brain-linear"></span>
+            </div>
+            <p class="text-base leading-relaxed" style="color: var(--cream-300)">
+              Neurobiologia da ansiedade adaptativa e seu papel evolutivo.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="learn-card p-8 rounded-lg scroll-reveal delay-200" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+              <span class="iconify w-6 h-6" data-icon="solar:pulse-2-linear"></span>
+            </div>
+            <p class="text-base leading-relaxed" style="color: var(--cream-300)">
+              Os marcadores clínicos que sinalizam a transição para o patológico.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="learn-card p-8 rounded-lg scroll-reveal delay-300" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+              <span class="iconify w-6 h-6" data-icon="solar:magnifer-zoom-in-linear"></span>
+            </div>
+            <p class="text-base leading-relaxed" style="color: var(--cream-300)">
+              Critérios diagnósticos do DSM-5 e CID-11 aplicados na prática.
+            </p>
+          </div>
+          <!-- Card 4 -->
+          <div class="learn-card p-8 rounded-lg scroll-reveal delay-500" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+              <span class="iconify w-6 h-6" data-icon="solar:routing-2-linear"></span>
+            </div>
+            <p class="text-base leading-relaxed" style="color: var(--cream-300)">
+              Raciocínio clínico para tomada de decisão em situações ambíguas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DOBRA 4 — PROFESSORA ===================== -->
+    <section
+      class="relative w-full overflow-hidden z-10 py-24 lg:py-32"
+      style="background-color: var(--cream-100); color: var(--brown-800);"
+    >
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <!-- Photo -->
+          <div class="w-full lg:w-2/5 flex justify-center lg:justify-start scroll-reveal">
+            <div
+              class="relative overflow-hidden shadow-2xl"
+              style="width: min(360px, 100%); aspect-ratio: 4/5; border-radius: 1rem; border: 2px solid var(--gold-muted);"
+            >
+              <!-- [DEV] Substituir pelo arquivo real da professora -->
+              <img
+                src="professora.jpeg"
+                alt="Professora do minicurso — Instituto CogCom"
+                style="width: 100%; height: 100%; object-fit: cover; object-position: top;"
+                onerror="this.style.display='none'; this.parentElement.style.background='var(--brown-200)';"
+              />
+              <div class="absolute inset-0" style="background: linear-gradient(to top, var(--cream-100) 0%, transparent 45%);"></div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="w-full lg:w-3/5">
+            <div class="flex items-center gap-3 mb-5 scroll-reveal">
+              <div class="w-10 h-px" style="background-color: var(--gold)"></div>
+              <span class="font-label text-xs font-bold uppercase tracking-widest" style="color: var(--brown-500)">
+                Conheça sua professora
+              </span>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight scroll-reveal delay-100" style="color: var(--brown-900)">
+              <!-- [DEV] Confirmar o nome da professora (briefing trouxe nomes divergentes) -->
+              Conheça sua <span class="font-decorative" style="color: var(--brown-500)">professora.</span>
+            </h2>
+            <div class="h-px w-16 my-7 scroll-reveal delay-200" style="background-color: var(--gold)"></div>
+            <p class="text-base md:text-lg leading-relaxed scroll-reveal delay-200" style="color: var(--brown-500)">
+              Psicóloga (UFMG), Supervisora Clínica, pós-graduada em
+              <strong style="color: var(--brown-700)">Neurociência do Comportamento</strong> (FaCiência),
+              Pós-graduanda em <strong style="color: var(--brown-700)">TCC</strong> (CTC Veda),
+              Diretora da ABPBE, Fundadora e Diretora do
+              <strong style="color: var(--brown-700)">Instituto CogCom</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INSCRIÇÃO — CTA FINAL ===================== -->
+    <section
+      id="inscricao"
+      class="relative w-full overflow-hidden z-10 py-28 lg:py-36"
+      style="background-color: var(--brown-800);"
+    >
+      <!-- Grid + beams -->
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="grid-line-v" style="left: 6%"></div>
+        <div class="grid-line-v" style="left: 50%">
+          <div class="beam-v" style="animation: beam-v 9s infinite 2s"></div>
+        </div>
+        <div class="grid-line-v" style="right: 6%"></div>
+        <div class="grid-line-h" style="top: 14%">
+          <div class="beam-h" style="animation: beam-h 7s infinite"></div>
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
+        <span class="font-label text-xs font-semibold uppercase tracking-[0.2em] scroll-reveal" style="color: var(--brown-400)">
+          Investimento
+        </span>
+
+        <div class="mt-4 flex items-end justify-center gap-2 scroll-reveal delay-100">
+          <span class="text-2xl font-light" style="color: var(--brown-300); font-family: 'Playfair Display', serif;">R$</span>
+          <span class="text-7xl md:text-8xl font-semibold leading-none" style="color: var(--cream-50); font-family: 'Playfair Display', serif;">57</span>
+        </div>
+
+        <p class="font-decorative text-lg md:text-xl mt-6 scroll-reveal delay-200" style="color: var(--brown-300)">
+          3 horas de imersão, com certificado, por quem leva a ciência a sério.
+        </p>
+
+        <div class="mt-10 flex flex-col items-center gap-4 scroll-reveal delay-300">
+          <!-- [DEV] Trocar href pelo link de checkout/inscrição -->
+          <a
+            href="#"
+            class="group flex items-center gap-4 pl-8 pr-3 py-4 rounded-full cta-pill shadow-2xl font-label w-full max-w-sm justify-center"
+            style="background-color: var(--accent); color: var(--brown-900);"
+          >
+            <span class="text-base font-semibold uppercase tracking-wider">Garantir minha vaga</span>
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color: var(--brown-900); color: var(--accent);">
+              <span class="iconify w-5 h-5 group-hover:translate-x-0.5 transition-transform" data-icon="solar:arrow-right-linear"></span>
+            </div>
+          </a>
+          <p class="font-label text-xs tracking-wide" style="color: var(--brown-400)">
+            18 de julho · 15h às 18h · Online · Certificado incluso
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="relative w-full z-20 py-12"
+      style="background-color: var(--brown-900); border-top: 1px solid rgba(253,236,216,0.08);"
+    >
+      <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-label text-xs" style="color: var(--brown-400)">
+          © 2026 Instituto CogCom — Todos os direitos reservados.
+        </p>
+        <a
+          href="https://instagram.com/institutocogcom"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 transition-colors hover:opacity-80 font-label text-xs"
+          style="color: var(--brown-400)"
+        >
+          <span class="iconify w-4 h-4" data-icon="ri:instagram-line"></span>
+          @institutocogcom
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px", threshold: 0.1 }
+        );
+        document.querySelectorAll(".scroll-reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
