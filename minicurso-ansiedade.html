@@ -190,22 +190,10 @@
       <!-- Header bar -->
       <div class="absolute top-16 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label">
         <span class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100" style="color: var(--cream-50)">Psicologia</span>
-        <span class="text-xs font-medium tracking-wider animate-reveal delay-200 hidden sm:block" style="color: var(--brown-300)">@institutocogcom</span>
         <span class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100" style="color: var(--cream-50)">Diagnóstico</span>
       </div>
 
       <div class="relative z-10 w-full max-w-4xl mx-auto px-8 text-center">
-        <!-- Eyebrow -->
-        <div
-          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 animate-reveal delay-100 font-label"
-          style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.3);"
-        >
-          <span class="iconify w-3.5 h-3.5" data-icon="solar:calendar-linear" style="color: var(--gold-light)"></span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.15em]" style="color: var(--gold-light)">
-            Instituto CogCom · 18 de julho · 15h às 18h
-          </span>
-        </div>
-
         <!-- Headline -->
         <h1
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tight animate-reveal delay-300"
@@ -218,7 +206,7 @@
 
         <!-- Subtitle -->
         <p
-          class="font-decorative text-lg md:text-2xl mt-8 leading-relaxed max-w-2xl mx-auto animate-reveal delay-500"
+          class="font-label font-light text-base md:text-xl mt-8 leading-relaxed max-w-2xl mx-auto animate-reveal delay-500"
           style="color: var(--brown-300)"
         >
           Um encontro online para quem precisa se aprofundar e entender com mais
@@ -226,18 +214,18 @@
         </p>
 
         <!-- Info icons -->
-        <div class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 mt-10 animate-reveal delay-700 font-label">
-          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
-            <span class="iconify w-4 h-4" data-icon="solar:videocamera-linear" style="color: var(--gold)"></span> 100% online
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mt-10 animate-reveal delay-700 font-label">
+          <span class="flex items-center gap-2 text-base md:text-lg" style="color: var(--cream-300)">
+            <span class="iconify w-5 h-5 md:w-6 md:h-6" data-icon="solar:videocamera-linear" style="color: var(--gold)"></span> 100% online
           </span>
-          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
-            <span class="iconify w-4 h-4" data-icon="solar:clock-circle-linear" style="color: var(--gold)"></span> 3 horas de imersão
+          <span class="flex items-center gap-2 text-base md:text-lg" style="color: var(--cream-300)">
+            <span class="iconify w-5 h-5 md:w-6 md:h-6" data-icon="solar:clock-circle-linear" style="color: var(--gold)"></span> 3 horas de imersão
           </span>
-          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
-            <span class="iconify w-4 h-4" data-icon="solar:diploma-linear" style="color: var(--gold)"></span> Com certificado
+          <span class="flex items-center gap-2 text-base md:text-lg" style="color: var(--cream-300)">
+            <span class="iconify w-5 h-5 md:w-6 md:h-6" data-icon="solar:diploma-linear" style="color: var(--gold)"></span> Com certificado
           </span>
-          <span class="flex items-center gap-2 text-sm" style="color: var(--cream-300)">
-            <span class="iconify w-4 h-4" data-icon="solar:calendar-date-linear" style="color: var(--gold)"></span> 18/07 · 15h–18h
+          <span class="flex items-center gap-2 text-base md:text-lg" style="color: var(--cream-300)">
+            <span class="iconify w-5 h-5 md:w-6 md:h-6" data-icon="solar:calendar-date-linear" style="color: var(--gold)"></span> 18/07 · <span class="iconify w-5 h-5 md:w-6 md:h-6 inline" data-icon="solar:clock-circle-linear" style="color: var(--gold)"></span> 15h–18h
           </span>
         </div>
 
@@ -253,8 +241,8 @@
               <span class="iconify w-4 h-4 group-hover:translate-x-0.5 transition-transform" data-icon="solar:arrow-right-linear"></span>
             </div>
           </a>
-          <span class="text-xs font-label tracking-wide" style="color: var(--brown-400)">
-            Vagas limitadas · Acesso imediato ao certificado
+          <span class="text-sm font-label font-semibold tracking-wide" style="color: var(--gold-light)">
+            Vagas limitadas
           </span>
         </div>
       </div>
@@ -262,7 +250,6 @@
       <!-- Footer bar -->
       <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label">
         <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--cream-50)">Ciência</span>
-        <span class="text-xs font-medium tracking-wider hidden sm:block" style="color: var(--brown-300)">@institutocogcom</span>
         <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color: var(--cream-50)">Clínica</span>
       </div>
     </section>
@@ -326,16 +313,15 @@
           </li>
         </ul>
 
-        <!-- Quote -->
-        <blockquote
-          class="mt-12 pl-6 py-2 scroll-reveal delay-300"
-          style="border-left: 3px solid var(--gold);"
+        <!-- Highlighted Quote -->
+        <div
+          class=”mt-12 p-8 lg:p-10 rounded-lg scroll-reveal delay-300”
+          style=”background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.28);”
         >
-          <p class="font-decorative text-xl md:text-2xl leading-relaxed" style="color: var(--brown-600)">
-            “O objetivo não é diagnosticar mais. É diagnosticar com mais precisão,
-            entendendo o contexto do paciente.”
+          <p class=”text-lg md:text-xl lg:text-2xl font-semibold leading-relaxed text-center” style=”color: var(--brown-700)”>
+            O objetivo não é diagnosticar mais. É diagnosticar com mais precisão, entendendo o contexto do paciente.
           </p>
-        </blockquote>
+        </div>
 
         <!-- Paragraph 2 -->
         <p class="text-lg leading-relaxed mt-10 scroll-reveal delay-500" style="color: var(--brown-500)">
@@ -376,8 +362,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <!-- Card 1 -->
           <div class="learn-card p-8 rounded-lg scroll-reveal delay-100" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
-              <span class="iconify w-6 h-6" data-icon="solar:brain-linear"></span>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.28); color: var(--gold-light);">
+              <span class="iconify w-6 h-6" data-icon="ph:brain"></span>
             </div>
             <p class="text-base leading-relaxed" style="color: var(--cream-300)">
               Neurobiologia da ansiedade adaptativa e seu papel evolutivo.
@@ -385,7 +371,7 @@
           </div>
           <!-- Card 2 -->
           <div class="learn-card p-8 rounded-lg scroll-reveal delay-200" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.28); color: var(--gold-light);">
               <span class="iconify w-6 h-6" data-icon="solar:pulse-2-linear"></span>
             </div>
             <p class="text-base leading-relaxed" style="color: var(--cream-300)">
@@ -394,7 +380,7 @@
           </div>
           <!-- Card 3 -->
           <div class="learn-card p-8 rounded-lg scroll-reveal delay-300" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.28); color: var(--gold-light);">
               <span class="iconify w-6 h-6" data-icon="solar:magnifer-zoom-in-linear"></span>
             </div>
             <p class="text-base leading-relaxed" style="color: var(--cream-300)">
@@ -403,7 +389,7 @@
           </div>
           <!-- Card 4 -->
           <div class="learn-card p-8 rounded-lg scroll-reveal delay-500" style="background-color: rgba(253,236,216,0.04); border: 1px solid rgba(253,236,216,0.1);">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: var(--sage-700); color: var(--sage-200);">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.28); color: var(--gold-light);">
               <span class="iconify w-6 h-6" data-icon="solar:routing-2-linear"></span>
             </div>
             <p class="text-base leading-relaxed" style="color: var(--cream-300)">
@@ -427,9 +413,8 @@
               class="relative overflow-hidden shadow-2xl"
               style="width: min(360px, 100%); aspect-ratio: 4/5; border-radius: 1rem; border: 2px solid var(--gold-muted);"
             >
-              <!-- [DEV] Substituir pelo arquivo real da professora -->
               <img
-                src="professora.jpeg"
+                src="giovana.jpg"
                 alt="Professora do minicurso — Instituto CogCom"
                 style="width: 100%; height: 100%; object-fit: cover; object-position: top;"
                 onerror="this.style.display='none'; this.parentElement.style.background='var(--brown-200)';"
@@ -443,11 +428,10 @@
             <div class="flex items-center gap-3 mb-5 scroll-reveal">
               <div class="w-10 h-px" style="background-color: var(--gold)"></div>
               <span class="font-label text-xs font-bold uppercase tracking-widest" style="color: var(--brown-500)">
-                Conheça sua professora
+                Quem é Giovanna Veloso?
               </span>
             </div>
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight scroll-reveal delay-100" style="color: var(--brown-900)">
-              <!-- [DEV] Confirmar o nome da professora (briefing trouxe nomes divergentes) -->
               Conheça sua <span class="font-decorative" style="color: var(--brown-500)">professora.</span>
             </h2>
             <div class="h-px w-16 my-7 scroll-reveal delay-200" style="background-color: var(--gold)"></div>
@@ -519,20 +503,10 @@
       class="relative w-full z-20 py-12"
       style="background-color: var(--brown-900); border-top: 1px solid rgba(253,236,216,0.08);"
     >
-      <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="max-w-5xl mx-auto px-6 text-center">
         <p class="font-label text-xs" style="color: var(--brown-400)">
           © 2026 Instituto CogCom — Todos os direitos reservados.
         </p>
-        <a
-          href="https://instagram.com/institutocogcom"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-2 transition-colors hover:opacity-80 font-label text-xs"
-          style="color: var(--brown-400)"
-        >
-          <span class="iconify w-4 h-4" data-icon="ri:instagram-line"></span>
-          @institutocogcom
-        </a>
       </div>
     </footer>
 
