@@ -153,7 +153,7 @@ function initVideoScrub() {
         trigger: "#hero-wrapper",
         start: "top top",
         end: "bottom bottom",
-        scrub: 0.3,
+        scrub: 0.1,
       },
       onUpdate: function () {
         video.currentTime = Math.min(
