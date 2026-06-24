@@ -235,12 +235,19 @@
           style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
           >Jornada</a
         >
-        <a
-          class="hover:text-[var(--gold)] transition-colors pb-4"
-          href="#especialidades"
-          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
-          >Especialidades</a
-        >
+        <div style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)">
+          <button
+            class="w-full text-left hover:text-[var(--gold)] transition-colors pb-4 flex items-center justify-between"
+            onclick="toggleMobileSubmenu(this)"
+          >
+            Especialidades
+            <span class="iconify w-4 h-4" data-icon="solar:chevron-down-linear"></span>
+          </button>
+          <div class="mobile-submenu hidden flex flex-col gap-3 pb-4 pl-4">
+            <a href="/psicoterapia" class="hover:text-[var(--gold)] transition-colors">Psicoterapia</a>
+            <a href="#especialidades" class="hover:text-[var(--gold)] transition-colors">Avaliação Neuropsicológica</a>
+          </div>
+        </div>
       </nav>
       <div class="mt-auto mb-12">
         <a
@@ -285,11 +292,18 @@
         <a href="#jornada" class="hover:text-[var(--gold)] transition-colors"
           >Jornada</a
         >
-        <a
-          href="#especialidades"
-          class="hover:text-[var(--gold)] transition-colors"
-          >Especialidades</a
-        >
+        <div class="relative group">
+          <button
+            class="hover:text-[var(--gold)] transition-colors flex items-center gap-1"
+          >
+            Especialidades
+            <span class="iconify w-4 h-4" data-icon="solar:chevron-down-linear"></span>
+          </button>
+          <div class="absolute left-0 mt-0 w-max bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href="/psicoterapia" class="block px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[var(--gold)]" style="color: #710e0c;">Psicoterapia</a>
+            <a href="#especialidades" class="block px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[var(--gold)]" style="color: #710e0c;">Avaliação Neuropsicológica</a>
+          </div>
+        </div>
       </div>
       <div class="flex items-center gap-4">
         <a

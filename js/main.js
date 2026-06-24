@@ -31,6 +31,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // ─── Mobile Submenu Toggle ───
+  window.toggleMobileSubmenu = function (button) {
+    var submenu = button.nextElementSibling;
+    var icon = button.querySelector(".iconify");
+    submenu.classList.toggle("hidden");
+    if (icon) {
+      icon.style.transform = submenu.classList.contains("hidden")
+        ? "rotate(0deg)"
+        : "rotate(180deg)";
+    }
+  };
+
   // ─── FAQ Accordion ───
   window.toggleFaq = function (header) {
     var item = header.closest(".faq-item");
