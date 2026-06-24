@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/minicurso-ansiedade", "destination": "/minicurso-ansiedade.html" },
-    { "source": "/pacientes", "destination": "/pacientes.html" }
+    { "source": "/psicoterapia", "destination": "/psicoterapia.html" },
+    { "source": "/pacientes", "destination": "/psicoterapia.html" }
   ]
 }
