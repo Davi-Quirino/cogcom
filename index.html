@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CogCom - Conectando você à saúde</title>
+    <title>CogCom - Cuide da sua saúde mental</title>
     <meta
       name="description"
       content="CogCom — Clínica multidisciplinar com atendimento humanizado em psicologia, psiquiatria, neuropsicologia e nutrição. Agende sua consulta online ou presencial."
@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#4a2518" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="CogCom - Conectando você à saúde" />
+    <meta property="og:title" content="CogCom - Cuide da sua saúde mental" />
     <meta
       property="og:description"
       content="Clínica multidisciplinar com atendimento humanizado em psicologia, psiquiatria, neuropsicologia e nutrição."
@@ -259,13 +259,13 @@
     <nav
       class="hidden md:flex fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-20 items-center justify-between animate-reveal"
       style="
-        background-color: rgba(74, 37, 24, 0.92);
+        background-color: #fceedd;
         border-bottom: 1px solid rgba(242, 229, 208, 0.1);
       "
     >
       <a href="#hero-wrapper" class="flex items-center">
         <img
-          src="logo cogcom transp.png"
+          src="rose.png"
           alt="Logo CogCom"
           class="h-12 md:h-[3.25rem] w-auto object-contain"
           loading="eager"
@@ -274,7 +274,7 @@
       </a>
       <div
         class="hidden md:flex gap-8 text-sm font-label font-semibold uppercase tracking-wider"
-        style="color: var(--brown-400)"
+        style="color: #710e0c"
       >
         <a href="#quem-somos" class="hover:text-[var(--gold)] transition-colors"
           >Quem somos</a
@@ -297,7 +297,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="hidden md:flex items-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-3 px-6 rounded transition-all shadow-md hover:shadow-lg"
-          style="background-color: var(--gold); color: var(--brown-900)"
+          style="background-color: #710e0c; color: #fceedd"
         >
           Agendar atendimento
         </a>
@@ -322,90 +322,16 @@
           position: sticky;
           top: 0;
           height: 100dvh;
-          background-color: var(--brown-700);
+          background-color: var(--brown-900);
         "
       >
-        <!-- Video Background -->
-        <video id="hero-video" muted playsinline preload="auto">
-          <source src="assets/videos/book_scrub.mp4" type="video/mp4" />
-        </video>
-
-        <!-- Video Darkening Overlay -->
-        <div class="hero-video-overlay"></div>
-
-        <!-- Aura Background Animation -->
-        <div
-          class="absolute inset-0 z-[2] pointer-events-none overflow-hidden"
-          style="
-            opacity: 0.4;
-            mix-blend-mode: screen;
-            filter: sepia(0.6) hue-rotate(-15deg) saturate(0.5) brightness(0.6);
-          "
-        >
-          <div class="absolute inset-0">
-            <div
-              class="absolute w-full h-full left-0 top-0"
-              data-us-project="FixNvEwvWwbu3QX9qC3F"
-            ></div>
-            <script type="text/javascript">
-              !(function () {
-                if (!window.UnicornStudio) {
-                  window.UnicornStudio = { isInitialized: !1 };
-                  var i = document.createElement("script");
-                  ((i.src =
-                    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"),
-                    (i.onload = function () {
-                      window.UnicornStudio.isInitialized ||
-                        (UnicornStudio.init(),
-                        (window.UnicornStudio.isInitialized = !0));
-                    }),
-                    (document.head || document.body).appendChild(i));
-                }
-              })();
-            </script>
-          </div>
-        </div>
-
-        <!-- Grid Lines -->
-        <div class="absolute inset-0 z-[3] pointer-events-none">
-          <div class="grid-line-v" style="left: 6%"></div>
-          <div class="grid-line-v" style="left: 50%">
-            <div class="beam-v" style="animation: beam-v 8s infinite 1s"></div>
-          </div>
-          <div class="grid-line-v" style="right: 6%"></div>
-          <div class="grid-line-h" style="top: 8%">
-            <div class="beam-h" style="animation: beam-h 6s infinite"></div>
-          </div>
-          <div class="grid-line-h" style="bottom: 8%"></div>
-        </div>
-
-        <!-- Header Bar -->
-        <div
-          class="absolute top-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label mt-2 md:mt-16"
-        >
-          <span
-            class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
-            style="color: var(--cream-50)"
-            >Saúde</span
-          >
-          <span
-            class="text-xs font-medium tracking-wider animate-reveal delay-200"
-            style="color: var(--cream-300)"
-            >@institutocogcom</span
-          >
-          <span
-            class="text-xs font-semibold uppercase tracking-[0.2em] animate-reveal delay-100"
-            style="color: var(--cream-50)"
-            >Ciência</span
-          >
-        </div>
 
         <!-- Center Content -->
         <div
           id="hero-text-content"
-          class="hero-content relative z-10 w-full max-w-7xl mx-auto px-8"
+          class="relative z-10 w-full max-w-7xl mx-auto px-8 flex items-center gap-12 lg:gap-16"
         >
-          <div class="hero-text">
+          <div class="hero-text flex-1">
             <!-- Main Headline -->
             <h1
               class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] tracking-tight mt-8 md:mt-10 pb-2 md:pb-3 animate-reveal delay-300"
@@ -499,28 +425,19 @@
               </div>
             </div>
           </div>
+
+          <!-- Imagem Red2 à direita -->
+          <div class="hidden lg:flex flex-1 justify-end animate-reveal delay-500">
+            <img
+              src="red2.png"
+              alt="Decoração"
+              class="h-auto w-full"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
         </div>
 
-        <!-- Footer Bar -->
-        <div
-          class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-8 py-6 z-20 font-label"
-        >
-          <span
-            class="text-xs font-semibold uppercase tracking-[0.2em]"
-            style="color: var(--cream-50)"
-            >Psicologia</span
-          >
-          <span
-            class="text-xs font-medium tracking-wider"
-            style="color: var(--cream-300)"
-            >@institutocogcom</span
-          >
-          <span
-            class="text-xs font-semibold uppercase tracking-[0.2em]"
-            style="color: var(--cream-50)"
-            >Cuidado</span
-          >
-        </div>
       </section>
     </div>
 
@@ -3998,148 +3915,60 @@
         </div>
       </div>
     </section>
-    <!-- Footer -->
+    <!-- ============ FOOTER ============ -->
     <footer
       class="relative w-full z-20 pt-24 pb-12"
       style="
         background-color: var(--brown-900);
-        border-top: 1px solid rgba(242, 229, 208, 0.08);
+        border-top: 1px solid rgba(246, 232, 195, 0.08);
       "
     >
       <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24"
-        >
-          <div class="lg:col-span-3">
-            <div
-              class="flex items-center gap-2 mb-6"
-              style="color: var(--cream-50)"
-            >
-              <div
-                class="w-6 h-6 rounded flex items-center justify-center"
-                style="
-                  background-color: rgba(201, 169, 110, 0.15);
-                  color: var(--gold);
-                "
-              >
-                <span
-                  class="iconify w-3.5 h-3.5"
-                  data-icon="solar:add-square-linear"
-                ></span>
-              </div>
-              <span class="font-bold tracking-tight">CogCom</span>
-            </div>
-            <p class="text-sm leading-relaxed" style="color: var(--brown-400)">
-              Conectando você à saúde. Uma experiência segura, personalizada e
-              baseada em evidências.
-            </p>
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 mb-12">
+          <!-- Logo Red - Esquerda -->
+          <div class="lg:flex-shrink-0">
+            <img
+              src="red1.png"
+              alt="CogCom"
+              class="h-48 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-          <div class="lg:col-span-2">
-            <h4
-              class="text-xs font-label font-semibold uppercase tracking-widest mb-6"
-              style="color: var(--brown-300)"
-            >
-              Especialidades
-            </h4>
-            <ul class="space-y-4">
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#especialidades"
-                  style="color: var(--brown-400)"
-                >
-                  Psicoterapia Individual
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="#especialidades"
-                  style="color: var(--brown-400)"
-                >
-                  Avaliação Neuropsicológica
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="lg:col-span-2">
-            <h4
-              class="text-xs font-label font-semibold uppercase tracking-widest mb-6"
-              style="color: var(--brown-300)"
-            >
-              Institucional
-            </h4>
-            <ul class="space-y-4">
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="lgpd.html"
-                  style="color: var(--brown-400)"
-                >
-                  LGPD
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-sm transition-colors hover:text-[var(--gold)]"
-                  href="politica-privacidade.html"
-                  style="color: var(--brown-400)"
-                >
-                  Política de Privacidade
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="lg:col-span-5 flex flex-col sm:flex-row gap-4 lg:justify-end items-start"
-          >
-            <div
-              class="p-6 rounded-sm w-full sm:w-64"
-              style="
-                background-color: var(--brown-800);
-                border: 1px solid rgba(242, 229, 208, 0.1);
-              "
-            >
-              <span
-                class="block text-xs font-label font-semibold uppercase tracking-widest mb-2"
-                style="color: var(--brown-400)"
-              >
-                AGENDAR ATENDIMENTO
-              </span>
-              <span
-                class="block text-2xl font-semibold mb-1"
+
+          <!-- Redes Sociais - Direita -->
+          <div class="flex flex-col items-center lg:items-end gap-6">
+            <p class="text-lg md:text-2xl font-semibold text-center" style="color: var(--cream-50)">Conheça nossas redes sociais</p>
+            <div class="flex gap-8 items-center">
+              <a
+                href="https://instagram.com/institutocogcom"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors hover:opacity-80"
                 style="color: var(--cream-50)"
+                aria-label="Instagram"
               >
-                Fale conosco
-              </span>
-              <span class="block text-sm" style="color: var(--brown-300)"
-                >Equipe de assistência disponível</span
+                <span class="iconify w-16 h-16 md:w-12 md:h-12" data-icon="ri:instagram-line"></span>
+              </a>
+              <a
+                href="https://tiktok.com/@institutocogcom"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors hover:opacity-80"
+                style="color: var(--cream-50)"
+                aria-label="TikTok"
               >
+                <span class="iconify w-16 h-16 md:w-12 md:h-12" data-icon="ri:tiktok-fill"></span>
+              </a>
             </div>
           </div>
         </div>
-        <div
-          class="flex flex-col md:flex-row items-center justify-between pt-8 gap-4"
-          style="border-top: 1px solid rgba(242, 229, 208, 0.08)"
-        >
-          <p class="text-xs" style="color: var(--brown-400)">
+
+        <!-- Copyright -->
+        <div class="pt-8" style="border-top: 1px solid rgba(246, 232, 195, 0.08)">
+          <p class="text-center text-lg font-medium" style="color: var(--cream-50)">
             © 2026 CogCom – Todos os Direitos Reservados.
           </p>
-          <div class="flex gap-4 items-center">
-            <a
-              class="transition-colors hover:text-[var(--gold)] flex items-center gap-2"
-              href="https://instagram.com/institutocogcom"
-              target="_blank"
-              rel="noopener noreferrer"
-              style="color: var(--brown-400)"
-            >
-              <span
-                class="iconify w-4 h-4"
-                data-icon="ri:instagram-line"
-              ></span>
-              <span class="text-xs">@institutocogcom</span>
-            </a>
-          </div>
         </div>
       </div>
     </footer>

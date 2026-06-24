@@ -1,35 +1,35 @@
 :root {
-  --brown-950: #3a1a0e;
-  --brown-900: #4a2518;
-  --brown-800: #5c3322;
-  --brown-700: #6b3d2e;
-  --brown-600: #7a4d3c;
-  --brown-500: #8b5e4b;
-  --brown-400: #a07a68;
-  --brown-300: #c4a68e;
-  --brown-200: #d4bba5;
-  --cream-300: #dfc8aa;
-  --cream-200: #e8d5b7;
-  --cream-100: #efe0cc;
-  --cream-50: #f2e5d0;
-  --cream-25: #f8f0e3;
-  --gold: #c9a96e;
-  --gold-light: #d4bc8a;
-  --gold-muted: #b89b6a;
+  --brown-950: #3d0f0c;
+  --brown-900: #5c1815;
+  --brown-800: #6b2a1e;
+  --brown-700: #7d3a28;
+  --brown-600: #8b4e35;
+  --brown-500: #9c6b3a;
+  --brown-400: #b68a55;
+  --brown-300: #d4ad78;
+  --brown-200: #e0c79a;
+  --cream-300: #dec08c;
+  --cream-200: #ead9b5;
+  --cream-100: #f2e6cb;
+  --cream-50: #f6e8c3;
+  --cream-25: #faf0e1;
+  --gold: #a66b33;
+  --gold-light: #c08a4e;
+  --gold-muted: #8b5e3c;
 
-  --sage-900: #1b2b24;
-  --sage-800: #263c32;
-  --sage-700: #345143;
-  --sage-600: #446957;
-  --sage-500: #55826c;
-  --sage-400: #749e8a;
-  --sage-300: #9abca9;
-  --sage-200: #c2dacd;
-  --sage-100: #e1efe7;
-  --sage-50: #f0f7f3;
+  --sage-900: #3d1f12;
+  --sage-800: #4a3424;
+  --sage-700: #6b4a2e;
+  --sage-600: #7a4a26;
+  --sage-500: #9c6b32;
+  --sage-400: #c08a4e;
+  --sage-300: #d4ad78;
+  --sage-200: #e0c79a;
+  --sage-100: #ecd7ae;
+  --sage-50: #faf0e1;
 
-  --grid-color: rgba(242, 229, 208, 0.08);
-  --beam-color: #c9a96e;
+  --grid-color: rgba(246, 232, 195, 0.08);
+  --beam-color: #a66b33;
 }
 
 body {
@@ -273,9 +273,9 @@ h6 {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-      rgba(58, 26, 14, 0.55) 0%,
-      rgba(58, 26, 14, 0.25) 40%,
-      rgba(58, 26, 14, 0.6) 100%);
+      rgba(61, 15, 12, 0.55) 0%,
+      rgba(61, 15, 12, 0.25) 40%,
+      rgba(61, 15, 12, 0.6) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -331,12 +331,12 @@ h6 {
   0%,
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5);
+    box-shadow: 0 0 0 0 rgba(166, 107, 51, 0.5);
   }
 
   50% {
     transform: scale(1.15);
-    box-shadow: 0 0 0 12px rgba(201, 169, 110, 0);
+    box-shadow: 0 0 0 12px rgba(166, 107, 51, 0);
   }
 }
 
@@ -358,7 +358,7 @@ h6 {
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  background-color: rgba(201, 169, 110, 0.2);
+  background-color: rgba(166, 107, 51, 0.2);
 }
 
 /* ─── Steps Grid ─── */
@@ -366,11 +366,12 @@ h6 {
 .step-number-wrapper {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: clamp(8rem, 14vw, 14rem);
   padding-top: 0;
+  gap: 1rem;
 }
 
 .step-number-wrapper>* {
@@ -386,17 +387,25 @@ h6 {
   font-size: clamp(8rem, 14vw, 14rem);
   line-height: 0.88;
   color: var(--brown-200);
-  opacity: 0.2;
+  opacity: 0.4;
   user-select: none;
   padding: 0 0.05em;
   font-variant-numeric: lining-nums tabular-nums;
+  margin-bottom: -0.5rem;
 }
 
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 3rem 2rem;
+  align-items: stretch;
+}
+
+.steps-grid > li {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 /* Ajuste optico do glifo "4" nesta fonte */
@@ -501,9 +510,9 @@ h6 {
 
   .hero-video-overlay {
     background: linear-gradient(to bottom,
-        rgba(58, 26, 14, 0.68) 0%,
-        rgba(58, 26, 14, 0.2) 38%,
-        rgba(58, 26, 14, 0.7) 100%) !important;
+        rgba(61, 15, 12, 0.68) 0%,
+        rgba(61, 15, 12, 0.2) 38%,
+        rgba(61, 15, 12, 0.7) 100%) !important;
   }
 
   .hero-text p {
@@ -591,6 +600,35 @@ h6 {
   #quem-somos .space-y-5 {
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+
+  /* Centralize hero content on mobile (pacientes.html) */
+  #hero .grid {
+    justify-items: center;
+  }
+
+  #hero .lg\:col-span-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #hero h1 {
+    text-align: center;
+  }
+
+  #hero p {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  #hero .flex {
+    justify-content: center;
+  }
+
+  #hero .lg\:col-span-5 {
+    max-width: 100%;
   }
 }
 

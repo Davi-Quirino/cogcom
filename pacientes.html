@@ -1,0 +1,745 @@
+<!doctype html>
+<html class="scroll-smooth" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psicologia Online Baseada em Evidência | Instituto CogCom</title>
+    <meta
+      name="description"
+      content="Psicólogos especializados em TCC, ACT e DBT. Atendimento 100% online para ansiedade, burnout, depressão e mais. Fale com a equipe CogCom — sem compromisso."
+    />
+    <meta name="theme-color" content="#5c1815" />
+    <link rel="icon" href="logo cogcom transp.png" type="image/png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Psicologia Online Baseada em Evidência | Instituto CogCom" />
+    <meta property="og:description" content="Psicólogos especializados em TCC, ACT e DBT. Atendimento 100% online para ansiedade, burnout, depressão e mais. Fale com a equipe CogCom — sem compromisso." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://institutocogcom.com.br/pacientes" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cormorant+SC:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=3" />
+
+    <!-- Vendor Scripts -->
+    <script src="js/vendor/tailwind.js"></script>
+    <script src="js/vendor/iconify.js"></script>
+    <script src="js/vendor/lucide.js"></script>
+  </head>
+  <body
+    class="min-h-screen w-full relative overflow-x-hidden antialiased pb-20 md:pb-0"
+    style="background-color: var(--brown-700); color: var(--cream-50)"
+  >
+    <!-- Mobile Menu Overlay -->
+    <div
+      class="fixed inset-0 z-[60] backdrop-blur-xl hidden-menu flex flex-col pt-32 px-8"
+      id="mobile-menu"
+      style="
+        background-color: rgba(92, 24, 21, 0.97);
+        border-bottom: 1px solid rgba(246, 232, 195, 0.1);
+      "
+    >
+      <button
+        class="absolute top-8 right-6 transition-colors hover:opacity-80"
+        id="close-menu"
+        style="color: var(--brown-300)"
+      >
+        <span class="iconify w-8 h-8" data-icon="solar:close-circle-linear"></span>
+      </button>
+      <nav class="flex flex-col gap-8 text-2xl font-medium tracking-tight" style="color: var(--cream-50)">
+        <a class="hover:text-[var(--gold)] transition-colors pb-4" href="/" style="border-bottom: 1px solid rgba(246, 232, 195, 0.1)">Início</a>
+        <a class="hover:text-[var(--gold)] transition-colors pb-4" href="#condicoes" style="border-bottom: 1px solid rgba(246, 232, 195, 0.1)">Condições</a>
+        <a class="hover:text-[var(--gold)] transition-colors pb-4" href="#como-funciona" style="border-bottom: 1px solid rgba(246, 232, 195, 0.1)">Como funciona</a>
+        <a class="hover:text-[var(--gold)] transition-colors pb-4" href="#equipe" style="border-bottom: 1px solid rgba(246, 232, 195, 0.1)">Equipe</a>
+      </nav>
+      <div class="mt-auto mb-12">
+        <a
+          class="flex w-full items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 rounded transition-all shadow-lg hover:shadow-xl"
+          href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20psicologia%20da%20CogCom%20e%20gostaria%20de%20saber%20mais."
+          target="_blank"
+          rel="noopener noreferrer"
+          style="background-color: var(--gold); color: var(--brown-900)"
+        >
+          Agendar atendimento
+        </a>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="hidden md:flex fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-20 items-center justify-between animate-reveal"
+      style="
+        background-color: rgba(92, 24, 21, 0.92);
+        border-bottom: 1px solid rgba(246, 232, 195, 0.1);
+      "
+    >
+      <a href="/" class="flex items-center">
+        <img
+          src="logo cogcom transp.png"
+          alt="Logo CogCom"
+          class="h-12 md:h-[3.25rem] w-auto object-contain"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
+      <div class="hidden md:flex gap-8 text-sm font-label font-semibold uppercase tracking-wider" style="color: var(--cream-50)">
+        <a href="/" class="hover:text-[var(--gold)] transition-colors">Início</a>
+        <a href="#condicoes" class="hover:text-[var(--gold)] transition-colors">Condições</a>
+        <a href="#como-funciona" class="hover:text-[var(--gold)] transition-colors">Como funciona</a>
+        <a href="#equipe" class="hover:text-[var(--gold)] transition-colors">Equipe</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a
+          href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20psicologia%20da%20CogCom%20e%20gostaria%20de%20saber%20mais."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden md:flex items-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-3 px-6 rounded transition-all shadow-md hover:shadow-lg"
+          style="background-color: var(--gold); color: var(--brown-900)"
+        >
+          Agendar atendimento
+        </a>
+        <button class="md:hidden transition-colors" style="color: var(--cream-300)" id="open-menu">
+          <span class="iconify w-6 h-6" data-icon="solar:hamburger-menu-linear"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Botão flutuante WhatsApp -->
+    <a
+      href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20psicologia%20da%20CogCom%20e%20gostaria%20de%20saber%20mais."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Conversar pelo WhatsApp"
+      class="fixed bottom-6 right-6 z-[90] flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-transform hover:scale-105"
+      style="background-color: #25D366"
+    >
+      <span class="iconify w-7 h-7" data-icon="ri:whatsapp-fill" style="color: var(--cream-25)" aria-hidden="true"></span>
+    </a>
+
+    <!-- ============ SEÇÃO 1 — HERO ============ -->
+    <section id="hero" class="relative overflow-hidden pt-32 pb-24 lg:pt-36 lg:pb-28" style="background-color: var(--brown-900)">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%] relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Coluna esquerda: conteúdo -->
+          <div class="lg:col-span-7 animate-reveal">
+            <img
+              src="red1.png"
+              alt="Decoração"
+              class="h-40 w-auto mb-8"
+              loading="eager"
+              decoding="async"
+            />
+            <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl leading-tight" style="color: var(--cream-50)">
+              Cuidar da sua saúde mental pode ser mais simples
+            </h1>
+            <!--
+              Alternativas para A/B test (não renderizar simultaneamente):
+              Opção B: Psicologia online com método, escuta e ciência.
+              Opção C: Saúde mental por quem leva a ciência a sério.
+            -->
+            <p class="mt-6 text-lg leading-relaxed max-w-xl" style="color: var(--cream-50)">
+              Se você está passando por dificuldades, se sente sobrecarregado ou não sabe como lidar com o que está vivendo, aqui é um espaço onde você pode encontrar ajuda profissional com escuta, cuidado e respeito pela sua experiência.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20psicologia%20da%20CogCom%20e%20gostaria%20de%20saber%20mais."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 px-8 rounded-full transition-all shadow-md hover:shadow-lg"
+                style="background-color: var(--gold); color: var(--brown-900)"
+              >
+                Falar com a equipe pelo WhatsApp
+                <span class="iconify w-4 h-4" data-icon="solar:arrow-right-linear" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Coluna direita: elemento visual (sem dados reais de contadores) -->
+          <div class="lg:col-span-5 animate-reveal delay-300">
+            <div
+              class="relative rounded-2xl overflow-hidden"
+              style="background-color: var(--brown-800); border: 1px solid rgba(246, 232, 195, 0.12)"
+            >
+              <div class="beam-h" style="top: 0" aria-hidden="true"></div>
+              <img
+                src="poltrona.jpeg"
+                alt="Poltrona do Instituto CogCom"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 2 — CONDIÇÕES ============ -->
+    <section id="condicoes" class="relative py-24 lg:py-28" style="background-color: var(--cream-50)">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20 scroll-reveal">
+          <span class="font-label text-base font-semibold tracking-[0.2em] uppercase" style="color: var(--sage-600)">
+            Principais razões que levam pessoas à psicoterapia
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1] mt-4" style="color: var(--brown-900)">
+            Veja se você se reconhece em alguma dessas situações.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Condição 1 — Ansiedade -->
+          <article class="rounded-xl p-8 scroll-reveal" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="solar:wind-linear" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Ansiedade</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              A preocupação constante com o que pode acontecer afeta muito mais do que o humor. Ela pode atrapalhar o sono, a concentração, os relacionamentos e até a capacidade de aproveitar o presente. Na terapia, é possível aprender estratégias para lidar melhor com a ansiedade no dia a dia.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-ansiedade">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais comuns</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-ansiedade" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Inquietação, medo ou preocupação frequentes, sem motivo aparente</li>
+                  <li>Cansaço sem esforço físico e dificuldade de concentração</li>
+                  <li>Dificuldade para dormir ou despertar várias vezes durante a noite</li>
+                  <li>Coração acelerado, falta de ar ou sensação de aperto no peito</li>
+                  <li>Tensão muscular persistente sem causa identificada</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Condição 2 — Burnout -->
+          <article class="rounded-xl p-8 scroll-reveal delay-100" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="solar:battery-low-linear" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Burnout (esgotamento)</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              O ritmo de trabalho pode levar o corpo e a mente a um ponto de exaustão que não melhora com descanso. Burnout não é "frescura" é uma condição reconhecida pela OMS que gera muito sofrimento. A psicoterapia ajuda a reconstruir limites, recuperar energia e reencontrar sentido na rotina.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-burnout">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais comuns</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-burnout" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Cansaço extremo, físico e mental, que não passa com descanso</li>
+                  <li>Dificuldade de se motivar para tarefas que antes eram normais</li>
+                  <li>Sentimentos de fracasso, incompetência ou desconexão do trabalho</li>
+                  <li>Irritabilidade frequente, dores de cabeça, alterações no apetite</li>
+                  <li>Sensação de estar "no automático" — funcionando, mas não vivendo</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Condição 3 — Tristeza prolongada e depressão -->
+          <article class="rounded-xl p-8 scroll-reveal delay-200" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="solar:cloud-linear" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Tristeza prolongada e depressão</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              A falta de energia, a perda de interesse pelas coisas, o isolamento e a sensação de vazio podem ser sinais de que algo precisa de atenção. Na terapia, é possível compreender o que está acontecendo e desenvolver estratégias para recuperar a qualidade de vida.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-tristeza">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais comuns</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-tristeza" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Sentir-se triste, vazio ou sem esperança na maior parte do tempo</li>
+                  <li>Perda de interesse em atividades que antes davam prazer</li>
+                  <li>Alterações no sono — dormir demais ou ter insônia</li>
+                  <li>Fadiga ou falta de energia, mesmo após descanso</li>
+                  <li>Dificuldade para se concentrar, tomar decisões ou se lembrar de coisas</li>
+                  <li>Isolamento social — evitar pessoas e situações</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Condição 4 — Problemas de sono -->
+          <article class="rounded-xl p-8 scroll-reveal delay-300" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="solar:moon-linear" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Problemas de sono</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              O sono é uma das primeiras coisas afetadas quando algo não vai bem emocionalmente. E a privação de sono, por sua vez, agrava tudo o resto — humor, concentração, imunidade, relacionamentos. Trabalhar o sono na psicoterapia é tratar a causa, não apenas o sintoma.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-sono">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais comuns</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-sono" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Dificuldade para pegar no sono ou insônia recorrente</li>
+                  <li>Acordar várias vezes durante a noite</li>
+                  <li>Sonolência intensa durante o dia, mesmo dormindo horas suficientes</li>
+                  <li>Irritabilidade, falta de disposição e dificuldade de concentração durante o dia</li>
+                  <li>Uso recorrente de medicação para dormir sem acompanhamento adequado</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Condição 5 — Desenvolvimento pessoal e alta performance -->
+          <article class="rounded-xl p-8 scroll-reveal delay-400" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="solar:graph-up-linear" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Desenvolvimento pessoal e alta performance</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              Psicoterapia não é só para quem está em sofrimento. Muitas pessoas buscam acompanhamento psicológico para se conhecerem melhor, desenvolverem habilidades emocionais e tomarem decisões mais alinhadas com seus valores.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-performance">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais de que pode ser o momento</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-performance" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Sensação de estar "estagnado" mesmo sem um problema específico</li>
+                  <li>Dificuldade para definir prioridades ou tomar decisões importantes</li>
+                  <li>Desejo de construir relacionamentos mais saudáveis</li>
+                  <li>Querer entender padrões de comportamento que se repetem</li>
+                  <li>Busca por mais clareza, propósito ou equilíbrio na vida</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Condição 6 — Compulsão Alimentar -->
+          <article class="rounded-xl p-8 scroll-reveal delay-500" style="background-color: var(--cream-25); border: 1px solid var(--cream-200)">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5" style="background-color: var(--sage-100); color: var(--sage-600)">
+              <span class="iconify w-6 h-6" data-icon="ri:restaurant-2-fill" aria-hidden="true"></span>
+            </div>
+            <h3 class="text-xl font-medium" style="color: var(--brown-800)">Compulsão Alimentar</h3>
+            <p class="mt-3 text-sm font-light leading-relaxed" style="color: var(--brown-600)">
+              A compulsão alimentar vai além de comer muito. Ela envolve episódios de perda de controle, em que a pessoa sente dificuldade de parar de comer, muitas vezes acompanhados de culpa, vergonha ou sofrimento emocional. Na terapia, é possível compreender os gatilhos desse comportamento e desenvolver uma relação mais saudável com a alimentação e com as próprias emoções.
+            </p>
+            <div class="faq-item mt-4" style="border-top: 1px solid var(--cream-200)">
+              <button type="button" class="faq-header w-full flex items-center justify-between gap-4 py-4 text-left" style="background: transparent; border: none; cursor: pointer" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="sinais-compulsao">
+                <span class="text-sm font-label font-semibold uppercase tracking-wide" style="color: var(--brown-700)">Sinais comuns</span>
+                <div class="faq-icon flex-shrink-0" style="width:16px;height:16px;position:relative">
+                  <div style="position:absolute;top:50%;left:0;right:0;height:1.5px;background-color:var(--brown-700);transform:translateY(-50%);transition:background-color .3s"></div>
+                  <div class="faq-icon-bar-v" style="position:absolute;left:50%;top:0;bottom:0;width:1.5px;background-color:var(--brown-700);transform:translateX(-50%) rotate(0deg);transition:transform .4s cubic-bezier(.16,1,.3,1),background-color .3s"></div>
+                </div>
+              </button>
+              <div class="faq-body" id="sinais-compulsao" role="region" style="height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)">
+                <ul class="pb-5 pt-1 space-y-2 text-sm font-light leading-relaxed list-disc pl-4" style="color: var(--brown-600)">
+                  <li>Episódios de comer em excesso com sensação de perda de controle</li>
+                  <li>Comer mesmo sem estar com fome, frequentemente para lidar com emoções</li>
+                  <li>Sentimentos intensos de culpa, vergonha ou arrependimento após comer</li>
+                  <li>Isolamento durante os episódios de compulsão</li>
+                  <li>Preocupação constante com comida, peso ou aparência</li>
+                  <li>Tentativas repetidas e malsucedidas de controlar a alimentação</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-16 lg:mt-20 scroll-reveal">
+          <p class="text-lg max-w-2xl mx-auto" style="color: var(--brown-700); font-family: 'Lora', serif">
+            Se você se identificou com alguma dessas situações, saiba que não precisa lidar com isso sozinho. Fale com nossa equipe e entenda como podemos te ajudar, sem compromisso.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+            <a
+              href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20CogCom%20e%20gostaria%20de%20conversar%20sobre%20atendimento%20psicol%C3%B3gico."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 px-8 rounded-full transition-all shadow-md hover:shadow-lg"
+              style="background-color: var(--gold); color: var(--brown-900)"
+            >
+              Falar pelo WhatsApp
+              <span class="iconify w-4 h-4" data-icon="solar:arrow-right-linear" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 3 — COMO FUNCIONA ============ -->
+    <section id="como-funciona" class="relative z-10 py-24 lg:py-28" style="background-color: var(--cream-100); color: var(--brown-800)">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20 scroll-reveal">
+          <span class="font-label text-base font-semibold tracking-[0.2em] uppercase" style="color: var(--brown-500)">
+            Como funciona o trabalho do Instituto CogCom
+          </span>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1] mt-4" style="color: var(--brown-900)">
+            Do primeiro contato ao início do seu processo — em quatro etapas.
+          </h2>
+        </div>
+
+        <ol class="steps-grid relative">
+          <li class="relative flex flex-col items-center text-center scroll-reveal delay-100">
+            <div class="step-number-wrapper">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: rgba(166, 107, 51, 0.15); color: var(--gold)">
+                <span class="iconify w-6 h-6" data-icon="solar:chat-round-line-linear" aria-hidden="true"></span>
+              </div>
+              <span class="step-number" aria-hidden="true">1</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-semibold tracking-tight mt-6" style="color: var(--brown-900)">Você entra em contato</h3>
+            <p class="text-base leading-relaxed mt-3 max-w-xs" style="color: var(--brown-600); font-family: 'Lora', serif">
+              Pelo WhatsApp e ali mesmo você nos explica o motivo pelo qual você qual está buscando atendimento psicológico.
+            </p>
+          </li>
+          <li class="relative flex flex-col items-center text-center scroll-reveal delay-200">
+            <div class="step-number-wrapper">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: rgba(166, 107, 51, 0.15); color: var(--gold)">
+                <span class="iconify w-6 h-6" data-icon="solar:users-group-rounded-linear" aria-hidden="true"></span>
+              </div>
+              <span class="step-number" aria-hidden="true">2</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-semibold tracking-tight mt-6" style="color: var(--brown-900)">A equipe analisa sua demanda</h3>
+            <p class="text-base leading-relaxed mt-3 max-w-xs" style="color: var(--brown-600); font-family: 'Lora', serif">
+              Nossa equipe busca analisar suas respostas com atenção e identifica o profissional mais adequado para o seu caso. Essa conversa é sem custo e sem compromisso. O objetivo é conhecer seu contexto e identificar o profissional mais adequado.
+            </p>
+          </li>
+          <li class="relative flex flex-col items-center text-center scroll-reveal delay-300">
+            <div class="step-number-wrapper">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: rgba(166, 107, 51, 0.15); color: var(--gold)">
+                <span class="iconify w-6 h-6" data-icon="solar:link-round-linear" aria-hidden="true"></span>
+              </div>
+              <span class="step-number" aria-hidden="true">3</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-semibold tracking-tight mt-6" style="color: var(--brown-900)">Você é conectado ao profissional certo</h3>
+            <p class="text-base leading-relaxed mt-3 max-w-xs" style="color: var(--brown-600); font-family: 'Lora', serif">
+              Com base na análise, indicamos o psicólogo mais adequado à sua demanda, considerando especialidade e o seu perfil.
+            </p>
+          </li>
+          <li class="relative flex flex-col items-center text-center scroll-reveal delay-500">
+            <div class="step-number-wrapper">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background-color: rgba(166, 107, 51, 0.15); color: var(--gold)">
+                <span class="iconify w-6 h-6" data-icon="solar:videocamera-record-linear" aria-hidden="true"></span>
+              </div>
+              <span class="step-number" aria-hidden="true">4</span>
+            </div>
+            <h3 class="text-xl lg:text-2xl font-semibold tracking-tight mt-6" style="color: var(--brown-900)">Seu atendimento começa</h3>
+            <p class="text-base leading-relaxed mt-3 max-w-xs" style="color: var(--brown-600); font-family: 'Lora', serif">
+              Pronto! Seu atendimento começa aqui. As sessões acontecem de forma 100% online, com a praticidade e o conforto que você precisa. Desde o primeiro encontro, você e seu psicólogo irão definir juntos os objetivos do processo terapêutico e o caminho para alcançá-los.
+            </p>
+          </li>
+        </ol>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 lg:mt-20 scroll-reveal">
+          <a
+            href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Quero%20agendar%20meu%20atendimento%20com%20o%20Instituto%20CogCom."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Quero agendar"
+            class="inline-flex items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 px-8 rounded-full transition-all shadow-md hover:shadow-lg"
+            style="background-color: var(--gold); color: var(--brown-900)"
+          >
+            Quero agendar
+            <span class="iconify w-4 h-4" data-icon="solar:arrow-right-linear" aria-hidden="true"></span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 4 — QUEM ESTÁ POR TRÁS ============ -->
+    <section id="equipe" class="relative z-10 py-24 lg:py-28" style="background-color: var(--brown-900)">
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center scroll-reveal">
+          <div class="lg:col-span-6">
+            <span class="font-label text-base font-semibold tracking-[0.2em] uppercase" style="color: var(--gold-muted)">
+              Quem cuida do cuidado
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1] mt-4" style="color: var(--cream-50)">
+              Saúde mental por quem leva a ciência a sério.
+            </h2>
+            <div class="space-y-5 mt-6">
+              <p class="text-base lg:text-lg leading-relaxed" style="color: var(--cream-50); font-family: 'Lora', serif">
+                O Instituto CogCom é composto por profissionais com formação em neurociências, psicobiologia e psicologia clínica. Não somos uma plataforma genérica de agendamento: somos uma equipe que seleciona, supervisiona e acompanha de perto cada profissional que faz parte do Instituto.
+              </p>
+              <p class="text-base lg:text-lg leading-relaxed" style="color: var(--cream-50); font-family: 'Lora', serif">
+                Aqui, você encontra um cuidado personalizado, baseado em ciência e construído para as suas necessidades. Nossa equipe está comprometida em oferecer um acompanhamento ético, qualificado e humano, desde a escolha do profissional até todo o processo terapêutico.
+              </p>
+              <p class="text-base lg:text-lg leading-relaxed" style="color: var(--cream-50); font-family: 'Lora', serif">
+                Todos os psicólogos da CogCom possuem registro ativo no CRP, formação em instituições reconhecidas pelo MEC e treinamento.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 mt-10">
+              <a
+                href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20com%20a%20equipe%20do%20Instituto%20CogCom."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 px-8 rounded-full transition-all shadow-md hover:shadow-lg"
+                style="background-color: var(--gold); color: var(--brown-900)"
+              >
+                Falar com a equipe pelo WhatsApp
+                <span class="iconify w-4 h-4" data-icon="solar:arrow-right-linear" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-6 flex items-center justify-center">
+            <img
+              src="psi.jpg"
+              alt="Psicologia CogCom"
+              class="w-full h-auto rounded-2xl object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <!--
+          Bloco 2 (cards de diretores/fundadores) e Bloco 3 (podcasts/mídia) foram
+          omitidos por ausência de dados reais e autorizados (nomes, títulos, fotos,
+          episódios). Regra de ouro do spec: remover em vez de fabricar. Reintroduzir
+          quando houver dado verídico disponível.
+        -->
+
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer
+      class="relative w-full z-20 pt-24 pb-12"
+      style="
+        background-color: var(--brown-900);
+        border-top: 1px solid rgba(246, 232, 195, 0.08);
+      "
+    >
+      <div class="max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 mb-12">
+          <!-- Logo Red - Esquerda -->
+          <div class="lg:flex-shrink-0">
+            <img
+              src="red1.png"
+              alt="CogCom"
+              class="h-48 w-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Redes Sociais - Direita -->
+          <div class="flex flex-col items-center lg:items-end gap-6">
+            <p class="text-lg md:text-2xl font-semibold text-center" style="color: var(--cream-50)">Conheça nossas redes sociais</p>
+            <div class="flex gap-8 items-center">
+              <a
+                href="https://instagram.com/institutocogcom"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors hover:opacity-80"
+                style="color: var(--cream-50)"
+                aria-label="Instagram"
+              >
+                <span class="iconify w-16 h-16 md:w-12 md:h-12" data-icon="ri:instagram-line"></span>
+              </a>
+              <a
+                href="https://tiktok.com/@institutocogcom"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition-colors hover:opacity-80"
+                style="color: var(--cream-50)"
+                aria-label="TikTok"
+              >
+                <span class="iconify w-16 h-16 md:w-12 md:h-12" data-icon="ri:tiktok-fill"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="pt-8" style="border-top: 1px solid rgba(246, 232, 195, 0.08)">
+          <p class="text-center text-lg font-medium" style="color: var(--cream-50)">
+            © 2026 CogCom – Todos os Direitos Reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/main.js?v=2"></script>
+
+    <!-- Formulário de captação — monta mensagem de WhatsApp (sem backend) -->
+    <script>
+      (function () {
+        var form = document.getElementById("lead-form");
+        if (!form) return;
+
+        var WHATSAPP_NUMBER = "5531996771867";
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var nome = form.elements["nome"].value.trim();
+          var whatsapp = form.elements["whatsapp"].value.trim();
+          var email = form.elements["email"].value.trim();
+          var mensagem = form.elements["mensagem"].value.trim();
+
+          var nomeEl = form.elements["nome"];
+          var whatsEl = form.elements["whatsapp"];
+          var valido = true;
+
+          if (!nome) {
+            nomeEl.setAttribute("aria-invalid", "true");
+            valido = false;
+          } else {
+            nomeEl.removeAttribute("aria-invalid");
+          }
+
+          if (!whatsapp) {
+            whatsEl.setAttribute("aria-invalid", "true");
+            valido = false;
+          } else {
+            whatsEl.removeAttribute("aria-invalid");
+          }
+
+          if (!valido) {
+            (!nome ? nomeEl : whatsEl).focus();
+            return;
+          }
+
+          var linhas = [
+            "Olá! Vim pela página de psicologia da CogCom.",
+            "Nome: " + nome,
+            "WhatsApp: " + whatsapp,
+          ];
+          if (email) linhas.push("E-mail: " + email);
+          if (mensagem) linhas.push("O que me trouxe: " + mensagem);
+
+          var texto = encodeURIComponent(linhas.join("\n"));
+          var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + texto;
+
+          window.open(url, "_blank", "noopener");
+        });
+      })();
+    </script>
+
+    <!-- Bottom Mobile Navigation -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-[100] md:hidden flex items-center justify-between px-7 h-[112px] shadow-[0_-4px_20px_rgba(0,0,0,0.08)] rounded-t-3xl"
+      style="background-color: var(--cream-25)"
+    >
+      <a
+        href="#hero"
+        class="flex flex-col items-center gap-1 group w-12"
+      >
+        <span
+          class="iconify w-6 h-6"
+          data-icon="solar:home-2-bold"
+          style="color: var(--brown-800)"
+        ></span>
+        <span
+          class="text-[10px] font-medium font-label"
+          style="color: var(--brown-800)"
+          >Início</span
+        >
+      </a>
+      <a href="#condicoes" class="flex flex-col items-center gap-1 group w-16">
+        <span
+          class="iconify w-6 h-6"
+          data-icon="solar:user-bold"
+          style="color: var(--brown-800)"
+        ></span>
+        <span
+          class="text-[10px] font-medium font-label"
+          style="color: var(--brown-800)"
+          >Condições</span
+        >
+      </a>
+
+      <!-- Center Elevated Button -->
+      <a
+        href="https://wa.me/5531996771867?text=Ol%C3%A1%21%20Vim%20pela%20p%C3%A1gina%20de%20psicologia%20da%20CogCom%20e%20gostaria%20de%20saber%20mais."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative -top-6 flex flex-col items-center group w-16"
+      >
+        <div
+          class="w-14 h-14 rounded-full flex items-center justify-center border-4"
+          style="
+            background-color: #7b2933;
+            border-color: var(--cream-25);
+            box-shadow: 0 4px 16px rgba(123, 41, 51, 0.45);
+          "
+        >
+          <span
+            class="iconify w-7 h-7 text-white"
+            data-icon="ri:whatsapp-line"
+          ></span>
+        </div>
+      </a>
+
+      <a href="#como-funciona" class="flex flex-col items-center gap-1 group w-14">
+        <span
+          class="iconify w-6 h-6"
+          data-icon="solar:compass-bold"
+          style="color: var(--brown-800)"
+        ></span>
+        <span
+          class="text-[10px] font-medium font-label"
+          style="color: var(--brown-800)"
+          >Jornada</span
+        >
+      </a>
+      <a
+        href="#equipe"
+        class="flex flex-col items-center gap-1 group w-20"
+      >
+        <span
+          class="iconify w-6 h-6"
+          data-icon="solar:heart-pulse-linear"
+          style="color: var(--brown-800)"
+        ></span>
+        <span
+          class="text-[9px] font-medium font-label text-center leading-tight"
+          style="color: var(--brown-800)"
+          >Equipe</span
+        >
+      </a>
+    </nav>
+  </body>
+</html>
