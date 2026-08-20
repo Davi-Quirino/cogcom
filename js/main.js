@@ -31,15 +31,77 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ─── Mobile Submenu Toggle ───
-  window.toggleMobileSubmenu = function (button) {
-    var submenu = button.nextElementSibling;
-    var icon = button.querySelector(".iconify");
-    submenu.classList.toggle("hidden");
-    if (icon) {
-      icon.style.transform = submenu.classList.contains("hidden")
-        ? "rotate(0deg)"
-        : "rotate(180deg)";
+  // ─── Clear navbar reveal-up clip-path so the Especialidades dropdown isn't clipped ───
+  var siteNavbar = document.getElementById("site-navbar");
+  if (siteNavbar) {
+    var clearNavClip = function () {
+      siteNavbar.style.animation = "none";
+      siteNavbar.style.opacity = "1";
+      siteNavbar.style.clipPath = "none";
+    };
+    siteNavbar.addEventListener("animationend", clearNavClip, { once: true });
+    window.setTimeout(clearNavClip, 1500);
+  }
+
+  // ─── Especialidades Dropdown (Desktop Navbar) ───
+  var especialidadesDropdown = document.getElementById("especialidades-dropdown");
+  var especialidadesArrow = document.getElementById("especialidades-dropdown-arrow");
+
+  function closeEspecialidadesMenu() {
+    if (!especialidadesDropdown) return;
+    especialidadesDropdown.classList.add("opacity-0", "invisible", "-translate-y-1");
+    if (especialidadesArrow) especialidadesArrow.style.transform = "";
+    var btn = especialidadesDropdown.previousElementSibling;
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+
+  window.toggleEspecialidadesMenu = function (event) {
+    event.stopPropagation();
+    if (!especialidadesDropdown) return;
+    var isOpen = !especialidadesDropdown.classList.contains("invisible");
+    if (isOpen) {
+      closeEspecialidadesMenu();
+    } else {
+      especialidadesDropdown.classList.remove("opacity-0", "invisible", "-translate-y-1");
+      if (especialidadesArrow) especialidadesArrow.style.transform = "rotate(180deg)";
+      event.currentTarget.setAttribute("aria-expanded", "true");
+    }
+  };
+
+  document.addEventListener("click", function (event) {
+    if (
+      especialidadesDropdown &&
+      !especialidadesDropdown.contains(event.target) &&
+      !especialidadesDropdown.previousElementSibling.contains(event.target)
+    ) {
+      closeEspecialidadesMenu();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeEspecialidadesMenu();
+  });
+
+  if (especialidadesDropdown) {
+    especialidadesDropdown.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeEspecialidadesMenu);
+    });
+  }
+
+  // ─── Especialidades Accordion (Mobile Menu) ───
+  window.toggleEspecialidadesMobile = function (button) {
+    var dropdown = document.getElementById("especialidades-mobile-dropdown");
+    var arrow = document.getElementById("especialidades-mobile-arrow");
+    var isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      dropdown.style.maxHeight = "0";
+      arrow.style.transform = "";
+      button.setAttribute("aria-expanded", "false");
+    } else {
+      dropdown.style.maxHeight = dropdown.scrollHeight + "px";
+      arrow.style.transform = "rotate(180deg)";
+      button.setAttribute("aria-expanded", "true");
     }
   };
 

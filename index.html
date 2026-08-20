@@ -235,24 +235,48 @@
           style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
           >Jornada</a
         >
-        <div style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)">
+        <div
+          class="pb-4"
+          style="border-bottom: 1px solid rgba(242, 229, 208, 0.1)"
+        >
           <button
-            class="w-full text-left hover:text-[var(--gold)] transition-colors pb-4 flex items-center justify-between"
-            onclick="toggleMobileSubmenu(this)"
+            type="button"
+            onclick="toggleEspecialidadesMobile(this)"
+            aria-expanded="false"
+            aria-controls="especialidades-mobile-dropdown"
+            class="flex items-center gap-2 hover:text-[var(--gold)] transition-colors w-full"
           >
             Especialidades
-            <span class="iconify w-4 h-4" data-icon="solar:chevron-down-linear"></span>
+            <span
+              class="iconify w-5 h-5 transition-transform"
+              data-icon="solar:alt-arrow-down-linear"
+              id="especialidades-mobile-arrow"
+            ></span>
           </button>
-          <div class="mobile-submenu hidden flex flex-col gap-3 pb-4 pl-4">
-            <a href="/psicoterapia" class="hover:text-[var(--gold)] transition-colors">Psicoterapia</a>
-            <a href="#especialidades" class="hover:text-[var(--gold)] transition-colors">Avaliação Neuropsicológica</a>
+          <div
+            id="especialidades-mobile-dropdown"
+            class="overflow-hidden transition-all duration-300"
+            style="max-height: 0"
+          >
+            <a
+              href="#especialidade-psicoterapia"
+              class="block pt-4 pl-4 text-lg hover:text-[var(--gold)] transition-colors"
+              style="color: var(--cream-300)"
+              >Psicoterapia</a
+            >
+            <a
+              href="#especialidade-avaliacao-neuropsicologica"
+              class="block pt-4 pl-4 text-lg hover:text-[var(--gold)] transition-colors"
+              style="color: var(--cream-300)"
+              >Avaliação Neuropsicológica</a
+            >
           </div>
         </div>
       </nav>
       <div class="mt-auto mb-12">
         <a
           class="flex w-full items-center justify-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-4 rounded transition-all shadow-lg hover:shadow-xl"
-          href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+          href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
           target="_blank"
           rel="noopener noreferrer"
           style="background-color: var(--gold); color: var(--brown-900)"
@@ -264,6 +288,7 @@
 
     <!-- Navbar -->
     <nav
+      id="site-navbar"
       class="hidden md:flex fixed top-0 left-0 right-0 z-[100] backdrop-blur-md px-6 lg:px-[6%] h-20 items-center justify-between animate-reveal"
       style="
         background-color: #fceedd;
@@ -272,7 +297,7 @@
     >
       <a href="#hero-wrapper" class="flex items-center">
         <img
-          src="red4.png"
+          src="rose.png"
           alt="Logo CogCom"
           class="h-12 md:h-[3.25rem] w-auto object-contain"
           loading="eager"
@@ -292,22 +317,48 @@
         <a href="#jornada" class="hover:text-[var(--gold)] transition-colors"
           >Jornada</a
         >
-        <div class="relative group">
+        <div class="relative">
           <button
-            class="hover:text-[var(--gold)] transition-colors flex items-center gap-1"
+            type="button"
+            onclick="toggleEspecialidadesMenu(event)"
+            aria-expanded="false"
+            aria-controls="especialidades-dropdown"
+            class="flex items-center gap-1 hover:text-[var(--gold)] transition-colors"
           >
             Especialidades
-            <span class="iconify w-4 h-4" data-icon="solar:chevron-down-linear"></span>
+            <span
+              class="iconify w-4 h-4 transition-transform"
+              data-icon="solar:alt-arrow-down-linear"
+              id="especialidades-dropdown-arrow"
+            ></span>
           </button>
-          <div class="absolute left-0 mt-0 w-max bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <a href="/psicoterapia" class="block px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[var(--gold)]" style="color: #710e0c;">Psicoterapia</a>
-            <a href="#especialidades" class="block px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[var(--gold)]" style="color: #710e0c;">Avaliação Neuropsicológica</a>
+          <div
+            id="especialidades-dropdown"
+            class="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 rounded-sm py-2 opacity-0 invisible -translate-y-1 transition-all duration-200"
+            style="
+              background-color: #fceedd;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+              border: 1px solid rgba(113, 14, 12, 0.1);
+            "
+          >
+            <a
+              href="#especialidade-psicoterapia"
+              class="block px-5 py-3 text-xs tracking-wider hover:bg-[rgba(113,14,12,0.06)] transition-colors"
+              style="color: #710e0c"
+              >Psicoterapia</a
+            >
+            <a
+              href="#especialidade-avaliacao-neuropsicologica"
+              class="block px-5 py-3 text-xs tracking-wider hover:bg-[rgba(113,14,12,0.06)] transition-colors"
+              style="color: #710e0c"
+              >Avaliação Neuropsicológica</a
+            >
           </div>
         </div>
       </div>
       <div class="flex items-center gap-4">
         <a
-          href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+          href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
           target="_blank"
           rel="noopener noreferrer"
           class="hidden md:flex items-center gap-2 text-sm font-label font-semibold uppercase tracking-wider py-3 px-6 rounded transition-all shadow-md hover:shadow-lg"
@@ -831,7 +882,7 @@
           </p>
 
           <a
-            href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+            href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
             target="_blank"
             rel="noopener noreferrer"
             class="group flex items-center gap-3 pl-6 pr-2 py-2 rounded-full transition-all shadow-lg font-label hover:scale-[1.02] self-center md:self-auto"
@@ -1084,12 +1135,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <!-- Card 1 -->
           <div
+            id="especialidade-psicoterapia"
             data-service-card
             class="scroll-reveal delay-200 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             style="
               background-color: #ffffff;
               border-color: rgba(90, 50, 34, 0.1);
               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+              scroll-margin-top: 6rem;
             "
           >
             <div
@@ -1181,7 +1234,7 @@
                 </button>
 
                 <a
-                  href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+                  href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
@@ -1200,12 +1253,14 @@
 
           <!-- Card 2 -->
           <div
+            id="especialidade-avaliacao-neuropsicologica"
             data-service-card
             class="scroll-reveal delay-400 group flex flex-col h-full border rounded-sm p-10 relative transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
             style="
               background-color: #ffffff;
               border-color: rgba(90, 50, 34, 0.1);
               box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+              scroll-margin-top: 6rem;
             "
           >
             <div
@@ -1297,7 +1352,7 @@
                 </button>
 
                 <a
-                  href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+                  href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="font-label flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider py-4 px-6 rounded transition-all shadow-md hover:shadow-lg w-full"
@@ -4057,7 +4112,7 @@
 
       <!-- Center Elevated Button -->
       <a
-        href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+        href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
         target="_blank"
         rel="noopener noreferrer"
         class="relative -top-6 flex flex-col items-center group w-16"
@@ -4107,7 +4162,7 @@
     </nav>
     <!-- Desktop WhatsApp Floating Button -->
     <a
-      href="https://wa.me/5531996771867?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
+      href="https://wa.me/5531997471269?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20CogCom%21"
       target="_blank"
       rel="noopener noreferrer"
       class="hidden md:flex fixed bottom-8 right-8 z-[100] w-14 h-14 rounded-full items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
